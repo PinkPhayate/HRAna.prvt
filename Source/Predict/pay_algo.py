@@ -1,17 +1,21 @@
 # coding: UTF-8
 import pandas as pd
 import csv,re,json,itertools
+import datetime
+import locale
 THRESHOLD = 0.5
 RED = '\033[93m'
 GREEN = '\033[92m'
 ENDC = '\033[0m'
 
-# def collate_pred():
+
 def collate_pred(csv_data):
+    d = datetime.datetime.today()
     report = open('./../Result/Report/model1_report.txt',"a+")
     # report = open('./../../Result/Report/model1_report.txt',"a+")
-    report.write('THRESHOLD:\t' + str(THRESHOLD))
+    report.write('\nTHRESHOLD:\t' + str(THRESHOLD))
     report.write('\nMODEL:\tSGD')
+    report.write(d.strftime("%Y-%m-%d %H:%M:%S"))
 
     total_year = 0.0
     balance = 0
@@ -29,7 +33,7 @@ def collate_pred(csv_data):
         res = s[1:].astype(float)
         res = res[res > THRESHOLD]
         list = res.index
-        print len(list)
+        print 'list.length: ' + str( len(list) )
 
 
         if len(list) > 0:
@@ -38,6 +42,7 @@ def collate_pred(csv_data):
                 index += 1
                 comb = str(element[0]) + '-' + str(element[1])
                 if comb in num:
+                    print comb + '\t' + str( odds[num.index(comb)] )
                     benefit += odds[num.index(comb)]
 
             balance  -= index * 100
@@ -81,5 +86,7 @@ def get_valid_comb(race_id):
         # print odds
     return num, odds
 
-# if __name__ == '__main__':
-#     collate_pred()
+if __name__ == '__main__':
+    f = open('./../../Result/sgd_default_prob.csv', 'r')
+    csv_data = csv.reader(f)
+    collate_pred(csv_data)

@@ -1,5 +1,6 @@
 import data_extracter as de
 import pandas as pd
+import numpy as np
 import csv
 from Predict import pay_algo as pay
 from sklearn.linear_model import SGDClassifier
@@ -12,10 +13,12 @@ def predict_via_sgd(dfs, race_id):
         evalt_df = dfs[dfs['race_id'] == race_id]
         train_df = dfs[dfs['race_id'] != race_id]
 
+        train_df = oversampling(train_df)
+
         X = train_df[ALL_PARAMS]
         y = train_df[['target']]
 
-        clf = SGDClassifier(loss="log", penalty="l2", class_weight="balanced")
+        clf = SGDClassifier(loss="log", penalty="l2", class_weight="auto")
         clf.fit(X, y)
 
         eX = evalt_df[ALL_PARAMS]
@@ -25,6 +28,26 @@ def predict_via_sgd(dfs, race_id):
         print predicts
         return predicts.tolist()
 
+def oversampling(dfs):
+    pos_df = dfs[dfs['target'] == 1]
+    neg_df = dfs[dfs['target'] == 0]
+    if len(pos_df) > len(neg_df):
+        mn_df = neg_df
+        mj_df = pos_df
+    else:
+        mn_df = pos_df
+        mj_df = neg_df
+
+    nnk = len(mj_df) - len(mn_df)
+
+    sampler = np.random.permutation(len(mn_df))
+    new_df = mn_df.take(sampler[:nnk])
+
+    mn_df = pd.concat([mn_df, new_df], axis=0)
+    dfs = pd.concat([mn_df, mj_df], axis=0)
+    print len(mn_df)
+    print len(mj_df)
+    return dfs
 
 if __name__ == '__main__':
     '''
