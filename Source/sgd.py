@@ -1,6 +1,7 @@
 import data_extracter as de
 import pandas as pd
 import csv
+from Predict import pay_algo as pay
 from sklearn.linear_model import SGDClassifier
 ALL_PARAMS = ['frame', 'num','age','odds','fav','wght','qntty','f','m','z','p','m']
 ITERATION = 10
@@ -13,7 +14,7 @@ def predict_via_sgd(dfs, race_id):
         X = train_df[ALL_PARAMS]
         y = train_df[['target']]
 
-        clf = SGDClassifier(loss="log", penalty="l2")
+        clf = SGDClassifier(loss="log", penalty="l2", class_weight="balanced")
         clf.fit(X, y)
 
         eX = evalt_df[ALL_PARAMS]
@@ -59,3 +60,5 @@ if __name__ == '__main__':
         # print pay_list
         csvWriter.writerow(pay_list)
     f.close
+
+    pay.collate_pred()
