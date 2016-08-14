@@ -3,8 +3,9 @@ import pandas as pd
 import csv
 from Predict import pay_algo as pay
 from sklearn.linear_model import SGDClassifier
+from Predict import pay_algo as pay
 ALL_PARAMS = ['frame', 'num','age','odds','fav','wght','qntty','f','m','z','p','m']
-ITERATION = 10
+ITERATION = 1
 THRESHOLD = 0.5
 
 def predict_via_sgd(dfs, race_id):
@@ -35,8 +36,9 @@ if __name__ == '__main__':
     years = df[9]
     # predict_via_sgd( years )
     dfs = de.create_merged_df(years)
-    f = open('./../Result/sgd_default_prob.csv', 'ab')
+    f = open('./../Result/sgd_default_prob.csv', 'wb')
     csvWriter = csv.writer(f)
+    csv_data = []
 
     for race_id in years:
         print race_id
@@ -59,6 +61,8 @@ if __name__ == '__main__':
         #         pay_list.append(index)
         # print pay_list
         csvWriter.writerow(pay_list)
+        csv_data.append(pay_list)
     f.close
 
-    pay.collate_pred()
+    # pay.collate_pred()
+    pay.collate_pred(csv_data)
