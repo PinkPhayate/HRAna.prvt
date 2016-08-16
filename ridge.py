@@ -3,9 +3,9 @@ import pandas as pd
 import numpy as np
 import csv
 from Predict import pay_algo as pay
-from sklearn.linear_model import SGDClassifier
-from sklearn.metrics import accuracy_score
-from sklearn.utils import column_or_1d
+from sklearn import lin
+from sklearn.linear_model import SGDClassifieråçç
+from Predict import pay_algo as pay
 ALL_PARAMS = ['frame', 'num','age','odds','fav','wght','qntty','f','m','z','p','m']
 ITERATION = 1
 THRESHOLD = 0.5
@@ -20,20 +20,13 @@ def predict_via_sgd(dfs, race_id):
         y = train_df[['target']]
 
         clf = SGDClassifier(loss="log", penalty="l2", class_weight="auto")
-        clf.fit(X, column_or_1d(y))
+        clf.fit(X, y)
 
         eX = evalt_df[ALL_PARAMS]
         # ey = evalt_df[['target']]
 
-
-        predicts = clf.predict(X)
-        a_score = accuracy_score(train_df[['target']], predicts.tolist())
-        print 'training accuracy = ' + str(a_score)
-
         predicts = clf.predict(eX)
-        a_score = accuracy_score(evalt_df[['target']], predicts.tolist())
-        print 'validation accuracy = ' + str(a_score)
-        # print predicts
+        print predicts
         return predicts.tolist()
 
 def oversampling(dfs):
@@ -47,6 +40,7 @@ def oversampling(dfs):
         mj_df = neg_df
 
     nnk = len(mj_df) - len(mn_df)
+
     sampler = np.random.permutation(len(mn_df))
     new_df = mn_df.take(sampler[:nnk])
 
@@ -95,4 +89,5 @@ if __name__ == '__main__':
     f.close
 
     # pay.collate_pred()
-    # pay.collate_pred(csv_data)
+    pay.collate_pred(csv_data)
+{}
