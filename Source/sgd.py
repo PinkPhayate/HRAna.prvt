@@ -7,8 +7,12 @@ from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.utils import column_or_1d
 ALL_PARAMS = ['frame', 'num','age','odds','fav','wght','qntty','f','m','z','p','m']
-ITERATION = 1
+ITERATION = 100
 THRESHOLD = 0.5
+RED = '\033[93m'
+GREEN = '\033[92m'
+ENDC = '\033[0m'
+
 
 def predict_via_sgd(dfs, race_id):
         evalt_df = dfs[dfs['race_id'] == race_id]
@@ -27,14 +31,12 @@ def predict_via_sgd(dfs, race_id):
 
 
         predicts = clf.predict(X)
-        a_score = accuracy_score(train_df[['target']], predicts.tolist())
-        print 'training accuracy = ' + str(a_score)
+        training_accuracy = accuracy_score(train_df[['target']], predicts.tolist())
 
         predicts = clf.predict(eX)
-        a_score = accuracy_score(evalt_df[['target']], predicts.tolist())
-        print 'validation accuracy = ' + str(a_score)
+        validation_accuracy = accuracy_score(evalt_df[['target']], predicts.tolist())
         # print predicts
-        return predicts.tolist()
+        return predicts.tolist(), training_accuracy, validation_accuracy
 
 def oversampling(dfs):
     pos_df = dfs[dfs['target'] == 1]
@@ -52,8 +54,6 @@ def oversampling(dfs):
 
     mn_df = pd.concat([mn_df, new_df], axis=0)
     dfs = pd.concat([mn_df, mj_df], axis=0)
-    print len(mn_df)
-    print len(mj_df)
     return dfs
 
 if __name__ == '__main__':
@@ -70,15 +70,28 @@ if __name__ == '__main__':
     csvWriter = csv.writer(f)
     csv_data = []
 
+    ta_sum = 0
+    va_sum = 0
+
     for race_id in years:
-        print race_id
+        print GREEN + str(race_id) + ENDC
         # predict iteratly
-        sum_list = predict_via_sgd(dfs,race_id)
+        sum_list, ta, va = predict_via_sgd(dfs,race_id)
+        ta_sum += ta
+        va_sum += va
+        ta_sum_y = ta
+        va_sum_y = va
         for i in range(0, ITERATION-1):
-            list = predict_via_sgd(dfs,race_id)
+            list, ta, va = predict_via_sgd(dfs,race_id)
             sum_list = [x+y for (x, y) in zip(sum_list, list)]
+            ta_sum += ta
+            va_sum += va
+            ta_sum_y += ta
+            va_sum_y += va
         # circulate average
         list = map(lambda x: float(x) / ITERATION, sum_list)
+        print 'training accuracy =' + str( float(ta_sum_y) / ITERATION )
+        print 'validation accuracy =' + str( float(va_sum_y) / ITERATION )
 
         # save probability
         pay_list = [race_id,]
@@ -94,5 +107,7 @@ if __name__ == '__main__':
         csv_data.append(pay_list)
     f.close
 
+    print 'training accuracy =' + str( float(ta_sum) / (ITERATION*len(years)) )
+    print 'validation accuracy =' + str( float(va_sum) / (ITERATION*len(years)) )
     # pay.collate_pred()
-    # pay.collate_pred(csv_data)
+    pay.collate_pred(csv_data)

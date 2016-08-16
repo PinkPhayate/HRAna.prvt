@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ca1b38a-d22e-4a9b-a27d-6aabab56ed44" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Source/sgd.py" afterPath="$PROJECT_DIR$/Source/sgd.py" />
     </list>
     <ignored path="HRAna.prvt.iws" />
@@ -59,8 +58,8 @@
       <file leaf-file-name="sgd.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Source/sgd.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="49" column="34" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="34" />
+            <state relative-caret-position="255">
+              <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -523,8 +522,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Source/sgd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="49" column="34" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="34" />
+        <state relative-caret-position="255">
+          <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
           <folding />
         </state>
       </provider>
