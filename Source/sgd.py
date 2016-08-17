@@ -18,7 +18,7 @@ def predict_via_sgd(dfs, race_id):
         evalt_df = dfs[dfs['race_id'] == race_id]
         train_df = dfs[dfs['race_id'] != race_id]
 
-        train_df = oversampling(train_df)
+        # train_df = oversampling(train_df)
 
         X = train_df[ALL_PARAMS]
         y = train_df[['target']]

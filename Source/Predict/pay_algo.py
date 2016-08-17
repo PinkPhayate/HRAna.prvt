@@ -33,7 +33,7 @@ def collate_pred(csv_data):
         res = s[1:].astype(float)
         res = res[res > THRESHOLD]
         list = res.index
-        print 'list.length: ' + str( len(list) )
+        # print 'list.length: ' + str( len(list) )
 
 
         if len(list) > 0:
@@ -42,7 +42,7 @@ def collate_pred(csv_data):
                 index += 1
                 comb = str(element[0]) + '-' + str(element[1])
                 if comb in num:
-                    print comb + '\t' + str( odds[num.index(comb)] )
+                    # print comb + '\t' + str( odds[num.index(comb)] )
                     benefit += odds[num.index(comb)]
 
             balance  -= index * 100

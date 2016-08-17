@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import csv
 from Predict import pay_algo as pay
-from sklearn import lin
+from sklearn import linear_model
 from sklearn.linear_model import SGDClassifieråçç
 from Predict import pay_algo as pay
 ALL_PARAMS = ['frame', 'num','age','odds','fav','wght','qntty','f','m','z','p','m']
