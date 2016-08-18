@@ -15,28 +15,28 @@ ENDC = '\033[0m'
 
 
 def predict_via_sgd(dfs, race_id):
-        evalt_df = dfs[dfs['race_id'] == race_id]
-        train_df = dfs[dfs['race_id'] != race_id]
+    evalt_df = dfs[dfs['race_id'] == race_id]
+    train_df = dfs[dfs['race_id'] != race_id]
 
-        train_df = oversampling(train_df)
+    # train_df = oversampling(train_df)
 
-        X = train_df[ALL_PARAMS]
-        y = train_df[['target']]
+    X = train_df[ALL_PARAMS]
+    y = train_df[['target']]
+    clf = SGDClassifier(loss="log", penalty="l2", class_weight="auto", n_iter=1000)
 
-        clf = SGDClassifier(loss="log", penalty="l2", class_weight="auto")
-        clf.fit(X, column_or_1d(y))
+    clf.fit(X, column_or_1d(y))
 
-        eX = evalt_df[ALL_PARAMS]
-        # ey = evalt_df[['target']]
+    eX = evalt_df[ALL_PARAMS]
+    # ey = evalt_df[['target']]
 
 
-        predicts = clf.predict(X)
-        training_accuracy = accuracy_score(train_df[['target']], predicts.tolist())
+    predicts = clf.predict(X)
+    training_accuracy = accuracy_score(train_df[['target']], predicts.tolist())
 
-        predicts = clf.predict(eX)
-        validation_accuracy = accuracy_score(evalt_df[['target']], predicts.tolist())
-        # print predicts
-        return predicts.tolist(), training_accuracy, validation_accuracy
+    predicts = clf.predict(eX)
+    validation_accuracy = accuracy_score(evalt_df[['target']], predicts.tolist())
+    # print predicts
+    return predicts.tolist(), training_accuracy, validation_accuracy
 
 def oversampling(dfs):
     pos_df = dfs[dfs['target'] == 1]

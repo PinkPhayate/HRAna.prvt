@@ -34,9 +34,9 @@ def create_merged_df(years):
     df = df.drop("gl", axis=1)
 
     # classify
-    pos_df = df[df['rank'] < 6]
+    pos_df = df[df['rank'] < 4]
     pos_df['target'] = 1
-    neg_df = df[df['rank'] > 5]
+    neg_df = df[df['rank'] > 3]
     neg_df['target'] = 0
     df = pd.concat([pos_df, neg_df], axis=0)
     df.columns = ['rank', 'frame', 'num', 'age', 'odds', 'fav', 'wght', 'qntty', 'race_id' , 'f', 'm', 'g', 'z', 'p', 'm', 'target']

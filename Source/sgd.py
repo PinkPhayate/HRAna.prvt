@@ -23,7 +23,7 @@ def predict_via_sgd(dfs, race_id):
         X = train_df[ALL_PARAMS]
         y = train_df[['target']]
 
-        clf = SGDClassifier(loss="log", penalty="l2", class_weight="auto")
+        clf = SGDClassifier(loss="log", penalty="l2",n_iter=1000)
         clf.fit(X, column_or_1d(y))
 
         eX = evalt_df[ALL_PARAMS]
@@ -38,23 +38,6 @@ def predict_via_sgd(dfs, race_id):
         # print predicts
         return predicts.tolist(), training_accuracy, validation_accuracy
 
-def oversampling(dfs):
-    pos_df = dfs[dfs['target'] == 1]
-    neg_df = dfs[dfs['target'] == 0]
-    if len(pos_df) > len(neg_df):
-        mn_df = neg_df
-        mj_df = pos_df
-    else:
-        mn_df = pos_df
-        mj_df = neg_df
-
-    nnk = len(mj_df) - len(mn_df)
-    sampler = np.random.permutation(len(mn_df))
-    new_df = mn_df.take(sampler[:nnk])
-
-    mn_df = pd.concat([mn_df, new_df], axis=0)
-    dfs = pd.concat([mn_df, mj_df], axis=0)
-    return dfs
 
 if __name__ == '__main__':
     '''
