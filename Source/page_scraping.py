@@ -14,12 +14,12 @@ def get_race_list():
 
 def scraping(url, output_file):
     # read page source code
-    f = open('./../Data/' + output_file, 'w')
+    f = open('./../Data/Horse/' + output_file, 'w')
     csvWriter = csv.writer(f)
     soup = BeautifulSoup(urllib2.urlopen(url), "lxml")
     # Extract status
-    title = soup.find('h1')
-    print title.text
+    # title = soup.find('h1')
+    # print title.text
 
     table = soup.find(class_='race_table_01 nk_tb_common')
     for tr in table.findAll('tr',''):
@@ -27,7 +27,10 @@ def scraping(url, output_file):
         for td in tr.findAll('td',''):
             word = " ".join(td.text.rsplit())
             list.append( word.encode('utf-8') )
-        # print list
+            a = td.find("a")
+            if a != None:
+                list.append(a.get("href"))
+                # print a.get("href")
         csvWriter.writerow(list)
     f.close()
 
@@ -52,7 +55,6 @@ def scrape_res(url, output_file):
                 list.append(td.string.encode('utf-8'))
         csvWriter.writerow(list)
     f.close()
-
 if __name__ == '__main__':
     df = pd.read_csv('./../Data/race_info.csv', header=None)
     years = df[9]

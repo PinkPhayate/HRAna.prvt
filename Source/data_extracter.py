@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import pandas as pd
+import re
 
 def create_merged_df(years):
 # def create_merged_df(eval_year, train_years):
@@ -15,6 +16,7 @@ def create_merged_df(years):
     df[['sex', 'age']] = df['sexAge'].str.extract('(.)([1-9]+)')
     df[['wght','gl', 'qntty']] = df['w'].str.extract('([\d]{3})\((.?)([\d]+)\)')
     df = df[['rank', 'frame', 'num', 'sex', 'age', 'odds', 'fav', 'wght', 'gl', 'qntty', 'race_id']]
+
 
     dum = pd.get_dummies(df["sex"])
     size = dum.size/len(dum)

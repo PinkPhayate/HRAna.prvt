@@ -6,7 +6,7 @@ from Predict import pay_algo as pay
 from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.utils import column_or_1d
-ALL_PARAMS = ['frame', 'num','age','odds','fav','wght','qntty','f','m','z','p','m']
+ALL_PARAMS = ['frame', 'num','age','odds','fav','f','m','z']
 ITERATION = 100
 THRESHOLD = 0.5
 RED = '\033[93m'
@@ -92,5 +92,4 @@ if __name__ == '__main__':
 
     print 'training accuracy =' + str( float(ta_sum) / (ITERATION*len(years)) )
     print 'validation accuracy =' + str( float(va_sum) / (ITERATION*len(years)) )
-    # pay.collate_pred()
     pay.collate_pred(csv_data)

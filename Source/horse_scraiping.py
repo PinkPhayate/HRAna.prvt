@@ -45,17 +45,4 @@ def scrape_horse( hid ):
         for td in tr.findAll('td',''):
             list.append(td.string.encode('utf-8'))
         csvWriter.writerow(list)
-
-        word = td.string
-        print word
-        list.append(word)
-
-
-
-
-        print word.encode('utf-8')
-        list.append(td.string.encode('utf-8'))
-f.close()
-
-
-def scrape_hid
+    f.close()
