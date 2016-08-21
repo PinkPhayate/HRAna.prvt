@@ -5,19 +5,19 @@ from bs4 import BeautifulSoup
 import lxml
 
 def create_merged_df(rid):
-    # rid = 201601020211
     d = pd.read_csv('./../Data/' + str(rid) + '.csv', header=None)
     position_df = d.ix[:,0:1]
 
     # get 'sex' and 'age'
-    status_df = d.ix[:,6:6]
+    # status_df = d.ix[:,6:6]
+    status_df = d.ix[:,7:7]
     sa = status_df.apply(lambda x: str(x).split(' '), axis=1)
     sa = sa.apply(lambda x: x[4].split('/'))
     sa = sa.apply(lambda x: x[0])
 
 
     # get 'fav' and 'odds'
-    fav = d.ix[:,7:7]
+    fav = d.ix[:,8:8]
     of = fav.apply(lambda x: str(x).split(' '), axis=1)
     odds = of.apply(lambda x: x[4])
     fav = of.apply(lambda x: re.findall('\d+', x[5])[0] )
@@ -33,6 +33,7 @@ def create_merged_df(rid):
         dum.columns = ['f','m']
         df = pd.concat([df, dum], axis=1)
         df = df.drop("sex", axis=1)
+        df['g'] = 0
     elif size == 3:
         dum.columns = ['f','m','g']
         df = pd.concat([df, dum], axis=1)

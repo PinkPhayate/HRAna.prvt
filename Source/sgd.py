@@ -6,7 +6,7 @@ from Predict import pay_algo as pay
 from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.utils import column_or_1d
-ALL_PARAMS = ['frame', 'num','age','odds','fav','f','m','z']
+ALL_PARAMS = ['frame', 'num','age','odds','fav','f','m','g']
 ITERATION = 100
 THRESHOLD = 0.5
 RED = '\033[93m'

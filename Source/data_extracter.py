@@ -3,10 +3,8 @@ import pandas as pd
 import re
 
 def create_merged_df(years):
-# def create_merged_df(eval_year, train_years):
     df = pd.DataFrame([])
     for race_id in years:
-        # print race_id
         d = pd.read_csv('./../Data/' + str(race_id) + '.csv', header=None)
         d = d.ix[:,:14]
         d['race_id'] = race_id
@@ -41,6 +39,8 @@ def create_merged_df(years):
     neg_df = df[df['rank'] > 3]
     neg_df['target'] = 0
     df = pd.concat([pos_df, neg_df], axis=0)
-    df.columns = ['rank', 'frame', 'num', 'age', 'odds', 'fav', 'wght', 'qntty', 'race_id' , 'f', 'm', 'g', 'z', 'p', 'm', 'target']
+    df.columns = ['rank', 'frame', 'num', 'age', 'odds', 'fav', 'wght', 'qntty', 'race_id' , 'f', 'm', 'g', 'zr', 'pl', 'mi', 'target']
     df = df.dropna(axis=0)
-    return df
+    ALL_PARAMS = ['frame', 'num','age','odds','fav','f','m','g', 'target']
+
+    return df[ALL_PARAMS]
