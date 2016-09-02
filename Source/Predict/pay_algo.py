@@ -3,7 +3,7 @@ import pandas as pd
 import csv,re,json,itertools
 import datetime
 import locale
-THRESHOLD = 0.5
+THRESHOLD = 0.2
 RED = '\033[93m'
 GREEN = '\033[92m'
 ENDC = '\033[0m'
@@ -33,7 +33,7 @@ def collate_pred(csv_data):
         res = s[1:].astype(float)
         res = res[res > THRESHOLD]
         list = res.index
-        # print 'list.length: ' + str( len(list) )
+        print 'list.length: ' + str( len(list) )
 
 
         if len(list) > 0:
