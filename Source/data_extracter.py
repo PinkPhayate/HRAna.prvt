@@ -5,12 +5,12 @@ import re
 def create_merged_df(years):
     df = pd.DataFrame([])
     for race_id in years:
-        d = pd.read_csv('./../Data/' + str(race_id) + '.csv', header=None)
-        d = d.ix[:,:14]
+        d = pd.read_csv('./../Data/Race/' + str(race_id) + '.csv', header=None)
+        d = d.ix[:,:15]
         d['race_id'] = race_id
         df = pd.concat([df, d], axis=0)
 
-    df.columns = ['rank', 'frame', 'num', 'name', 'sexAge', 'hande', 'jockey', 'time', 'diff', 'time_index', 'path', 'last', 'odds', 'fav', 'w', 'race_id']
+    df.columns = ['rank', 'frame', 'num', 'name', 'hid', 'sexAge', 'hande', 'jockey', 'time', 'diff', 'time_index', 'path', 'last', 'odds', 'fav', 'w', 'race_id']
     df[['sex', 'age']] = df['sexAge'].str.extract('(.)([1-9]+)')
     df[['wght','gl', 'qntty']] = df['w'].str.extract('([\d]{3})\((.?)([\d]+)\)')
     df = df[['rank', 'frame', 'num', 'sex', 'age', 'odds', 'fav', 'wght', 'gl', 'qntty', 'race_id']]
