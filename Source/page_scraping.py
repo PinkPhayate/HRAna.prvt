@@ -59,7 +59,7 @@ def scrape_rid():
     2. scrape rid (race id)
     return -> race_id list
     '''
-    source = './../Resource/cent'    # we must get this page source by hand
+    source = './../Resource/cent'    # must get this page source by hand
     soup = BeautifulSoup(open(source), "lxml")
     table = soup.find("table", attrs = {"class": "nk_tb_common race_table_01"})
     list = []
@@ -72,6 +72,10 @@ def scrape_rid():
                 if "race" in link.attrs['href']:
                     tmp = url.split('/')
                     list.append(tmp[4])
+
+    with open('./../Resource/rid_list.csv', 'w') as f:
+        writer = csv.writer(f, lineterminator='\n')
+        writer.writerow(list)
     return list
 
 

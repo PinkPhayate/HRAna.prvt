@@ -6,7 +6,9 @@ from Predict import pay_algo as pay
 from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.utils import column_or_1d
-ALL_PARAMS = ['frame', 'num','age','odds','fav','f','m','g']
+# ALL_PARAMS = ['frame', 'num','age','odds','fav','f','m','g']
+ALL_PARAMS = ['frame', 'num', 'age', 'odds', 'fav', 'wght', 'qntty', 'f', 'm', 'g', 'zr', 'pl', 'mi']
+
 ITERATION = 100
 THRESHOLD = 0.5
 RED = '\033[93m'
@@ -23,7 +25,8 @@ def predict_via_sgd(dfs, race_id):
         X = train_df[ALL_PARAMS]
         y = train_df[['target']]
 
-        clf = SGDClassifier(loss="log", penalty="l2",n_iter=1000)
+        clf = SGDClassifier(loss="log", penalty="l2", class_weight="auto", n_iter=1000)
+
         clf.fit(X, column_or_1d(y))
 
         eX = evalt_df[ALL_PARAMS]
@@ -45,9 +48,12 @@ if __name__ == '__main__':
     train_year -> all years except eval_year
     eval_year  -> one year
     '''
-    df = pd.read_csv('./../Data/race_info.csv', header=None)
-    years = df[9]
-    # predict_via_sgd( years )
+
+    f = open('./../Resource/rid_list.csv', 'r')
+    reader = csv.reader(f)
+    for years in reader:
+        pass
+
     dfs = de.create_merged_df(years)
     f = open('./../Result/sgd_default_prob.csv', 'wb')
     csvWriter = csv.writer(f)

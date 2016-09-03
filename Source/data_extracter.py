@@ -13,7 +13,7 @@ def create_merged_df(years):
     df.columns = ['rank', 'frame', 'num', 'name', 'hid', 'sexAge', 'hande', 'jockey', 'time', 'diff', 'time_index', 'path', 'last', 'odds', 'fav', 'w', 'race_id']
     df[['sex', 'age']] = df['sexAge'].str.extract('(.)([1-9]+)')
     df[['wght','gl', 'qntty']] = df['w'].str.extract('([\d]{3})\((.?)([\d]+)\)')
-    df = df[['rank', 'frame', 'num', 'sex', 'age', 'odds', 'fav', 'wght', 'gl', 'qntty', 'race_id']]
+    df = df[['rank', 'frame', 'num', 'sex', 'age', 'odds', 'fav', 'wght', 'gl', 'qntty', 'hid', 'race_id']]
 
 
     dum = pd.get_dummies(df["sex"])
@@ -39,8 +39,8 @@ def create_merged_df(years):
     neg_df = df[df['rank'] > 3]
     neg_df['target'] = 0
     df = pd.concat([pos_df, neg_df], axis=0)
-    df.columns = ['rank', 'frame', 'num', 'age', 'odds', 'fav', 'wght', 'qntty', 'race_id' , 'f', 'm', 'g', 'zr', 'pl', 'mi', 'target']
+    df.columns = ['rank', 'frame', 'num', 'age', 'odds', 'fav', 'wght', 'qntty', 'hid', 'race_id' , 'f', 'm', 'g', 'zr', 'pl', 'mi', 'target']
     df = df.dropna(axis=0)
-    ALL_PARAMS = ['frame', 'num','age','odds','fav','f','m','g', 'target']
-
-    return df[ALL_PARAMS]
+    return df
+    # ALL_PARAMS = ['frame', 'num','age','odds','fav','f','m','g', 'target']
+    # return df[ALL_PARAMS]
