@@ -2,12 +2,67 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ca1b38a-d22e-4a9b-a27d-6aabab56ed44" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Source/model1.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/199001010810.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/199101010810.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/199201010811.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/199301010811.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/199401010811.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/199501010811.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/199601010811.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/199701010611.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/199801010611.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/199901010611.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/200001010611.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/200101010611.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/200201010411.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/200301010411.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/200401010409.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/200501010409.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/200601010409.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/200701010809.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/200801010409.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/200901020809.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/201001010409.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/201101010411.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/201201020211.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/201302040211.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/201401020211.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/201501020211.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/201601020211.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/race_info.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/record_note.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_199001010810.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_199101010810.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_199201010811.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_199301010811.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_199401010811.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_199501010811.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_199601010811.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_199701010611.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_199801010611.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_199901010611.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_200001010611.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_200101010611.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_200201010411.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_200301010411.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_200401010409.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_200501010409.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_200601010409.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_200701010809.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_200801010409.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_200901020809.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_201001010409.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_201101010411.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_201201020211.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_201302040211.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_201401020211.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Data/res_201501020211.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/default.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/over.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ridge.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/201601020211.csv" afterPath="$PROJECT_DIR$/Data/201601020211.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Source/data_extracter.py" afterPath="$PROJECT_DIR$/Source/data_extracter.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Source/sgd.py" afterPath="$PROJECT_DIR$/Source/sgd.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Source/sgd_over.py" afterPath="$PROJECT_DIR$/Source/sgd_over.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/odds_dict.json" afterPath="$PROJECT_DIR$/Data/odds_dict.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Source/page_scraping.py" afterPath="$PROJECT_DIR$/Source/page_scraping.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Source/today_scraiping.py" afterPath="$PROJECT_DIR$/Source/today_scraiping.py" />
     </list>
     <ignored path="HRAna.prvt.iws" />
@@ -29,77 +84,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="data_extracter.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Source/data_extracter.py">
+      <file leaf-file-name="page_scraping.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Source/page_scraping.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ridge.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ridge.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#27#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sgd_over.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Source/sgd_over.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#27#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="today_scraiping.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Source/today_scraiping.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="generic.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/pandas/core/generic.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="1053" column="0" selection-start-line="1053" selection-start-column="0" selection-end-line="1053" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="validation.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/sklearn/utils/validation.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="392" column="0" selection-start-line="392" selection-start-column="0" selection-end-line="392" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pydev_monkey_qt.py" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_monkey_qt.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state relative-caret-position="300">
+              <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -117,6 +106,7 @@
         <option value="$PROJECT_DIR$/Source/sgd.py" />
         <option value="$PROJECT_DIR$/Source/data_extracter.py" />
         <option value="$PROJECT_DIR$/Source/today_scraiping.py" />
+        <option value="$PROJECT_DIR$/Source/page_scraping.py" />
       </list>
     </option>
   </component>
@@ -149,6 +139,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -201,7 +192,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -209,7 +199,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="true" />
   </component>
-  <component name="RunManager" selected="Python.sgd_over">
+  <component name="RunManager" selected="Python.page_scraping">
     <configuration default="false" name="sgd" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -223,23 +213,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="HRAna.prvt" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Source/sgd.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="ridge" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="HRAna.prvt" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ridge.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -291,6 +264,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="HRAna.prvt" />
       <option name="SCRIPT_NAME" value="$USER_HOME$/anaconda/lib/python2.7/site-packages/sklearn/utils/validation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="page_scraping" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Source" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HRAna.prvt" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Source/page_scraping.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -431,18 +421,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.sgd" />
-      <item index="1" class="java.lang.String" itemvalue="Python.ridge" />
-      <item index="2" class="java.lang.String" itemvalue="Python.sgd_over" />
-      <item index="3" class="java.lang.String" itemvalue="Python.today_scraiping" />
-      <item index="4" class="java.lang.String" itemvalue="Python.validation" />
+      <item index="1" class="java.lang.String" itemvalue="Python.sgd_over" />
+      <item index="2" class="java.lang.String" itemvalue="Python.today_scraiping" />
+      <item index="3" class="java.lang.String" itemvalue="Python.validation" />
+      <item index="4" class="java.lang.String" itemvalue="Python.page_scraping" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.sgd_over" />
-        <item index="1" class="java.lang.String" itemvalue="Python.validation" />
-        <item index="2" class="java.lang.String" itemvalue="Python.today_scraiping" />
-        <item index="3" class="java.lang.String" itemvalue="Python.sgd" />
-        <item index="4" class="java.lang.String" itemvalue="Python.ridge" />
+        <item index="0" class="java.lang.String" itemvalue="Python.page_scraping" />
+        <item index="1" class="java.lang.String" itemvalue="Python.sgd_over" />
+        <item index="2" class="java.lang.String" itemvalue="Python.validation" />
+        <item index="3" class="java.lang.String" itemvalue="Python.today_scraiping" />
+        <item index="4" class="java.lang.String" itemvalue="Python.sgd" />
       </list>
     </recent_temporary>
   </component>
@@ -466,7 +456,7 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17950754" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17871326" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -519,54 +509,17 @@
           <line>19</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/Source/page_scraping.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="14" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Source/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Source/data_extracter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ridge.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Source/sgd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Source/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Source/data_extracter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
@@ -579,16 +532,50 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Source/sgd_over.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Source/sgd.py">
+    <entry file="file://$PROJECT_DIR$/Source/today_scraiping.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/pandas/core/generic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15375">
+          <caret line="1053" column="0" selection-start-line="1053" selection-start-column="0" selection-end-line="1053" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/sklearn/utils/validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5775">
+          <caret line="392" column="0" selection-start-line="392" selection-start-column="0" selection-end-line="392" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_monkey_qt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -597,7 +584,52 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Source/data_extracter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ridge.py" />
+    <entry file="file://$PROJECT_DIR$/Source/sgd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Source/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Source/data_extracter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ridge.py" />
+    <entry file="file://$PROJECT_DIR$/Source/sgd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Source/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -605,7 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -613,7 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -629,7 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -637,7 +666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -653,7 +681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="33" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -669,7 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -691,25 +717,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ridge.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ridge.py" />
     <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/pandas/core/series.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="2168" column="0" selection-start-line="2168" selection-start-column="0" selection-end-line="2168" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -717,21 +732,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="3947" column="0" selection-start-line="3947" selection-start-column="0" selection-end-line="3947" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Source/data_extracter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state relative-caret-position="660">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/sklearn/utils/validation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
+        <state relative-caret-position="5775">
           <caret line="392" column="0" selection-start-line="392" selection-start-column="0" selection-end-line="392" selection-end-column="0" />
           <folding />
         </state>
@@ -739,7 +753,7 @@
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_monkey_qt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
+        <state relative-caret-position="1050">
           <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding />
         </state>
@@ -747,8 +761,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Source/sgd_over.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        <state relative-caret-position="255">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>
@@ -757,7 +771,7 @@
     </entry>
     <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/pandas/core/generic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
+        <state relative-caret-position="15375">
           <caret line="1053" column="0" selection-start-line="1053" selection-start-column="0" selection-end-line="1053" selection-end-column="0" />
           <folding />
         </state>
@@ -770,6 +784,14 @@
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Source/page_scraping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -65,5 +65,5 @@ def scraping(url, output_file):
 
 if __name__ == '__main__':
     output_file = '201601020211.csv'
-    url = 'http://race.netkeiba.com/?pid=race&id=c201601020211&mode=shutuba'
+    url = 'http://http://race.netkeiba.com/?pid=race&id=c201601020511&mode=shutuba'
     scraping(url, output_file=output_file)
