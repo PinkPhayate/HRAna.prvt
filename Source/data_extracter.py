@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import pandas as pd
+import page_scraping as ps
 import re
 
 def create_merged_df(years):
@@ -44,3 +45,19 @@ def create_merged_df(years):
     return df
     # ALL_PARAMS = ['frame', 'num','age','odds','fav','f','m','g', 'target']
     # return df[ALL_PARAMS]
+
+def create_history_df(hid_dfs):
+    '''
+        hid_dfs = dfs[['race_id', 'hid', 'rank']]
+    '''
+    history_df = pd.DataFrame([])
+    for hid_ser in hid_dfs:
+        list = ps.scrape_horse_history(hid_ser[1])
+        df = pd.DataFrame(list)
+        # df.columns = [""]
+        df = df.ix[0,[10,11,14,16,17]]
+        print df
+        history_df = history_df.append(df)
+    hid_dfs = pd.merge(hid_dfs, history_df, on='hid')
+
+    return hid_dfs
