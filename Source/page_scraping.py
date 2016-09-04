@@ -59,11 +59,15 @@ def scrape_rid():
     2. scrape rid (race id)
     return -> race_id list
     '''
-    source = './../Resource/cent'    # must get this page source by hand
+    source = './../Resource/niigata_kinen'    # must get this page source by hand
     soup = BeautifulSoup(open(source), "lxml")
     table = soup.find("table", attrs = {"class": "nk_tb_common race_table_01"})
     list = []
+    # limitter for 10 years
     for tr in table.findAll('tr'):
+        if len(list) > 12:
+            break
+
         for td in tr.findAll("td", attrs = {"class": "txt_l"}):
             # links = td.find_all('a')
             for link in td.findAll('a'):
@@ -140,7 +144,6 @@ if __name__ == '__main__':
     rids = scrape_rid()
 
     for year in rids:
-        # year = str(year)
         # url -> http://db.netkeiba.com/race/201501020211/
         url = 'http://db.netkeiba.com/race/' + year + '/'
         output_file = year + '.csv'
