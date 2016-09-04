@@ -102,13 +102,41 @@ def scrape_race_odds(years):
     json.dump(odds_dict, f, ensure_ascii=False)
     f.close()
 
+def scrape_horse_history(hid):
+    hid = '2011104344'
+    url = 'http://db.netkeiba.com/horse/' + hid + '/'
+    soup = BeautifulSoup(urllib2.urlopen(url), "lxml")
+
+    table = soup.find("table", attrs = {"class": "db_h_race_results nk_tb_common"})
+    history_list = []
+    for tr in table.findAll('tr'):
+        list = []
+        for td in tr.findAll("td"):
+
+            # get race id
+            for link in td.findAll('a'):
+                # if 'href' in link.attrs:
+                url = link.attrs['href']
+                if "race" in link.attrs['href']:
+                    tmp = url.split('/')
+                    list.append(tmp[2])
+            # get status
+            td = td.get_text(separator=' ')
+            # print td
+            list.append(td.encode('utf-8'))
+
+        if len(list) > 0:
+            history_list.append(list)
+    print history_list[0]
+    return list
 
 if __name__ == '__main__':
+    # scrape_horse_history('2011104344')
     '''
     This program works for getting information about each registered horses in each year.
     crawle each page about race.
     '''
-    #  get race id
+    # get race id
     rids = scrape_rid()
 
     for year in rids:

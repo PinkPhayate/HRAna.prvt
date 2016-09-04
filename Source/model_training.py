@@ -1,6 +1,7 @@
 import data_extracter as de
 import csv
 from Simulation import pay_algo as pay
+import score_circulater as sc
 import sgd
 ALL_PARAMS = ['rank', 'frame', 'num', 'age', 'odds', 'fav', 'wght', 'qntty', 'hid', 'race_id' , 'f', 'm', 'g', 'zr', 'pl', 'mi', 'target']
 ITERATION = 100
@@ -22,12 +23,14 @@ if __name__ == '__main__':
         pass
 
 
-
+    # get all horse status data
     dfs = de.create_merged_df(years)
 
-    # circulate horse_score
-    hid_df = dfs[['hid']]
-    # h_score = circulate_score(hid_df)
+    # get all horse history data
+    # hid_dfs = dfs[['race_id', 'hid', 'rank']]
+    # history_dfs = de.create_history_df(hid_dfs)
+
+
 
 
     f = open('./../Result/sgd_default_prob.csv', 'wb')
@@ -39,6 +42,10 @@ if __name__ == '__main__':
 
     for race_id in years:
         print GREEN + str(race_id) + ENDC
+        # circulate horse_score
+        score_df = sc.circulate_score(dfs, race_id)
+        # score_df = sc.circulate_score(history_dfs, race_id)
+        # merge dfs and score_df
         # predict iteratly
         sum_list, ta, va = sgd.predict_via_sgd(dfs,race_id)
         ta_sum += ta
