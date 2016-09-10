@@ -30,7 +30,7 @@ if __name__ == '__main__':
     # get all horse history data
     hid_dfs = dfs[['race_id', 'hid', 'rank']]
     history_dfs = de.create_history_df(hid_dfs)
-    print history_dfs
+    # print history_dfs
 
 
 

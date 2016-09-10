@@ -6,6 +6,12 @@ import score_circulater as sc
 import sgd
 import pandas as pd
 from sklearn.linear_model import SGDClassifier
+from sklearn.linear_model import SGDRegressor
+from sklearn.metrics import accuracy_score
+from sklearn.utils import column_or_1d
+
+
+
 ALL_PARAMS = ['frame', 'num', 'fav', 'rank', 'org_rank', 'fld_stts1', 'fld_stts2', 'fld_stts3', 'fld_cndt1', 'fld_cndt2', 'fld_cndt3', 'fld_cndt4']
 THRESHOLD = 0.5
 RED = '\033[93m'
@@ -59,43 +65,27 @@ def circulate_score(history_dfs, org_rid):
 
     X = train_df[ALL_PARAMS]
     y = train_df[['org_rank']]
-    import re
-    for i, row in X.iterrows():
-        for i in row:
-            try: int(i)
-            except: print row
+    # import re
+    # for i, row in X.iterrows():
+    #     for i in row:
+    #         try: int(i)
+    #         except: print row
             # if not isinstance(i,int) and not isinstance(i,float):
             #     print type(i)
             #     print i
 
-    clf = SGDClassifier(alpha=0.001, n_iter=100).fit(X, y)
+    clf = SGDRegressor(alpha=0.001, n_iter=100).fit(X, column_or_1d(y))
+    # training data accuracy
+    predicts = clf.predict(X)
+    # training_accuracy = accuracy_score(train_df[['org_rank']], predicts.tolist())
 
-    # evalt_df = train_df.dropna(axis=0)
-    # fdf = evalt_df.ix[:,0:2]
-    # bdf = evalt_df.ix[:,5:]
+    # predict target data
     eX = evalt_df[ALL_PARAMS]
     predicts = clf.predict(eX)
-    print predicts
-    return predicts
-    #
-    #
-    # predicts = clf.predict(X)
-    # training_accuracy = accuracy_score(train_df[['org_rank']], predicts.tolist())
-    #
-    # predicts = clf.predict(eX)
     # validation_accuracy = accuracy_score(evalt_df[['org_rank']], predicts.tolist())
-    # # print predicts
-    #
-    #
-    # clf = SGDClassifier(loss="log", penalty="l2", class_weight="auto", n_iter=1000)
-    # clf.fit(X, column_or_1d(y))
-    # # predict by evalt_df
-    # eX = evalt_df[ALL_PARAMS]
-    # # ey = evalt_df[['target']]
-    #
-    #
-    # predicts = clf.predict(X)
-    # training_accuracy = accuracy_score(train_df[['target']], predicts.tolist())
-    #
-    # predicts = clf.predict(eX)
-    # return predicts
+
+    print predicts
+    return clf
+    # print evalt_df[['org_rank']]
+    # return predicts.tolist(), training_accuracy, validation_accuracy
+    # print training_accuracy, validation_accuracy
