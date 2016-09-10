@@ -51,10 +51,9 @@ def create_history_df(hid_dfs):
         hid_dfs = dfs[['race_id', 'hid', 'rank']]
     '''
     history_df = pd.DataFrame([])
-    for hid_ser in hid_dfs:
-
+    for i, row in hid_dfs.iterrows():
         # horse history
-        df = ps.scrape_horse_history("12345")
+        df = ps.scrape_horse_history(row[1])
         df = df.ix[:,[0,4,7]]
         # translate date which enable to compare    ex) 2015/11/11 -> 20151111
         days = df.apply(lambda x: x[0].translate(None, "/"), axis=1)

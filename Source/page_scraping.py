@@ -103,7 +103,7 @@ def scrape_race_odds(years):
     f.close()
 
 def scrape_horse_history(hid):
-    hid = '2011104344'
+    # hid = '2011104344'
     url = 'http://db.netkeiba.com/horse/' + hid + '/'
     soup = BeautifulSoup(urllib2.urlopen(url), "lxml")
 
@@ -115,7 +115,6 @@ def scrape_horse_history(hid):
 
             # get race id
             for link in td.findAll('a'):
-                # if 'href' in link.attrs:
                 url = link.attrs['href']
                 if "race" in link.attrs['href']:
                     tmp = url.split('/')
