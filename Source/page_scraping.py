@@ -164,19 +164,3 @@ if __name__ == '__main__':
 
     # normalize rate data
     scrape_race_odds(rids)
-
-    # for hid in hid_list:
-    #     scrape_horse_history(hid_list)
-
-
-
-    # # get all horse status data
-    # dfs = de.create_merged_df(rids)
-    # # get all horse history data
-    # hid_dfs = dfs[['race_id', 'hid', 'rank']]
-    #
-    # history_df = pd.DataFrame([])
-    # for i, row in hid_dfs.iterrows():
-    #     print GREEN + row + ENDC
-    #     # horse history
-    #     df = scrape_horse_history(row[1])

@@ -56,27 +56,42 @@ def create_history_df(hid_dfs):
         hid_dfs = dfs[['race_id', 'hid', 'rank']]
     '''
     history_df = pd.DataFrame([])
+    # get all horse id
+    # read file from Data/Horse
     for i, row in hid_dfs.iterrows():
-        print GREEN + row + ENDC
-        # horse history
-        df = ps.scrape_horse_history(row[1])
-        df = df.ix[:,[0,4,7]]   # select vriable
-        # translate date which enable to compare    ex) 2015/11/11 -> 20151111
-        days = df.apply(lambda x: x[0].translate(None, "/"), axis=1)
-        df = df.ix[:,1:]
-        df = pd.concat([df, days], axis=1)
-        history_df = pd.DataFrame([])
-        for i, row in hid_dfs.iterrows():
-            print row[1]
-            # horse history
-            df = ps.scrape_horse_history(row[1])
-            df = df.ix[:,[0,4,7]]
-            # translate date which enable to compare    ex) 2015/11/11 -> 20151111
-            days = df.apply(lambda x: x[0].translate(None, "/"), axis=1)
-            df = df.ix[:,1:]
-            df = pd.concat([df, days], axis=1)
-            df['org_rid'] = row[0]
-            df['rank'] = row[0]
-            history_df = pd.concat([history_df, df], axis=0)
+        print GREEN + 'origin race id: ' + str(row[0]) + ENDC
+        # get imformation about each hourse
+        d = pd.read_csv('./../Data/Horse/' + str(row) + '.csv', header=None)
+        df = d.ix[:,:15]
 
-    return hid_dfs
+        # add origin_rid, and rank
+        df['org_rid'] = row[0]
+        df['rank'] = row[2]
+        # merge imformations
+        history_df = pd.concat([history_df, df], axis=0)
+
+    # return merge informations
+    return history_df
+
+    #     # horse history
+    #     df = ps.scrape_horse_history(row[1])
+    #     df = df.ix[:,[0,4,7]]   # select vriable
+    #     # translate date which enable to compare    ex) 2015/11/11 -> 20151111
+    #     days = df.apply(lambda x: x[0].translate(None, "/"), axis=1)
+    #     df = df.ix[:,1:]
+    #     df = pd.concat([df, days], axis=1)
+    #     history_df = pd.DataFrame([])
+    #     for i, row in hid_dfs.iterrows():
+    #         print row[1]
+    #         # horse history
+    #         df = ps.scrape_horse_history(row[1])
+    #         df = df.ix[:,[0,4,7]]
+    #         # translate date which enable to compare    ex) 2015/11/11 -> 20151111
+    #         days = df.apply(lambda x: x[0].translate(None, "/"), axis=1)
+    #         df = df.ix[:,1:]
+    #         df = pd.concat([df, days], axis=1)
+    #         df['org_rid'] = row[0]
+    #         df['rank'] = row[0]
+    #         history_df = pd.concat([history_df, df], axis=0)
+    #
+    # return hid_dfs
