@@ -108,7 +108,7 @@ def scrape_race_odds(years):
     f.close()
 
 def scrape_horse_history(hid):
-    hid = '2011104344'
+    # hid = '2011104344'
     url = 'http://db.netkeiba.com/horse/' + hid + '/'
     soup = BeautifulSoup(urllib2.urlopen(url), "lxml")
     history_df = pd.DataFrame([])
@@ -119,7 +119,6 @@ def scrape_horse_history(hid):
         list = []
         for td in tr.findAll("td"):
             word = td.string
-            print type(word)
             if word != None:
                 list.append(word.encode('utf-8'))
                 # print list
@@ -143,10 +142,15 @@ if __name__ == '__main__':
         url = 'http://db.netkeiba.com/race/' + year + '/'
         output_file = year + '.csv'
         # scrape RACE data
-        html_doc = scrape_race_info(url, output_file)
+        scrape_race_info(url, output_file)
 
         # scrape RATE data
-        res_doc = scrape_res(url, output_file)
+        scrape_res(url, output_file)
 
     # normalize rate data
     scrape_race_odds(rids)
+
+    # f = open('./../Resource/rid_list.csv', 'r')
+    # reader = csv.reader(f)
+    # for years in reader:
+    #     pass

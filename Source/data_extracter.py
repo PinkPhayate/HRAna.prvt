@@ -3,6 +3,11 @@ import pandas as pd
 import page_scraping as ps
 import re
 
+RED = '\033[93m'
+GREEN = '\033[92m'
+ENDC = '\033[0m'
+
+
 def create_merged_df(years):
     df = pd.DataFrame([])
     for race_id in years:
@@ -52,18 +57,26 @@ def create_history_df(hid_dfs):
     '''
     history_df = pd.DataFrame([])
     for i, row in hid_dfs.iterrows():
+        print GREEN + row + ENDC
         # horse history
         df = ps.scrape_horse_history(row[1])
-        df = df.ix[:,[0,4,7]]
+        df = df.ix[:,[0,4,7]]   # select vriable
         # translate date which enable to compare    ex) 2015/11/11 -> 20151111
         days = df.apply(lambda x: x[0].translate(None, "/"), axis=1)
         df = df.ix[:,1:]
         df = pd.concat([df, days], axis=1)
-        history_df = pd.concat([history_df, df], axis=0)
-
-
-        print df
-        history_df = history_df.append(df)
-    hid_dfs = pd.merge(hid_dfs, history_df, on='hid')
+        history_df = pd.DataFrame([])
+        for i, row in hid_dfs.iterrows():
+            print row[1]
+            # horse history
+            df = ps.scrape_horse_history(row[1])
+            df = df.ix[:,[0,4,7]]
+            # translate date which enable to compare    ex) 2015/11/11 -> 20151111
+            days = df.apply(lambda x: x[0].translate(None, "/"), axis=1)
+            df = df.ix[:,1:]
+            df = pd.concat([df, days], axis=1)
+            df['org_rid'] = row[0]
+            df['rank'] = row[0]
+            history_df = pd.concat([history_df, df], axis=0)
 
     return hid_dfs
