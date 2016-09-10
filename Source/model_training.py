@@ -27,8 +27,8 @@ if __name__ == '__main__':
     dfs = de.create_merged_df(years)
 
     # get all horse history data
-    # hid_dfs = dfs[['race_id', 'hid', 'rank']]
-    # history_dfs = de.create_history_df(hid_dfs)
+    hid_dfs = dfs[['race_id', 'hid', 'rank']]
+    history_dfs = de.create_history_df(hid_dfs)
 
 
 
