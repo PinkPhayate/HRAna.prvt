@@ -52,10 +52,17 @@ def create_history_df(hid_dfs):
     '''
     history_df = pd.DataFrame([])
     for hid_ser in hid_dfs:
-        list = ps.scrape_horse_history(hid_ser[1])
-        df = pd.DataFrame(list)
-        # df.columns = [""]
-        df = df.ix[0,[10,11,14,16,17]]
+
+        # horse history
+        df = ps.scrape_horse_history("12345")
+        df = df.ix[:,[0,4,7]]
+        # translate date which enable to compare    ex) 2015/11/11 -> 20151111
+        days = df.apply(lambda x: x[0].translate(None, "/"), axis=1)
+        df = df.ix[:,1:]
+        df = pd.concat([df, days], axis=1)
+        history_df = pd.concat([history_df, df], axis=0)
+
+
         print df
         history_df = history_df.append(df)
     hid_dfs = pd.merge(hid_dfs, history_df, on='hid')
