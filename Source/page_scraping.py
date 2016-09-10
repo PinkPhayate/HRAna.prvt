@@ -1,6 +1,7 @@
 # coding: UTF-8
 from bs4 import BeautifulSoup
 import csv, re, json, urllib2, lxml
+import pandas as pd
 
 def scrape_race_info(url, output_file):
     # read page source code
@@ -59,11 +60,15 @@ def scrape_rid():
     2. scrape rid (race id)
     return -> race_id list
     '''
-    source = './../Resource/cent'    # must get this page source by hand
+    source = './../Resource/niigata_kinen'    # must get this page source by hand
     soup = BeautifulSoup(open(source), "lxml")
     table = soup.find("table", attrs = {"class": "nk_tb_common race_table_01"})
     list = []
+    # limitter for 10 years
     for tr in table.findAll('tr'):
+        if len(list) > 12:
+            break
+
         for td in tr.findAll("td", attrs = {"class": "txt_l"}):
             # links = td.find_all('a')
             for link in td.findAll('a'):
@@ -103,31 +108,26 @@ def scrape_race_odds(years):
     f.close()
 
 def scrape_horse_history(hid):
-    # hid = '2011104344'
+    hid = '2011104344'
     url = 'http://db.netkeiba.com/horse/' + hid + '/'
     soup = BeautifulSoup(urllib2.urlopen(url), "lxml")
+    history_df = pd.DataFrame([])
 
     table = soup.find("table", attrs = {"class": "db_h_race_results nk_tb_common"})
-    history_list = []
+    history_df = pd.DataFrame([])
     for tr in table.findAll('tr'):
         list = []
         for td in tr.findAll("td"):
+            word = td.string
+            print type(word)
+            if word != None:
+                list.append(word.encode('utf-8'))
+                # print list
+        df = pd.DataFrame(list)
+        history_df = pd.concat([history_df, df], axis=1)
+    return history_df.T
+    # return list
 
-            # get race id
-            for link in td.findAll('a'):
-                url = link.attrs['href']
-                if "race" in link.attrs['href']:
-                    tmp = url.split('/')
-                    list.append(tmp[2])
-            # get status
-            td = td.get_text(separator=' ')
-            # print td
-            list.append(td.encode('utf-8'))
-
-        if len(list) > 0:
-            history_list.append(list)
-    print history_list[0]
-    return list
 
 if __name__ == '__main__':
     # scrape_horse_history('2011104344')
@@ -139,7 +139,6 @@ if __name__ == '__main__':
     rids = scrape_rid()
 
     for year in rids:
-        # year = str(year)
         # url -> http://db.netkeiba.com/race/201501020211/
         url = 'http://db.netkeiba.com/race/' + year + '/'
         output_file = year + '.csv'
