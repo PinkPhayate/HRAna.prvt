@@ -12,36 +12,60 @@ from sklearn.utils import column_or_1d
 
 
 
+TDY_PARAMS = ['frame', 'num', 'fav', 'rank', 'fld_stts1', 'fld_stts2', 'fld_cndt1', 'fld_cndt2', 'fld_cndt3', 'fld_cndt4']
 ALL_PARAMS = ['frame', 'num', 'fav', 'rank', 'org_rank', 'fld_stts1', 'fld_stts2', 'fld_stts3', 'fld_cndt1', 'fld_cndt2', 'fld_cndt3', 'fld_cndt4']
 THRESHOLD = 0.5
 RED = '\033[93m'
 GREEN = '\033[92m'
 ENDC = '\033[0m'
+def circulate_today_score(history_dfs, predict_df):
+    '''
+    circulate horse score
+    @ param history_dfs -> all hoser's history data
+    @ param race_id -> identify race number whether training/evaluate data.
+    @ return -> score_df
+    '''
+    # train_df = history_dfs[ history_dfs['org_rid'] != int(org_rid) ]
+    # evalt_df = history_dfs[ history_dfs['org_rid'] == int(org_rid) ]
 
-# def predict_via_sgd(dfs, race_id):
-#         evalt_df = dfs[dfs['race_id'] == race_id]
-#         train_df = dfs[dfs['race_id'] != race_id]
-#
-#         # train_df = oversampling(train_df)
-#
-#         X = train_df[ALL_PARAMS]
-#         y = train_df[['target']]
-#
-#         clf = SGDClassifier(loss="log", penalty="l2", class_weight="auto", n_iter=1000)
-#
-#         clf.fit(X, column_or_1d(y))
-#
-#         eX = evalt_df[ALL_PARAMS]
-#         # ey = evalt_df[['target']]
-#
-#
-#         predicts = clf.predict(X)
-#         training_accuracy = accuracy_score(train_df[['target']], predicts.tolist())
-#
-#         predicts = clf.predict(eX)
-#         validation_accuracy = accuracy_score(evalt_df[['target']], predicts.tolist())
-#         # print predicts
-#         return predicts.tolist(), training_accuracy, validation_accuracy
+
+    X = history_dfs[TDY_PARAMS]
+    y = history_dfs[['org_rank']]
+
+    clf = SGDRegressor(alpha=0.001, n_iter=100).fit(X, column_or_1d(y))
+    # training data accuracy
+    predicts = clf.predict(X)
+    # training_accuracy = accuracy_score(train_df[['org_rank']], predicts.tolist())
+
+    # predict target data
+    eX = predict_df[TDY_PARAMS]
+    hids = predict_df['hid']
+
+    predicts = clf.predict(eX)
+
+    hid=0
+    counter=0
+    sum=0.0
+    list = []
+    for i,j in zip(hids, predicts):
+        # print hid,i
+        if hid!=i and hid!=0:
+            ave = sum/counter
+            list.append(ave)
+            counter=0
+            sum=0.0
+        hid=i
+        sum += j
+        counter+=1
+    return list
+    # print pd.concat([eX, pred_df], axis=1)
+
+    # validation_accuracy = accuracy_score(evalt_df[['org_rank']], predicts.tolist())
+
+    # print predicts
+    # return clf
+
+
 
 def circulate_score(history_dfs, org_rid):
     '''

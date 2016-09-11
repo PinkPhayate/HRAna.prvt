@@ -3,7 +3,6 @@ import csv
 from Simulation import pay_algo as pay
 import score_circulater as sc
 import sgd
-ALL_PARAMS = ['rank', 'frame', 'num', 'age', 'odds', 'fav', 'wght', 'qntty', 'hid', 'race_id' , 'f', 'm', 'g', 'zr', 'pl', 'mi', 'target']
 ITERATION = 100
 THRESHOLD = 0.5
 RED = '\033[93m'
