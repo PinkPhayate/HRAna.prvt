@@ -46,40 +46,39 @@ if __name__ == '__main__':
         print GREEN + str(race_id) + ENDC
         # circulate horse_score
         score_df = sc.circulate_score(history_dfs, race_id)
-        # score_df = sc.circulate_score(history_dfs, race_id)
         # merge dfs and score_df
         # predict iteratly
-    #     sum_list, ta, va = sgd.predict_via_sgd(dfs,race_id)
-    #     ta_sum += ta
-    #     va_sum += va
-    #     ta_sum_y = ta
-    #     va_sum_y = va
-    #     for i in range(0, ITERATION-1):
-    #         list, ta, va = sgd.predict_via_sgd(dfs,race_id)
-    #         sum_list = [x+y for (x, y) in zip(sum_list, list)]
-    #         ta_sum += ta
-    #         va_sum += va
-    #         ta_sum_y += ta
-    #         va_sum_y += va
-    #     # circulate average
-    #     list = map(lambda x: float(x) / ITERzATION, sum_list)
-    #     print 'training accuracy =' + str( float(ta_sum_y) / ITERATION )
-    #     print 'validation accuracy =' + str( float(va_sum_y) / ITERATION )
-    #
-    #     # save probability
-    #     pay_list = [race_id,]
-    #     pay_list.extend(list)
-    #
-    #     ## make dicision to pay or not
-    #     # pay_list = [race_id,]
-    #     # for index in range(1,len(list)):
-    #     #         if list[index] >= THRESHOLD:
-    #     #         pay_list.append(index)
-    #     # print pay_list
-    #     csvWriter.writerow(pay_list)
-    #     csv_data.append(pay_list)
-    # f.close
-    #
-    # print 'training accuracy =' + str( float(ta_sum) / (ITERATION*len(years)) )
-    # print 'validation accuracy =' + str( float(va_sum) / (ITERATION*len(years)) )
-    # pay.collate_pred(csv_data)
+        sum_list, ta, va = sgd.predict_via_sgd(dfs,race_id)
+        ta_sum += ta
+        va_sum += va
+        ta_sum_y = ta
+        va_sum_y = va
+        for i in range(0, ITERATION-1):
+            list, ta, va = sgd.predict_via_sgd(dfs,race_id)
+            sum_list = [x+y for (x, y) in zip(sum_list, list)]
+            ta_sum += ta
+            va_sum += va
+            ta_sum_y += ta
+            va_sum_y += va
+        # circulate average
+        list = map(lambda x: float(x) / ITERzATION, sum_list)
+        print 'training accuracy =' + str( float(ta_sum_y) / ITERATION )
+        print 'validation accuracy =' + str( float(va_sum_y) / ITERATION )
+
+        # save probability
+        pay_list = [race_id,]
+        pay_list.extend(list)
+
+        ## make dicision to pay or not
+        # pay_list = [race_id,]
+        # for index in range(1,len(list)):
+        #         if list[index] >= THRESHOLD:
+        #         pay_list.append(index)
+        # print pay_list
+        csvWriter.writerow(pay_list)
+        csv_data.append(pay_list)
+    f.close
+
+    print 'training accuracy =' + str( float(ta_sum) / (ITERATION*len(years)) )
+    print 'validation accuracy =' + str( float(va_sum) / (ITERATION*len(years)) )
+    pay.collate_pred(csv_data)
