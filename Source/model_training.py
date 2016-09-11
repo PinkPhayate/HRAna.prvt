@@ -25,10 +25,11 @@ if __name__ == '__main__':
 
     # get all horse status data
     dfs = de.create_merged_df(years)
+    # print dfs
 
     # get all horse history data
     hid_dfs = dfs[['race_id', 'hid', 'rank']]
-    history_dfs = de.create_history_df(hid_dfs)
+    history_dfs = de.create_history_df(hid_dfs)    # print history_dfs
     # print history_dfs
 
 
@@ -44,7 +45,8 @@ if __name__ == '__main__':
     for race_id in years:
         print GREEN + str(race_id) + ENDC
         # circulate horse_score
-        score_df = sc.circulate_score(history_dfs, race_id)
+        list = sc.circulate_score(history_dfs, race_id)
+        print list
         # merge dfs and score_df
         # predict iteratly
         sum_list, ta, va = sgd.predict_via_sgd(dfs,race_id)
@@ -60,7 +62,7 @@ if __name__ == '__main__':
             ta_sum_y += ta
             va_sum_y += va
         # circulate average
-        list = map(lambda x: float(x) / ITERzATION, sum_list)
+        list = map(lambda x: float(x) / ITERATION, sum_list)
         print 'training accuracy =' + str( float(ta_sum_y) / ITERATION )
         print 'validation accuracy =' + str( float(va_sum_y) / ITERATION )
 

@@ -34,15 +34,18 @@ def circulate_today_score(history_dfs, predict_df):
 
     clf = SGDRegressor(alpha=0.001, n_iter=100).fit(X, column_or_1d(y))
     # training data accuracy
-    predicts = clf.predict(X)
-    # training_accuracy = accuracy_score(train_df[['org_rank']], predicts.tolist())
+    # predicts = clf.predict(X)
+    # training_accuracy = accuracy_score(history_dfs[['org_rank']], predicts.tolist())
+    # print GREEN+str(training_accuracy)+ENDC
 
     # predict target data
     eX = predict_df[TDY_PARAMS]
-    hids = predict_df['hid']
 
     predicts = clf.predict(eX)
 
+
+    # script to circulate average
+    hids = predict_df['hid']
     hid=0
     counter=0
     sum=0.0
@@ -57,6 +60,9 @@ def circulate_today_score(history_dfs, predict_df):
         hid=i
         sum += j
         counter+=1
+    ave = sum/counter
+    list.append(ave)
+
     return list
     # print pd.concat([eX, pred_df], axis=1)
 
@@ -108,8 +114,23 @@ def circulate_score(history_dfs, org_rid):
     predicts = clf.predict(eX)
     # validation_accuracy = accuracy_score(evalt_df[['org_rank']], predicts.tolist())
 
-    print predicts
-    return clf
-    # print evalt_df[['org_rank']]
-    # return predicts.tolist(), training_accuracy, validation_accuracy
-    # print training_accuracy, validation_accuracy
+    # script to circulate average
+    hids = evalt_df['hid']
+    hid=0
+    counter=0
+    sum=0.0
+    list = []
+    for i,j in zip(hids, predicts):
+        # print hid,i
+        if hid!=i and hid!=0:
+            ave = sum/counter
+            list.append(ave)
+            counter=0
+            sum=0.0
+        hid=i
+        sum += j
+        counter+=1
+    ave = sum/counter
+    list.append(ave)
+
+    return list
