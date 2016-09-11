@@ -5,7 +5,7 @@ import data_extracter as de
 import score_circulater as sc
 import sgd
 import csv, re, lxml, urllib2
-ITERATION = 100
+ITERATION = 1000
 THRESHOLD = 0.5
 RED = '\033[93m'
 GREEN = '\033[92m'
@@ -142,7 +142,7 @@ if __name__ == '__main__':
     list = sc.circulate_today_score(history_dfs, history_df)
     circulated_scores = pd.DataFrame(list)
     print RED+"CIRCULATWD_SCORE_FROM_HISTORY"+ENDC
-    print circulated_scores
+    print circulated_scores.sort(0,ascending=False)
     # need to change
     sum_list = sgd.predict_today_via_sgd(dfs,df)
     #

@@ -75,6 +75,7 @@ def create_history_df(hid_dfs):
         # add origin_rid, and rank
         df['org_rid'] = row[0]
         df['org_rank'] = row[2]
+        df['hid'] = row[1]
         # merge imformations
         history_df = pd.concat([history_df, df], axis=0)
 
@@ -89,7 +90,7 @@ def create_history_df(hid_dfs):
     history_df = pd.concat([history_df, dum], axis=1)
     # return merge informations
     # print history_df
-    history_df.columns = ['frame', 'num', 'fav', 'rank', 'field','condition', 'org_rid', 'org_rank', 'fld_stts1', 'fld_stts2', 'fld_stts3', 'fld_cndt1', 'fld_cndt2', 'fld_cndt3', 'fld_cndt4']
+    history_df.columns = ['frame', 'num', 'fav', 'rank', 'field','condition', 'org_rid', 'org_rank','hid', 'fld_stts1', 'fld_stts2', 'fld_stts3', 'fld_cndt1', 'fld_cndt2', 'fld_cndt3', 'fld_cndt4']
     # print history_df
     history_df = history_df.convert_objects(convert_numeric=True)
     history_df = history_df.dropna(axis=0)
