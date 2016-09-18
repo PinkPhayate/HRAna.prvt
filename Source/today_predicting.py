@@ -4,6 +4,8 @@ import page_scraping as ps
 import data_extracter as de
 import score_circulater as sc
 import sgd
+from Library import view_operation as view
+
 import csv, re, lxml, urllib2
 ITERATION = 1000
 THRESHOLD = 0.5
@@ -106,6 +108,11 @@ if __name__ == '__main__':
     train_year -> all years except eval_year
     eval_year  -> one year
     '''
+
+
+    # Draw home view
+    view.draw_title(version='1.1.0')
+    view.draw_race_title("Stayer's Stakes")
 
     f = open('./../Resource/rid_list.csv', 'r')
     reader = csv.reader(f)

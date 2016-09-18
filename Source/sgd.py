@@ -17,14 +17,16 @@ def predict_via_sgd(dfs, race_id):
 
         # train_df = oversampling(train_df)
 
-        X = train_df[ALL_PARAMS]
+        # X = train_df[ALL_PARAMS]
+        X = train_df[TDY_PARAMS]
         y = train_df[['target']]
 
         clf = SGDClassifier(loss="log", penalty="l2", class_weight="auto", n_iter=1000)
 
         clf.fit(X, column_or_1d(y))
 
-        eX = evalt_df[ALL_PARAMS]
+        # eX = evalt_df[ALL_PARAMS]
+        eX = evalt_df[TDY_PARAMS]
         # ey = evalt_df[['target']]
 
 

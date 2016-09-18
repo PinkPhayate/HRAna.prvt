@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import page_scraping as ps
+from Library import view_operation as view
 import csv, lxml, urllib2
 
 def scraping(url, output_file):
@@ -36,6 +37,10 @@ def scraping(url, output_file):
 
 if __name__ == '__main__':
     # url -> http://race.netkeiba.com/?pid=race&id=c201609040211&mode=shutuba
+
+    view.draw_title(version='1.1.0')
+    view.draw_race_title("Stayer's Stakes")
+
     year = 201609040211
     url = 'http://race.netkeiba.com/?pid=race&id=c'+str(year)+'&mode=shutuba'
     output_file = str(year) + '.csv'
