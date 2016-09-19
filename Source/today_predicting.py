@@ -112,7 +112,10 @@ if __name__ == '__main__':
 
     # Draw home view
     view.draw_title(version='1.1.0')
-    view.draw_race_title("Stayer's Stakes")
+    print '======================================='
+    view.draw_race_title("Centaur's S")
+    print RED + 'predict today race mode' + ENDC
+    print '======================================='
 
     f = open('./../Resource/rid_list.csv', 'r')
     reader = csv.reader(f)

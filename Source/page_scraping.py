@@ -65,7 +65,8 @@ def scrape_rid():
     2. scrape rid (race id)
     return -> race_id list
     '''
-    source = './../Resource/stayers'    # must get this page source by hand
+    # source = './../Resource/stayers'    # must get this page source by hand
+    source = './../Resource/race_history'    # must get this page source by hand
     soup = BeautifulSoup(open(source), "lxml")
     table = soup.find("table", attrs = {"class": "nk_tb_common race_table_01"})
     list = []

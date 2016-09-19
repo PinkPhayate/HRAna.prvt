@@ -3,6 +3,8 @@ import csv
 from Simulation import pay_algo as pay
 import score_circulater as sc
 import sgd
+from Library import view_operation as view
+
 ITERATION = 100
 THRESHOLD = 0.5
 RED = '\033[93m'
@@ -16,7 +18,14 @@ if __name__ == '__main__':
     train_year -> all years except eval_year
     eval_year  -> one year
     '''
+    # Draw home view
+    view.draw_title(version='1.1.0')
+    print '======================================='
+    view.draw_race_title("Centaur's S")
+    print RED + 'simulation mode' + ENDC
+    print '======================================='
 
+    # get race list
     f = open('./../Resource/rid_list.csv', 'r')
     reader = csv.reader(f)
     for years in reader:

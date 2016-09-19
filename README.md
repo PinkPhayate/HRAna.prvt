@@ -3,7 +3,7 @@
 This reposutory works to get data from netkeiba.com(http://db.netkeiba.com/)
 I'm trying to analyze race data bia SVM.
 
-## How to get source about race history
+## How to get source code about race history
 
 1. Open firefox and search 'http://db.netkeiba.com/'
 2. save source file via "Ctrl + s"
@@ -19,9 +19,33 @@ I'm trying to analyze race data bia SVM.
   + scrape RACE data
   + scrape RATE data
   + normalize rate data
+  + require WiFi
 
 
 3. execute model_training.py
 
   + merge saved all RACE data
   + evaluate about model by simulator
+
+4. save page source code and put Resource repository
+
+5. execute today_scraiping.py
+
+  + change to variable named 'year'
+  + require WiFi
+
+6. execute today_predicting.py
+
+  + change file name of status information about target race
+  + execute in terminal
+
+
+
+## Required
+
+  + module named 'Figlet'  (https://github.com/pwaller/pyfiglet)
+
+
+## Algorithm
+  + predicting via status -> SGDClassification
+  + circulate score via history -> SGDRegressor
