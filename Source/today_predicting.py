@@ -143,39 +143,21 @@ if __name__ == '__main__':
     csvWriter = csv.writer(f)
     csv_data = []
 
-    ta_sum = 0
-    va_sum = 0
 
-
-    # print history_df
-    # need to change
     list = sc.circulate_today_score(history_dfs, history_df)
     circulated_scores = pd.DataFrame(list)
     print RED+"CIRCULATWD_SCORE_FROM_HISTORY"+ENDC
     print circulated_scores.sort(0,ascending=False)
-    # need to change
+
+
+
+
+    print RED+"CIRCULATWD_SCORE_FROM_STATUS"+ENDC
     sum_list = sgd.predict_today_via_sgd(dfs,df)
-    #
-    # ta_sum += ta
-    # va_sum += va
-    # ta_sum_y = ta
-    # va_sum_y = va
-    #
     for i in range(0, ITERATION-1):
         list = sgd.predict_today_via_sgd(dfs,df)
         sum_list = [x+y for (x, y) in zip(sum_list, list)]
-        # ta_sum += ta
-        # va_sum += va
-        # ta_sum_y += ta
-        # va_sum_y += va
 
     # circulate average
     list = map(lambda x: float(x) / ITERATION, sum_list)
-    print RED+"CIRCULATWD_SCORE_FROM_STATUS"+ENDC
     print list
-    # print 'training accuracy =' + str( float(ta_sum_y) / ITERATION )
-    # print 'validation accuracy =' + str( float(va_sum_y) / ITERATION )
-    #
-    # # save probability
-    # pay_list = [race_id,]
-    # pay_list.extend(list)
