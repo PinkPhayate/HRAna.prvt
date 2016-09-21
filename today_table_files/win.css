@@ -1,0 +1,727 @@
+<!--
+/* 共通 */
+.error  { color: #aa0000; }
+
+.org-field   { border: 1 solid #000000; font-size: 12px; background: #ffffff; color: #000000; height: 18px; }
+.org-button  { border: 1 solid #000000; font-size: 10px; font-weight: bold; background: #003399; color: #ffffff; height: 18px; }
+.org-button2 { border: 1 solid #000000; font-size: 10px; font-weight: bold; background: #ffffff; color: #003399; height: 18px; }
+
+.com-border { background-color: #006600; }
+.com-header { color: #006600; background-color: #66cc99; }
+.com-body   { background-color: #ffffff; }
+.pro-body   { font-size: 11px; color: #000000; }
+.mbl-body   { color: #000000; }
+.mbl-msg    { color: #ff3030; font-weight: bold; }
+
+/* テーブルボーダー色 */
+.border1 { background-color: #808080; }
+.border2 { background-color: #000000; 
+	border-collapse	:	separate;
+	border-spacing	:	1px;}
+.border2 td {
+padding:2px;
+}
+/* テーブルヘッダ部 */
+.hml1    { font-size: 20px; font-weight: bold; text-align: center; color: #aa0000; line-height: 30px; border-color: #444488; border-width: 1px; border-style: solid; background-color: #ccddff; }
+
+/* テーブルボディ部 */
+.bml1    { background-color: #ffffff;padding:4px;}
+.bml2    { background-color: #ffffcc; }
+.bml3    { background-color: #d0d0ff; }
+.bml4    { background-color: #ccddff; }
+.bml1 img    { display: inline;}
+
+.select_menu     { font-weight: bold; color: #ffffff; }
+.select_date1    { background-color: #0000ff; }
+.select_date2    { font-weight: bold; color: #ffffff; }
+.select_date3    { background-color: #666666; }
+.select_jyo1     { background-color: #0000ff; }
+.select_jyo2     { font-weight: bold; color: #ffffff; }
+.select_num1     { background-color: #0000ff; }
+.select_num2     { font-weight: bold; color: #ffffff; }
+.select_navi1    { background-color: #0000ff; }
+.select_navi2    { font-weight: bold; color: #ffffff; }
+.main_race1      { background-color: #d0d0ff; text-align: center; }
+.main_race2      { border-bottom-style: dotted; border-bottom-color: #999999; border-width: 1px; padding: 3px; }
+.weather         { background-color: #b4ecaf; }
+.column_list     { border-bottom-style: dotted; border-bottom-color: #999999; border-width: 1px; padding: 3px; }
+.attention_race1 { background-color: #d0d0ff; text-align: center; }
+.attention_race2 { border-bottom-style: dotted; border-bottom-color: #999999; border-width: 1px; padding: 3px; }
+.bookmark_list   { font-weight: bold; color: #ffffff; }
+.bookmark_race   { font-weight: bold; color: #ffffff; }
+.race_list1      { font-size: 20px; font-weight: bold; color: #aa0000; line-height: 30px; }
+.race_list2      { font-size: 12px; font-weight: bold; background-color: #ffffff; }
+.race_list3      { background-color: #ffffff; }
+.race_list4      { background-color: #ebf5fc; }
+.race_list5      { background-color: #ffffff; }
+.race_list6      { background-color: #fff3e3; }
+.race_list7      { background-color: #ffffff; }
+.race_list8      { background-color: #eaf4e7; }
+.fix             { background-color: #ff9988; }
+.race_title      { font-weight: bold; }
+.race_title1     { font-size: 18px; font-weight: bold; color: #aa0000; }
+.race_title2     { font-weight: bold; color: #0000aa; }
+.race_tokubetu   { background-color: #b4ecaf; }
+.race_shutuba    { background-color: #b4ecaf; }
+.race_cancel     { background-color: #cccccc; }
+td.race_result     { background-color: #b4ecaf; }
+.race_yrk        { background-color: #b4ecaf; }
+.race_oikiri     { background-color: #b4ecaf; }
+.race_comment    { background-color: #b4ecaf; }
+.race_logo       { font-size: 14px; border: 1px solid #000000; padding: 5px; line-height: 30px; }
+.race_guide      { font-weight: bold; color: #ffffff; }
+.odds_header     { background-color: #b4ecaf; }
+.odds_line1      { background-color: #ffffff; }
+.odds_line2      { background-color: #eaf4e7; }
+.odds_low        { color: #ff0000; }
+.odds_middle     { color: #0000ff; }
+.odds_high       { color: #000000; }
+.yoso_setting1   { font-size: 15px; font-weight: bold; color: #0000aa; }
+.yoso_setting2   { font-weight: bold; color: #aa0000; }
+.yoso_setting3   { font-weight: bold; color: #ffffff; background-color: #408dcb; }
+.yoso_view1      { font-size: 18px; font-weight: bold; color: #000000; line-height: 30px; }
+.yoso_view2      { font-weight: bold; background-color: #b4ecaf; }
+.yoso_view3      { font-weight: bold; color: #ffffff; background-color: #408dcb; }
+.yoso_view4      { font-weight: bold; color: #0000aa; border-color: #444488; border-width: 1px; border-style: solid; width: 90%; background-color: #ffffcc; }
+.yoso_view5      { background-color: #ddecf6; }
+.yoso_view6      { background-color: #ffffff; }
+.yoso_max1       { font-size: 18px; font-weight: bold; color: #000000; line-height: 30px; }
+.yoso_max2       { font-weight: bold; color: #ffffff; background-color: #408dcb; }
+.yoso_max3       { font-weight: bold; color: #0000aa; border-color: #444488; border-width: 1px; border-style: solid; width: 90%; background-color: #ffffcc; }
+.yoso_max4       { font-weight: bold; color: #aa0000; }
+.yoso_justmeat1  { font-size: 18px; font-weight: bold; color: #000000; line-height: 30px; }
+.yoso_justmeat2  { background-color: #ffffff; }
+.yoso_justmeat3  { background-color: #ece9d8; }
+.yoso_result1    { font-size: 18px; font-weight: bold; color: #000000; line-height: 30px; }
+.yoso_result2    { background-color: #ccddff; }
+.yoso_result3    { font-weight: bold; color: #aa0000; }
+.yoso_result4    { font-weight: bold; color: #ffffff; background-color: #408dcb; }
+.yoso_result5    { font-weight: bold; color: #0000aa; border-color: #444488; border-width: 1px; border-style: solid; width: 90%; background-color: #ffffcc; }
+.yoso_result6    { font-weight: bold; color: #aa0000; }
+.yoso_search1    { font-size: 18px; font-weight: bold; color: #000000; line-height: 30px; }
+.yoso_search2    { background-color: #b4ecaf; }
+.trackman1       { font-size: 15px; font-weight: bold; background-color: #ccddff; }
+.trackman2       { font-size: 18px; font-weight: bold; color: #aa0000; }
+.schedule_list1  { background-color: #aabbff; }
+.schedule_list2  { background-color: #ccddff; }
+.schedule_list3  { background-color: #ffffff; }
+.schedule_list4  { background-color: #ebf5fc; }
+.recent_menu1    { background-color: #b4ecaf; }
+.recent_menu2    { background-color: #0000ff; }
+.recent_menu3    { font-weight: bold; color: #ffffff; }
+.recent_navi1    { background-color: #0000ff; }
+.recent_navi2    { font-weight: bold; color: #ffffff; }
+.recent_navi3    { background-color: #b4ecaf; }
+.recent_navi4    { background-color: #0000ff; }
+.recent_navi5    { font-weight: bold; color: #ffffff; }
+.recent_navi6    { background-color: #666666; }
+.recent_list     { background-color: #b4ecaf; }
+.nextrace_navi1  { background-color: #0000ff; }
+.nextrace_navi2  { font-weight: bold; color: #ffffff; }
+.nextrace_list   { background-color: #b4ecaf; }
+.nexthorse_title { font-size: 18px; font-weight: bold; color: #aa0000; }
+.nexthorse_list  { background-color: #b4ecaf; }
+
+/* 枠 */
+.waku1           { background-color: #ffffff; }
+.waku2           { background-color: #b0b0b0; }
+.waku3           { background-color: #ffb0b0; }
+.waku4           { background-color: #b0b0ff; }
+.waku5           { background-color: #ffffb0; }
+.waku6           { background-color: #b0ffb0; }
+.waku7           { background-color: #ffccb0; }
+.waku8           { background-color: #ffb0ff; }
+
+/* 払戻 */
+.tan             { background-color: #9999ff; }
+.fuku            { background-color: #ff9999; }
+.waku            { background-color: #99ff99; }
+.uren            { background-color: #ff99ff; }
+.wide            { background-color: #99ffff; }
+.utan            { background-color: #9999ff; }
+.sanfuku         { background-color: #ff9999; }
+.santan          { background-color: #ffff99; }
+
+
+/* ベスト３ */
+.r1ml    { background-color: #fff080 !important; }
+.r2ml    { background-color: #ccdfff !important; }
+.r3ml    { background-color: #f0c8a0 !important; }
+
+
+/* =======================================================
+地方レース情報
+======================================================= */
+
+a img#allresult_button:link{
+	background-color	: #fff;
+}
+a img#allresult_button:hover,a img#allresult_button:active{
+	background-color	: #ff0;
+}
+table.racenavi{
+	border				: 1px solid #666;
+	background			: #ccc;
+}
+.race_shutuba_local{
+	background			: #e3cbaa;
+}
+.popular_1{
+	background			: #fc855c;
+}
+.popular_2{
+	background			: #ffcc66;
+}
+.popular_3{
+	background			: #fdf2c1;
+}
+
+table.raceselect_jyo_local td a{
+    display				: block;
+    height				: 20px;
+    background			: url("../image/racedata_01/jyo_bg1.gif") 0 0 #fff;
+    line-height			: 20px;
+}
+table.raceselect_jyo_local td a:hover{
+    color				: #fff;
+    height				: 20px;
+    background			:  url("../image/racedata_01/jyo_bg1.gif") 0 0 #994d00;
+}
+table.raceselect_jyo_local td.active a{
+    display				: block;
+    color				: #fff;
+	font-weight			: bold;
+    height				: 20px;
+    background			: url("../image/racedata_01/jyo_bg1.gif") 0 0 #994d00;
+}
+
+table.numselect_local td a{
+    display				: block;
+    height				: 29px;
+    background			: url("../image/racedata_01/race_number_1.gif") 0 0 #fff;
+    line-height			: 25px;
+}
+table.numselect_local td a:hover{
+    color				: #fff;
+    height				: 29px;
+    background			:  url("../image/racedata_01/race_number_1.gif") 0 0 #994d00;
+}
+table.numselect_local td.active a{
+    display				: block;
+    color				: #fff;
+	font-weight			: bold;
+    height				: 29px;
+    background			: url("../image/racedata_01/race_number_1.gif") 0 0 #994d00;
+}
+
+table.racenavi_local td a{
+    display				: block;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_1.gif") 0 0 #fff;
+    line-height			: 25px;
+}
+table.racenavi_local td a:hover{
+    color				: #fff;
+    height				: 25px;
+    background			:  url("../image/racedata_01/race_navi_1.gif") 0 0 #994d00;
+}
+table.racenavi_local_premium td a{
+    display				: block;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_premium.gif") 0 0 #ffc;
+    line-height			: 25px;
+}
+
+table.racenavi_local_premium td a:hover{
+    color				: #fff;
+    height				: 25px;
+    background			:  url("../image/racedata_01/race_navi_premium.gif") 0 0 #994d00;
+}
+
+table.racenavi_local td.active a{
+    display				: block;
+    color				: #fff;
+	font-weight			: bold;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_1.gif") 0 0 #994d00;
+}
+
+table.racenavi_local_premium td.active a{
+    display				: block;
+    color				: #fff;
+	font-weight			: bold;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_premium.gif") 0 0 #994d00;
+}
+table.racenavi_local td.new a{
+    display				: block;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_new.gif") 0 0 #fff;
+    line-height			: 25px;
+}
+
+table.racenavi_local td.new a:hover{
+    color				: #fff;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_new.gif") 0 0 #994d00;
+    line-height			: 25px;
+}
+
+table.racenavi_local td.new_active a {
+    color				: #fff;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_new.gif") 0 0 #994d00;
+    line-height			: 25px;
+}
+
+.kaisai_date{
+	text-align			: left;
+	font-size			: 17px;
+	font-weight			: bold;
+	color				: #c00;
+	margin				: 0 10px 10px;
+}
+.allresult_race{
+	text-align			: left;
+	font-weight			: bold;
+	margin				: 6px;
+	line-height			: 15px;
+}
+
+td.schedule_area_local{
+    color				: #fff;
+	font-weight			: bold;
+    background			: #994d00;
+}
+table.odds_local{
+	border				: 1px solid #999;
+	background			: #e3cbaa;
+	text-align			: center;
+}
+form#odds{
+	margin				: 0;
+}
+
+#odds_local_menu td{
+	border				: 1px solid #333;
+}
+#odds_local_menu td.active{
+	border				: 1px solid #333;
+}
+
+#odds_local_menu a{
+	display				: block;
+	padding				: 2px;
+	background			: #fff;
+	color				: #994d00;
+}
+#odds_local_menu a:link,#odds_local_menu a:visit{
+	color				: #994d00;
+}
+#odds_local_menu a:hover{
+	padding				: 2px;
+	background			: #994d00;
+	color				: #fff;
+}
+#odds_local_menu td.active a{
+	display				: block;
+	padding				: 2px;
+	background			: #994d00;
+	color				: #fff;	
+	font-weight			: bold;
+}
+/* =======================================================
+中央レース情報
+======================================================= */
+
+a img#allresult_button:link{
+	background-color	: #fff;
+}
+a img#allresult_button:hover,a img#allresult_button:active{
+	background-color	: #ff0;
+}
+table.racenavi{
+	border				: 1px solid #666;
+	background			: #ccc;
+}
+.race_shutuba_central{
+	background			: #c9d9fe;
+}
+.cellcolor_1{
+	background			: #fc855c !important;
+}
+.cellcolor_2{
+	background			: #ffcc66 !important;
+}
+.cellcolor_3{
+	background			: #fdf2c1 !important;
+}
+.cellcolor_gray{
+	background			: #ddd !important;
+}
+.cellcolor_purple{
+	background			: #d0d0ff !important;
+}
+
+table.raceselect_jyo_central td a{
+    display				: block;
+    height				: 20px;
+    background			: url("../image/racedata_01/jyo_bg1.gif") 0 0 #fff;
+    line-height			: 20px;
+}
+table.raceselect_jyo_central td a:hover{
+    color				: #fff;
+    height				: 20px;
+    background			:  url("../image/racedata_01/jyo_bg1.gif") 0 0 #2235bb;
+}
+table.raceselect_jyo_central td.active a{
+    display				: block;
+    color				: #fff;
+	font-weight			: bold;
+    height				: 20px;
+    background			: url("../image/racedata_01/jyo_bg1.gif") 0 0 #2235bb;
+}
+
+table.numselect_central td a{
+    display				: block;
+    height				: 29px;
+    background			: url("../image/racedata_01/race_number_1.gif") 0 0 #fff;
+    line-height			: 25px;
+}
+table.numselect_central td a:hover{
+    color				: #fff;
+    height				: 29px;
+    background			:  url("../image/racedata_01/race_number_1.gif") 0 0 #2235bb;
+}
+table.numselect_central td.active a{
+    display				: block;
+    color				: #fff;
+	font-weight			: bold;
+    height				: 29px;
+    background			: url("../image/racedata_01/race_number_1.gif") 0 0 #2235bb;
+}
+table.racenavi_central td a{
+    display				: block;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_1.gif") 0 0 #fff;
+    line-height			: 25px;
+}
+table.racenavi_central_premium td a{
+    display				: block;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_premium.gif") 0 0 #ffc;
+    line-height			: 25px;
+}
+
+table.racenavi_central td a:hover{
+    color				: #fff;
+    height				: 25px;
+    background			:  url("../image/racedata_01/race_navi_1.gif") 0 0 #2235bb;
+}
+table.racenavi_central_premium td a:hover{
+    color				: #fff;
+    height				: 25px;
+    background			:  url("../image/racedata_01/race_navi_premium.gif") 0 0 #2235bb;
+}
+
+table.racenavi_central td.active a{
+    display				: block;
+    color				: #fff;
+	font-weight			: bold;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_1.gif") 0 0 #2235bb;
+}
+
+
+table.racenavi_central_premium td.active a{
+    display				: block;
+    color				: #fff;
+	font-weight			: bold;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_premium.gif") 0 0 #2235bb;
+}
+
+
+table.racenavi_central td.new a{
+    display				: block;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_new.gif") 0 0 #fff;
+    line-height			: 25px;
+}
+
+table.racenavi_central td.new a:hover{
+    color				: #fff;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_new.gif") 0 0 #2235bb;
+    line-height			: 25px;
+}
+
+table.racenavi_central td.new_active a {
+    color				: #fff;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_new.gif") 0 0 #2235bb;
+    line-height			: 25px;
+}
+
+table.racenavi_central td.member a{
+    display				: block;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_kaiin01.gif") 0 0 #fff;
+    line-height			: 25px;
+}
+
+table.racenavi_central td.member a:hover{
+    color				: #fff;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_kaiin01.gif") 0 0 #2235bb;
+    line-height			: 25px;
+}
+
+table.racenavi_central td.member_active a{
+    display				: block;
+    color				: #fff;
+	font-weight			: bold;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_kaiin01.gif") 0 0 #2235bb;
+}
+
+table.racenavi_central td.member_active a:hover{
+    color				: #fff;
+    height				: 25px;
+    background			: url("../image/racedata_01/race_navi_kaiin01.gif") 0 0 #2235bb;
+    line-height			: 25px;
+}
+
+.kaisai_date{
+	text-align			: left;
+	font-size			: 17px;
+	font-weight			: bold;
+	color				: #c00;
+	margin				: 0 10px 10px;
+}
+.allresult_race{
+	text-align			: left;
+	font-weight			: bold;
+	margin				: 6px;
+	line-height			: 15px;
+}
+
+td.schedule_area_central{
+    color				: #fff;
+	font-weight			: bold;
+    background			: #2235bb;
+}
+table.odds_central{
+	border				: 1px solid #999;
+	background			: #e3cbaa;
+	text-align			: center;
+	line-height			: 20px;
+}
+
+/* =======================================================
+血統
+======================================================= */
+.bloodmenu_central td{
+	border				: 1px solid #2235bb;
+}
+.bloodmenu_central td.active{
+	border				: 1px solid #2235bb;
+}
+
+.bloodmenu_central a{
+	display				: block;
+	padding				: 2px;
+	background			: #fff;
+}
+.bloodmenu_central a:hover{
+	padding				: 2px;
+	background			: #2235bb;
+	color				: #fff;
+}
+.bloodmenu_central td.active a{
+	display				: block;
+	padding				: 2px;
+	background			: #2235bb;
+	color				: #fff;	
+	font-weight			: bold;
+}
+.bloodcolor_1{
+	background			: url("../image/bloodcolor_1.gif") 0 50% repeat-x;
+}
+.bloodcolor_2{
+	background			: url("../image/bloodcolor_2.gif") 0 50% repeat-x;
+}
+.bloodcolor_3{
+	background			: url("../image/bloodcolor_3.gif") 0 50% repeat-x;
+}
+.bloodcolor_4{
+	background			: url("../image/bloodcolor_4.gif") 0 50% repeat-x;
+}
+.bloodcolor_5{
+	background			: url("../image/bloodcolor_5.gif") 0 50% repeat-x;
+}
+.bloodcolor_6{
+	background			: url("../image/bloodcolor_6.gif") 0 50% repeat-x;
+}
+.bloodcolor_7{
+	background			: url("../image/bloodcolor_7.gif") 0 50% repeat-x;
+}
+.bloodcolor_8{
+	background			: url("../image/bloodcolor_8.gif") 0 50% repeat-x;
+}
+.bloodcolor_9{
+	background			: url("../image/bloodcolor_9.gif") 0 50% repeat-x;
+}
+.bloodcolor_10{
+	background			: url("../image/bloodcolor_10.gif") 0 50% repeat-x;
+}
+
+.bloodcolor_none{
+	display				: block;
+}
+table.blood_table th{
+	font-size			: 13px;
+	font-weight			: normal;
+	padding				: 2px;
+}
+table.blood_table td.t_01{
+	padding				: 2px;
+}
+.dotline_block{
+	border-top			: 1px dotted #000;
+}
+
+.blood_info_01{
+	font-size			: 15px;
+	color				: #fff;
+	font-weight			: bold;
+	padding				: 3px 12px;
+}
+.blood_info_02{
+	font-size			: 15px;
+	font-weight			: bold;
+	margin				: 10px 10px 6px;
+	padding				: 1px 5px;
+	border-left			: 3px solid #2235bb;
+}
+.blood_info_03{
+	margin				: 10px 20px 6px;
+}
+ul.help_numberlist{
+	margin				: 12px 30px;
+	padding				: 0;
+}
+ul.help_numberlist li{
+	list-style			: none;
+	margin				: 6px;
+	padding				: 0;
+}
+ul.help_numberlist li strong{
+	color				: #000;
+}
+table.blood_color_table td{
+	border				:	1px solid #aaa;
+}
+/* =======================================================
+指数
+======================================================= */
+.shisumenu_central td{
+	border				: 1px solid #2235bb;
+}
+.shisumenu_central td.active{
+	border				: 1px solid #2235bb;
+}
+
+.shisumenu_central a{
+	display				: block;
+	padding				: 2px;
+	background			: #fff;
+}
+.shisumenu_central a:hover{
+	padding				: 2px;
+	background			: #2235bb;
+	color				: #fff;
+}
+.shisumenu_central td.active a{
+	display				: block;
+	padding				: 2px;
+	background			: #2235bb;
+	color				: #fff;	
+	font-weight			: bold;
+}
+.shisu_sort a img{
+	display				: block;
+	margin-top			: 7px;
+	margin-bottom		: 3px;
+}
+
+.rankcolor_1{
+	background			: url("../image/rankcolor_1.gif") 0 50% repeat-x;
+}
+.rankcolor_2{
+	background			: url("../image/rankcolor_2.gif") 0 50% repeat-x;
+}
+.rankcolor_3{
+	background			: url("../image/rankcolor_3.gif") 0 50% repeat-x;
+}
+.rankcolor_none{
+	display				: block;
+}
+.cellcolor_check{
+	background			: #ffffbf !important;
+}
+.shisu_point{
+	background			: ffffcc;
+	border				: 1px solid #888;
+}
+.average{
+	border				: 2px solid #222;
+	background			: #fff;
+	margin				: 8px 0 4px;
+}
+.shisu_point td,
+.average td{
+	padding				: 4px 8px;
+}
+
+.shisu_info_01{
+	font-size			: 15px;
+	color				: #fff;
+	font-weight			: bold;
+	padding				: 3px 12px;
+}
+.shisu_info_02{
+	font-size			: 15px;
+	font-weight			: bold;
+	margin				: 10px 10px 6px;
+	padding				: 1px 5px;
+	border-left			: 3px solid #2235bb;
+}
+.shisu_info_03{
+	margin				: 10px 20px 6px;
+}
+ul.help_numberlist{
+	margin				: 12px 30px;
+	padding				: 0;
+}
+ul.help_numberlist li{
+	list-style			: none;
+	margin				: 6px;
+	padding				: 0;
+}
+ul.help_numberlist li strong{
+	color				: #000;
+}
+/* =======================================================
+調整用　追加
+======================================================= */
+table.recent_menu1 td {
+	padding	:	3px 0;
+}
+table.recent_navi3 table td {
+	padding	:	2px 0;
+}
+
+table.border1 td.bml1 {
+	padding	:	0;
+}

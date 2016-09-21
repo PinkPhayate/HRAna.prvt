@@ -1,0 +1,2302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" id="html" lang="ja"><head>
+<title>レース情報(JRA) - netkeiba.com</title>
+
+<meta http-equiv="content-language" content="ja">
+<meta http-equiv="content-type" content="text/html; charset=EUC-JP">
+<meta http-equiv="content-script-type" content="text/javascript">
+<meta http-equiv="content-style-type" content="text/css">
+<link href="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/common.css" rel="stylesheet" type="text/css" media="all">
+<link href="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/reset.css" rel="stylesheet" type="text/css" media="all">
+<link href="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/win.css" rel="stylesheet" type="text/css" media="all">
+<link href="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/race.css" rel="stylesheet" type="text/css" media="all">
+<link href="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/jquery.css" rel="stylesheet" type="text/css" media="all">
+<!--<script src="http://cimg2.race.netkeiba.com/style/netkeiba.ja/js/jquery-1.3.2.min.js" type="text/javascript"></script>-->
+<script src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/analytics.js" async=""></script><script src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/jquery-1.js" type="text/javascript"></script>
+<script src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/jquery_004.js" type="text/javascript"></script>
+<script src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/jquery_002.js" type="text/javascript"></script>
+<script src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/fontsize.js" type="text/javascript"></script>
+<script src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/rollover.js" type="text/javascript"></script>
+<script src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/jquery_003.js" type="text/javascript"></script>
+<script src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/jquery.js" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/ajaxtabs.css">
+<script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/ajaxtabs.js">
+/***********************************************
+* Ajax Tabs Content script v2.2- c Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+</script>
+<script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/get_ad_request.js"></script>
+<script type="text/javascript">
+<!--
+var _user_action_api_url = "http://user.netkeiba.com/";
+var _bbs_action_api_url  = "http://bbs.netkeiba.com/";
+var _raceapi_action_api_url = "http://nkraceapi.netkeiba.com/";
+// -->
+</script>
+<script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/user.js"></script>
+<script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/bbs.js"></script>
+<script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/raceapi.js"></script>
+<script src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/__utm.js" type="text/javascript"></script><script language="JavaScript1.5">_ujv='1.5';</script>
+
+<script type="text/javascript" language="javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/a.html"></script>
+<script src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/race_table_hover.js" type="text/javascript"></script>
+
+<style type="text/css">
+h2{
+margin:0;
+}
+/* CSSサンプル */
+.YAHOOYDN_Wrap{
+background-color: #E6F1FF;
+}
+.YAHOOYDN_Wrap a.YAHOOYDN_Link{
+text-decoration: none;
+display: block;
+padding: .5em;
+}
+.YAHOOYDN_Wrap a.YAHOOYDN_Link:hover{
+background: none repeat scroll 0 0 #99cbff;
+}
+/* タイトル */
+.YAHOOYDN_Wrap a.YAHOOYDN_Link .YAHOOYDN_Title{
+margin: 0;
+line-height: 1.25em;
+font-size: 100%;
+font-weight: bold;
+color:#0000CC;
+text-decoration: underline;
+display: block;
+word-break:break-all;
+word-wrap:break-word;
+}
+/* 本文 */
+.YAHOOYDN_Wrap a.YAHOOYDN_Link .YAHOOYDN_Body{
+padding: 2px 0 0;
+color:#333;
+display: block;
+font-size: 90%;
+word-break:break-all;
+word-wrap:break-word;
+}
+/* 表示URL */
+.YAHOOYDN_Wrap a.YAHOOYDN_Link .YAHOOYDN_URL{
+display: block;
+color:#469E9D;
+font-size: 90%;
+word-break:break-all;
+word-wrap:break-word;
+height:1.2em;
+overflow:hidden;
+}
+/* Ads by Yahoo! JAPAN */
+.YAHOOYDN_Wrap .YAHOOYDN_Copyright{
+display: block;
+text-align: right;
+margin: 0 0 0.2em;
+padding: 0 0.5em 0.3em 0.2em;
+color:#999;
+font-size: 80%;
+}
+.YAHOOYDN_Wrap .YAHOOYDN_Copyright a{
+color:#999;
+text-decoration: underline;
+}
+/* 枠毎にデザイン変更サンプル1 */
+#YDN2{
+width:250px;
+}
+#YDN2 .YAHOOYDN_Wrap{
+background-color: #FFF;
+border:1px solid #CCC;
+}
+#YDN2 .YAHOOYDN_Wrap a.YAHOOYDN_Link{
+text-decoration: none;
+display: block;
+padding: .5em;
+}
+#YDN2 .YAHOOYDN_Wrap a.YAHOOYDN_Link:hover{
+background: none repeat scroll 0 0 #FFF;
+}
+/* 枠毎にデザイン変更サンプル2 */
+#YDN3 .YAHOOYDN_Wrap{
+background-color: #FFF;
+}
+#YDN3 .YAHOOYDN_Wrap a.YAHOOYDN_Link{
+text-decoration: none;
+display: block;
+padding: .5em;
+}
+#YDN3 .YAHOOYDN_Wrap a.YAHOOYDN_Link:hover{
+background: none repeat scroll 0 0 #FFF;
+}
+/* 枠毎にデザイン変更サンプル2 */
+#YDN4 .YAHOOYDN_Wrap{
+background-color: #FFF;
+}
+#YDN4 .YAHOOYDN_Wrap a.YAHOOYDN_Link{
+text-decoration: none;
+display: block;
+padding: .5em;
+}
+#YDN4 .YAHOOYDN_Wrap a.YAHOOYDN_Link:hover{
+background: none repeat scroll 0 0 #FFF;
+}
+</style>
+<script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/ydn.js" charset="utf-8"></script>
+<script type="text/javascript" language="JavaScript">
+<!--
+YAHOO_YDN_V2.JSflat.domReady.add(function(){
+//-------------------------------------------------------------------
+YAHOO_YDN_V2.JSflat.getim({
+printlist : [
+{name:'YDN3', num : 2}       //name:広告表示場所のID, num:最大引き当て本数
+],
+imparam : {
+source : 'ndreamers_jp_nkeiba_cat_ctxt',    //source（必須）
+type   : 'netkeiba',                          //type  （必須）
+outputCharEnc : 'euc-jp',                   //outputCharEnc（必須）
+ctxtKeywords : '%B6%A5%C7%CF',            //ctxtKeywords（必須）
+ctxtId : 'netkeiba',                        //ctxtId（必須）
+ctxtUrl : '',                      //ctxtUrl（必須）
+keywordCharEnc : 'euc-jp'                   //keywordCharEnc（必須）
+}
+});
+//-------------------------------------------------------------------
+});
+//-->
+</script>
+</head>
+<body class="race" id="race_detail">
+<noscript>
+お客様のブラウザはジャバスクリプト（JavaScript）に対応していないか無効になっています。
+</noscript>
+<script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/heat.js"></script><script src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/netkeiba.js" type="text/javascript"></script><script src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/a.js" charset="EUC-JP"></script>
+<div id="page">
+
+
+<div id="header" class="fc">
+<h2><a href="http://www.netkeiba.com/" title="netkeiba.com"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/netkeiba_logo.png" alt="netkeiba.com" width="178" height="65"></a></h2>
+<div class="user_guide fc">
+<ul>
+<li class="head_user_guide_login"><a href="https://account.netkeiba.com/?pid=login" title="ログイン">ログイン</a></li>
+<li class="head_user_guide_regist"><a href="https://account.netkeiba.com/?pid=login" title="無料会員登録">無料会員登録</a></li>
+
+</ul>
+</div><!-- /.user_guide -->
+<div class="head_search">
+<form action="http://www.netkeiba.com/" method="post">
+<input name="pid" value="search" type="hidden">
+<input name="word" id="" class="field" type="text">
+<select name="type" class="select_search">
+<option selected="selected" value="db">競走馬</option>
+<option value="news">ニュース</option>
+<option value="column">コラム</option>
+</select>
+<input src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/btn_search_01.png" alt="検索" onmouseover="this.src='http://cimg2.race.netkeiba.com/style/netkeiba.ja/image/btn_search_01_over.png'" onmouseout="this.src='http://cimg2.race.netkeiba.com/style/netkeiba.ja/image/btn_search_01.png'" class="form_head_btn" type="image" width="64" height="25">
+</form>
+</div><!-- /.head_search -->
+<div class="fontsize_change">
+<ul id="fnt-s">
+<li id="big"><a href="#" title="文字を大きくする">文字を大きく</a></li>
+<li id="mid"><a href="#" title="文字を小さくする">文字を小さく</a></li>
+</ul>
+</div><!-- /.fontsize_change -->
+</div><!-- / #header -->
+<div class="menu_block">
+<div class="global_menu fc">
+<ul>
+<li class="home"><a href="http://www.netkeiba.com/?acc_param=top" title="HOME">HOME</a></li>
+<li class="news"><a href="http://news.netkeiba.com/?acc_param=news" title="ニュース">ニュース</a></li>
+<li class="race"><a href="http://race.netkeiba.com/?acc_param=race" title="レース">レース</a></li>
+<li class="yoso"><a href="http://yoso.netkeiba.com/?acc_param=yoso" title="厳選予想">厳選予想</a></li>
+<li class="column"><a href="http://news.netkeiba.com/?pid=column_top" title="コラム">コラム</a></li>
+<li class="db"><a href="http://db.netkeiba.com/?acc_param=db" title="データベース">データベース</a></li>
+<li class="local"><a href="http://nar.netkeiba.com/" title="地方競馬">地方競馬</a></li>
+<li class="yosocs"><a href="http://yosocs.netkeiba.com/?acc_param=yoso" title="予想大会">予想大会</a></li>
+<li class="community"><a href="http://bbs.pc.keiba.findfriends.jp/?acc_param=yoso" title="競馬広場">競馬広場</a></li>
+<li class="owner"><a href="http://owner.netkeiba.com/?acc_param=owner" title="一口馬主">一口馬主</a></li>
+<li class="pog"><a href="http://pog.netkeiba.com/" title="POG">POG</a></li>
+<li class="newspaper"><a href="http://www.netkeiba.com/paper/" title="競馬新聞">競馬新聞</a></li>
+</ul>
+</div><!-- /.global_menu -->
+</div><!-- / .menu_block -->
+
+<div class="genre_menu fc">
+<ul>
+<li><a href="http://race.netkeiba.com/?pid=top" title="レース情報TOP">レース情報TOP</a></li>
+<li><a href="http://race.netkeiba.com/?pid=race_list" title="レース一覧">レース一覧</a></li>
+<li><a href="http://race.netkeiba.com/?pid=tendency" title="今週のレース傾向">今週のレース傾向</a></li>
+<li><a href="http://race.netkeiba.com/?pid=win5" title="WIN5">WIN5</a></li>
+<li><a href="http://race.netkeiba.com/?pid=schedule" title="重賞スケジュール">重賞スケジュール</a></li>
+<li><a href="http://race.netkeiba.com/?pid=special&amp;id=0096" title="オールカマー"><span class="specialrace">オールカマー</span></a></li><li><a href="http://race.netkeiba.com/?pid=special&amp;id=0097" title="神戸新聞杯"><span class="specialrace">神戸新聞杯</span></a></li>
+</ul>
+</div><!-- /.genre_menu -->
+<div id="contents" class="fc">
+<div class="race_detail_top fc">
+<div id="main">
+<div class="race_head">
+<div class="race_head_inner">
+
+<div class="DateList_Box">
+<dl id="race_list_header" class="fc">
+<dt><img alt="開催日程" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/dt_datelist.png"></dt>
+<dd><a href="http://race.netkeiba.com/?pid=race_list&amp;id=p0917" title="09/17(土)">09/17(土)</a></dd><dd><a href="http://race.netkeiba.com/?pid=race_list&amp;id=p0918" title="09/18(日)">09/18(日)</a></dd><dd><a href="http://race.netkeiba.com/?pid=race_list&amp;id=c0924" title="09/24(土)">09/24(土)</a></dd><dd><a href="http://race.netkeiba.com/?pid=race_list&amp;id=c0925" title="09/25(日)">09/25(日)</a></dd><dd><a href="http://race.netkeiba.com/?pid=race_list&amp;id=n1002" title="10/02(日)">10/02(日)</a></dd>
+</dl>
+</div><!-- /.DateList_Box -->
+
+<!-- -->
+
+<div class="race_num fc">
+<ul class="fc">
+<li><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040201&amp;mode=shutuba" title="1R">1R</a></li>
+<li><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040202&amp;mode=shutuba" title="2R">2R</a></li>
+<li><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040203&amp;mode=shutuba" title="3R">3R</a></li>
+<li><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040204&amp;mode=shutuba" title="4R">4R</a></li>
+<li><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040205&amp;mode=shutuba" title="5R">5R</a></li>
+<li><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040206&amp;mode=shutuba" title="6R">6R</a></li>
+<li><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040207&amp;mode=shutuba" title="7R">7R</a></li>
+<li><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040208&amp;mode=shutuba" title="8R">8R</a></li>
+<li><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040209&amp;mode=shutuba" title="9R">9R</a></li>
+<li><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040210&amp;mode=shutuba" title="10R">10R</a></li>
+
+<li><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040211&amp;mode=shutuba" title="11R" class="active">11R</a></li><li><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040212&amp;mode=shutuba" title="12R">12R</a></li>
+
+</ul>
+<p><a href="http://race.netkeiba.com/?pid=payback_list&amp;id=c2016090402&amp;mode=top" title="阪神の払戻一覧">阪神の払戻一覧</a></p>
+</div><!-- /.race_num_ber -->
+
+<div class="mainrace_data fc">
+<div class="data_intro">
+<dl class="racedata fc">
+<dt>
+11R
+</dt>
+<dd>
+<h1>セントウルＳ&nbsp;<img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/race_grade_g2_01.png" alt=""></h1>
+<p><span>芝1200m&nbsp;/&nbsp;天気：晴&nbsp;/&nbsp;馬場：良&nbsp;/&nbsp;発走：15:35</span></p>
+</dd>
+</dl>
+<div class="race_otherdata">
+<p>4回阪神2日目&nbsp;３歳上&nbsp;サラ３歳上オープン</p>
+<p>(国際)(指定)別定&nbsp;13頭</p>
+<p>本賞金：5900、2400、1500、890、590万円</p>
+</div>
+<ul class="btn_link_list fc">
+<li class="race_btn_IPAT">
+<a href="http://ipat.netkeiba.com/?pid=ipat_input&amp;rid=201609040211" target="_blank"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/race_btn_ipat_on.png" alt="IPAT 馬券購入" class="imgover"></a>
+
+</li>
+</ul>
+</div><!-- /.race_data_intro -->
+</div><!-- /.mainrace_data -->
+<script language="JavaScript">
+<!--
+function moviepopup()
+{
+window.open("?pid=movie&id=", "moviepopup", "scrollbars=no,resizable=no,menubar=no,directories=no,status=no,location=no,width=650,height=460,top=100,left=" + ((screen.width/2)-400));
+}
+//-->
+</script>
+
+<div id="RaceSurf"><div id="box_main" class="Surf_Box">
+<div id="box_ticker">
+<p style="display: block;" class="Surf_Label surfnami2">注目</p>
+<div id="news_ticker">
+<div id="news_headline">
+<ul>
+
+
+
+<li style="opacity: 1; margin-left: 0px;" label="注目"><a href="http://pr.race.netkeiba.com/?pid=surf_summary&amp;id=c201609040211&amp;range=4&amp;key1=JockeyCode&amp;key2=TrainerCode"><div><span class="Horse_Num">3</span>ダンスディレクター<span>浜中俊J×笹田和秀師は成績優秀</span></div></a></li><li style="margin-left: 600px; opacity: 0;" label="" id="charge_guide"><a href="javascript:void(0);"><div>特選馬・注目馬が<span class="Horse_Num_Box">4頭</span>います</div></a></li></ul>
+</div><!-- /#news_headline -->
+</div><!-- /#news_ticker -->
+</div><!-- /#box_ticker -->
+<div id="news_list_box" style="display:none;">
+<ul>
+<li label="注目"><div class="Surf_Label surfnami2">注目</div>
+<a href="http://pr.race.netkeiba.com/?pid=surf_summary&amp;id=c201609040211&amp;range=4&amp;key1=JockeyCode&amp;key2=TrainerCode"><div><span class="Horse_Num">3</span>ダンスディレクター<br><span>浜中俊J×笹田和秀師は成績優秀<br>単勝回収率 251.7%</span></div></a>
+</li>
+
+<li label="" class="Charge_Info"><div class="Surf_Label surfnone"></div>
+<div class="Horse_Num_Balloon">
+<p class="HorseNumTxt">特選馬・注目馬が<span class="Horse_Num_Box">4</span>頭います</p>
+</div><!-- /.Horse_Num_Balloon -->
+<div class="Basic_Info">
+<p class="InfoTxt_01">
+ベーシックコース（月額250円［税別］）に登録して、特選馬・注目馬をすべてチェック！
+</p>
+<dl>
+<dt>
+<em>
+｢本日の特選馬｣をズバリ推奨！
+</em>
+</dt>
+<dd class="Text_Indent">
+分析データから的中率･回収率の高い馬を自動でお知らせ
+</dd>
+<dd class="Text_Indent">
+レース当日もリアルタイム更新！必見馬券情報は見逃さない
+</dd>
+</dl>
+<div class="RegistBtn" title="登録して特選馬をチェック">
+<a href="http://www.netkeiba.com/premium/?service=p02">
+<span>登録して特選馬をチェック</span>
+</a>
+</div><!-- /.RegistBtn -->
+<p class="PremiumInfoLink">
+※ベーシックコースの詳細は<a href="http://www.netkeiba.com/premium/?service=p02">こちら</a><br>
+</p>
+</div><!-- / .Basic_Info -->
+</li>
+</ul>
+<p class="detail_link">
+<img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/mark_arrow_blue_01.gif" alt="">&nbsp;
+<a href="https://account.netkeiba.com/?pid=login">登録済みの方はこちらからログインしてください</a>
+
+</p>
+</div>
+<div id="news_list_btn">
+一覧を表示
+</div>
+<div class="HorseNumAlert"><span>4</span></div>
+</div><!-- / .Surf_Box #box_main -->
+</div>
+<script type="text/javascript">
+<!--
+$( document ).ready( function() {
+showRaceSurf( "RaceSurf", "201609040211" );
+} );
+// -->
+</script>
+</div><!-- /.race_head_inner -->
+</div><!-- /.race_head -->
+</div><!-- /#main -->
+<div id="side">
+<div class="side_ad">
+
+<script language="JavaScript" type="text/javascript">noCacheParam=Math.random()*10000000000;document.write('<scr'+'ipt type="text/javascript" src="http://netdreamersad.durasite.net/A-affiliate2/mobile?site=23&keyword=new_race_rectangle&isJS=true&encoding=EUC-JP&ord=' + noCacheParam + '"></scr'+'ipt>');</script><script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/mobile_003.html"></script><script type="text/javascript">google_ad_client="pub-1831697743446243";google_ad_host="pub-1333877194161360";google_ad_width=200;google_ad_height=200;google_ad_format="200x200_as";google_ad_type="image";google_ad_channel="2507048339";google_ad_host_channel="5425807178";google_ad_region = "netkeiba";google_color_border="FFFFFF";google_color_bg="FFFFFF";google_color_link="0000FF";google_color_url="008000";google_color_text="000000";</script><script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/show_ads.js"></script>
+</div>
+</div>
+</div><!-- / .race_detail_top -->
+<div id="race_main" class="fc">
+
+<div class="race_deta_menu">
+<ul class="main_menu fc">
+<li class="race_navi_shutuba"><a href="http://race.netkeiba.com/?pid=race_old&amp;id=c201609040211" class="active" title="出馬表">出馬表</a></li>
+
+
+<li class="race_navi_odds"><a href="http://race.netkeiba.com/?pid=odds&amp;id=c201609040211&amp;mode=top" title="オッズ">オッズ</a></li>
+
+<li class="race_navi_yoso"><a href="http://race.netkeiba.com/?pid=yoso&amp;id=c201609040211" title="予想">予想</a></li>
+
+<li class="race_navi_chokyo"><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040211&amp;mode=oikiri" title="調教">調教</a></li>
+
+<li class="race_navi_comment"><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040211&amp;mode=comment" title="厩舎コメント">厩舎コメント</a></li>
+
+<li class="race_navi_data"><a href="http://race.netkeiba.com/?pid=data&amp;id=c201609040211&amp;mode=coursedata" title="データ分析">データ分析</a></li>
+
+<li class="race_navi_result"><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040211&amp;mode=result" title="結果/払戻">結果/払戻</a></li>
+<li class="race_navi_movie"><a href="http://db.netkeiba.com/?pid=movie&amp;id=201609040211" title="レース映像">レース映像</a></li>
+
+<li class="race_navi_bbs"><a href="http://race.netkeiba.com/?pid=race_board&amp;id=201609040211" title="掲示板">掲示板</a></li>
+</ul>
+<ul class="sub_menu fc">
+<li><a href="http://race.netkeiba.com/?pid=race_old&amp;id=c201609040211">出走馬</a></li>
+
+
+<li><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040211&amp;mode=shutuba" class="active">馬柱(5走)</a></li>
+<li><a href="http://race.netkeiba.com/?pid=shutuba_detail&amp;id=c201609040211" target="_blank"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_premium.gif" alt="プレミアサービス">馬柱(9走)</a></li>
+
+<li><a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040211&amp;mode=soutei"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_premium.gif" alt="プレミアサービス">想定馬</a></li>
+
+<li><a href="http://race.netkeiba.com/?pid=speed&amp;id=c201609040211"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_premium.gif" alt="プレミアサービス">タイム指数</a></li>
+
+<li><a href="http://race.netkeiba.com/?pid=bias&amp;id=c201609040211&amp;btype=shutuba"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_premium.gif" alt="プレミアサービス">血統</a></li>
+
+
+
+
+</ul>
+
+</div><!-- /.race_deta_menu -->
+
+<script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/social_cart.js"></script>
+<script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/shutuba.js"></script>
+<script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/race_shutuba.js"></script>
+<script type="text/javascript">
+var _action_api_url 	= 'http://race.netkeiba.com/v2/';
+var _race_location_url 	= 'http://race.netkeiba.com/v2/';
+var _shutuba_cart_group = 'horse_201609040211';
+var _shutuba_race_id = '201609040211';
+var _shutuba_auth_flg = 0;
+var _shutuba_update_datetime = '1970-01-01 00:00:00';
+function YosoMark( form, flg )
+{
+if( !flg ){
+location.href = "https://account.netkeiba.com/?pid=login&service=c02";
+exit;
+}
+var url = "./?pid=regist_yosomark&id=c201609040211";
+xmlhttp = new XMLHttpRequest();
+if( !xmlhttp ){
+return true;
+}
+xmlhttp.onreadystatechange = function(){
+if( xmlhttp.readyState == 4 && xmlhttp.status == 200 ){
+return true;
+}
+}
+xmlhttp.open( 'POST', url, true );
+xmlhttp.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" );
+xmlhttp.send( getFormData( form ) );
+return false;
+}
+function getFormData( form )
+{
+var value = '';
+for( var i = 0; i < form.elements.length; i++ ){
+value += ('&' + form.elements[i].name + '=' + form.elements[i].value);
+}
+return value.substring(1);
+}
+</script>
+<form name="shutuba" id="shutuba" method="post">
+<table class="race_table_01 nk_tb_common shutuba_table" summary="" cellpadding="0" cellspacing="1" width="100%">
+<tbody><tr>
+<th>枠<br>番</th>
+<th>馬<br>番</th>
+<th>あなた<br>の印<a href="#function_text" style="font-siez:70%;">※</a></th>
+<th class="yoso_name_h">関西本紙</th><th class="yoso_name_h">丹下日出夫</th><th class="yoso_name_h">CP予想</th>
+<th class="txt_l th_01">
+馬名
+</th>
+<th>
+斤量<br>
+騎手名</th>
+<th>
+単オッズ<br>
+<a href="http://race.netkeiba.com/?pid=race&amp;id=c201609040211&amp;mode=shutuba&amp;sort=odds" onmouseover="sortimage.src='style/netkeiba.ja/image/sort_active.gif'" onmouseout="sortimage.src='style/netkeiba.ja/image/sort_01.png'"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/sort_01.png" alt="ソートする" name="sortimage"></a></th>
+<th class="kako_h_02">前走<a href="#function_text" style="font-siez:70%;">※</a></th><th class="kako_h_02">2走前<a href="#function_text" style="font-siez:70%;">※</a></th><th class="kako_h_02">3走前<a href="#function_text" style="font-siez:70%;">※</a></th><th class="kako_h_02">4走前<a href="#function_text" style="font-siez:70%;">※</a></th><th class="kako_h_02">5走前<a href="#function_text" style="font-siez:70%;">※</a></th>
+</tr>
+<tr>
+<td class="waku1"><span>1</span></td>
+<td class="umaban">1</td>
+<td>
+<select name="12" id="12" onchange="RegMyMark(12,'1');YosoMark(forms['shutuba'],0);">
+<option selected="selected" value="0">…</option>
+<option value="1">◎</option>
+<option value="2">○</option>
+<option value="3">▲</option>
+<option value="4">△</option>
+<option value="5">☆</option>
+<option value="6">消</option>
+</select>
+</td>
+<td>◎</td><td>◎</td><td>○</td>
+<td class="txt_l">
+<span class="h_name"><a href="http://db.netkeiba.com/horse/2011103328/" target="_blank">ビッグアーサー</a></span><br>
+<span class="txt_smaller">
+サクラバクシンオー<br>
+シヤボナ<br>
+(Kingmambo)<br>
+</span>
+栗東･藤岡<br>
+<span class="kyakushitu"></span>
+<strong class="weight">524 (+4)</strong>
+</td>
+<td class="txt_l">牡5/鹿<br>
+58<br>
+<a href="http://db.netkeiba.com/jockey/01014/" target="_blank">福永</a></td>
+<td class=" class='odds_01' txt_c">
+2.1<br>
+(1人気)
+
+</td>
+
+<td class="td_no01 txt_l" width="121">
+<div class="inner">
+16.03.27&nbsp;中京<br>
+<span class="order">1</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201607020611/">高松宮記念</a></span><span class="race_grade">G1</span><br>
+芝1200&nbsp;1:06.7&nbsp;良<br>
+</div>
+<span class="race_data">18頭4番1人&nbsp;福永祐一57.0</span><br>
+<span class="race_corner">4-4&nbsp;(33.4)</span>&nbsp;&nbsp;<span class="race_weight">520(-4)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011103916/">ミッキーアイル</a>(-0.1)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201607020611" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.01.31&nbsp;京都<br>
+<span class="order">5</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201608020211/">シルクロー</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:08.5&nbsp;稍<br>
+</div>
+<span class="race_data">16頭16番1人&nbsp;Ｍ．デム57.0</span><br>
+<span class="race_corner">9-10&nbsp;(33.4)</span>&nbsp;&nbsp;<span class="race_weight">524(+2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2010103303/">ダンスディレクター</a>(0.6)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201608020211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no03 txt_l" width="121">
+<div class="inner">
+15.12.26&nbsp;阪神<br>
+<span class="order">3</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201509050711/">阪神C</a></span><span class="race_grade">G2</span><br>
+芝1400&nbsp;1:21.6&nbsp;稍<br>
+</div>
+<span class="race_data">17頭1番1人&nbsp;藤岡康太57.0</span><br>
+<span class="race_corner">4-4&nbsp;(34.6)</span>&nbsp;&nbsp;<span class="race_weight">522(0)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011104295/">ロサギガンティア</a>(0.2)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201509050711" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no02 txt_l" width="121">
+<div class="inner">
+15.11.29&nbsp;京都<br>
+<span class="order">2</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201508050912/">京阪杯</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:07.4&nbsp;良<br>
+</div>
+<span class="race_data">15頭4番1人&nbsp;藤岡康太56.0</span><br>
+<span class="race_corner">7-7&nbsp;(32.8)</span>&nbsp;&nbsp;<span class="race_weight">522(0)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011102913/">サトノルパン</a>(0.0)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201508050912" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no01 txt_l" width="121">
+<div class="inner">
+15.10.11&nbsp;京都<br>
+<span class="order">1</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201508040211/">オパールＳ</a></span><span class="race_grade">OP</span><br>
+芝1200&nbsp;1:06.7&nbsp;良<br>
+</div>
+<span class="race_data">16頭4番1人&nbsp;藤岡康太57.0</span><br>
+<span class="race_corner">6-4&nbsp;(33.2)</span>&nbsp;&nbsp;<span class="race_weight">522(-6)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2009106343/">マコトナワラタナ</a>(-0.5)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201508040211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+</tr><tr>
+<td class="waku2"><span>2</span></td>
+<td class="umaban">2</td>
+<td>
+<select name="14" id="14" onchange="RegMyMark(14,'2');YosoMark(forms['shutuba'],0);">
+<option selected="selected" value="0">…</option>
+<option value="1">◎</option>
+<option value="2">○</option>
+<option value="3">▲</option>
+<option value="4">△</option>
+<option value="5">☆</option>
+<option value="6">消</option>
+</select>
+</td>
+<td>▲</td><td>○</td><td>▲</td>
+<td class="txt_l">
+<span class="h_name"><a href="http://db.netkeiba.com/horse/2011110099/" target="_blank">エイシンブルズアイ</a></span><br>
+<span class="txt_smaller">
+Belgravia<br>
+Miss Fear Factor<br>
+(Siphon)<br>
+</span>
+栗東･野中<br>
+<span class="kyakushitu"></span>
+<strong class="weight">474 (-6)</strong>
+</td>
+<td class="txt_l">牡5/栗<br>
+56<br>
+<a href="http://db.netkeiba.com/jockey/01077/" target="_blank">石橋脩</a></td>
+<td class=" txt_c">
+9.8<br>
+(5人気)
+
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.07.03&nbsp;中京<br>
+<span class="order">9</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201607030211/">ＣＢＣ賞</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:08.0&nbsp;良<br>
+</div>
+<span class="race_data">13頭2番1人&nbsp;石橋脩57.0</span><br>
+<span class="race_corner">4-4&nbsp;(33.9)</span>&nbsp;&nbsp;<span class="race_weight">480(+8)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011104416/">レッドファルクス</a>(0.8)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201607030211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+<td class="txt_l"><span class="race_name">3ヵ月休養</span><br>鉄砲 [1.0.0.2]<br>2走目 [0.1.0.1]</td>
+
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.03.27&nbsp;中京<br>
+<span class="order">5</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201607020611/">高松宮記念</a></span><span class="race_grade">G1</span><br>
+芝1200&nbsp;1:07.2&nbsp;良<br>
+</div>
+<span class="race_data">18頭13番5人&nbsp;石橋脩57.0</span><br>
+<span class="race_corner">14-12&nbsp;(33.3)</span>&nbsp;&nbsp;<span class="race_weight">472(-2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011103328/">ビッグアーサー</a>(0.5)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201607020611" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no01 txt_l" width="121">
+<div class="inner">
+16.03.05&nbsp;中山<br>
+<span class="order">1</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201606020311/">オーシャン</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:07.5&nbsp;良<br>
+</div>
+<span class="race_data">16頭11番5人&nbsp;石橋脩56.0</span><br>
+<span class="race_corner">11-10&nbsp;(33.9)</span>&nbsp;&nbsp;<span class="race_weight">474(+2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2009102527/">ハクサンムーン</a>(-0.2)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201606020311" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no02 txt_l" width="121">
+<div class="inner">
+16.02.13&nbsp;京都<br>
+<span class="order">2</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201608020511/">洛陽Ｓ</a></span><span class="race_grade">OP</span><br>
+芝1600&nbsp;1:34.5&nbsp;良<br>
+</div>
+<span class="race_data">10頭4番4人&nbsp;武豊56.0</span><br>
+<span class="race_corner">5-5&nbsp;(33.2)</span>&nbsp;&nbsp;<span class="race_weight">472(+4)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011104097/">ラングレー</a>(0.1)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201608020511" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+</tr><tr>
+<td class="waku3"><span>3</span></td>
+<td class="umaban">3</td>
+<td>
+<select name="6" id="6" onchange="RegMyMark(6,'3');YosoMark(forms['shutuba'],0);">
+<option selected="selected" value="0">…</option>
+<option value="1">◎</option>
+<option value="2">○</option>
+<option value="3">▲</option>
+<option value="4">△</option>
+<option value="5">☆</option>
+<option value="6">消</option>
+</select>
+</td>
+<td>　</td><td>△</td><td>　</td>
+<td class="txt_l">
+<span class="h_name"><a href="http://db.netkeiba.com/horse/2010103303/" target="_blank">ダンスディレクター</a></span><br>
+<span class="txt_smaller">
+アルデバランＩＩ<br>
+マザーリーフ<br>
+(サンデーサイレンス)<br>
+</span>
+栗東･笹田<br>
+<span class="kyakushitu"></span>
+<strong class="weight">444 (0)</strong>
+</td>
+<td class="txt_l">牡6/鹿<br>
+56<br>
+<a href="http://db.netkeiba.com/jockey/01115/" target="_blank">浜中</a></td>
+<td class=" class='odds_03' txt_c">
+5.4<br>
+(3人気)
+
+</td>
+
+<td class="td_no01 txt_l" width="121">
+<div class="inner">
+16.01.31&nbsp;京都<br>
+<span class="order">1</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201608020211/">シルクロー</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:07.9&nbsp;稍<br>
+</div>
+<span class="race_data">16頭1番2人&nbsp;浜中俊57.0</span><br>
+<span class="race_corner">5-3&nbsp;(33.3)</span>&nbsp;&nbsp;<span class="race_weight">444(0)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011104682/">ローレルベローチェ</a>(-0.2)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201608020211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no02 txt_l" width="121">
+<div class="inner">
+15.12.26&nbsp;阪神<br>
+<span class="order">2</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201509050711/">阪神C</a></span><span class="race_grade">G2</span><br>
+芝1400&nbsp;1:21.4&nbsp;稍<br>
+</div>
+<span class="race_data">17頭15番5人&nbsp;浜中俊57.0</span><br>
+<span class="race_corner">11-11&nbsp;(34.2)</span>&nbsp;&nbsp;<span class="race_weight">444(+4)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011104295/">ロサギガンティア</a>(0.0)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201509050711" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no02 txt_l" width="121">
+<div class="inner">
+15.07.05&nbsp;中京<br>
+<span class="order">2</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201507030211/">ＣＢＣ賞</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:09.2&nbsp;重<br>
+</div>
+<span class="race_data">17頭7番1人&nbsp;浜中俊55.0</span><br>
+<span class="race_corner">10-9&nbsp;(34.7)</span>&nbsp;&nbsp;<span class="race_weight">440(0)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2010104042/">ウリウリ</a>(0.1)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201507030211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+15.05.16&nbsp;東京<br>
+<span class="order">12</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201505020711/">京王杯ＳＣ</a></span><span class="race_grade">G2</span><br>
+芝1400&nbsp;1:21.9&nbsp;良<br>
+</div>
+<span class="race_data">18頭2番4人&nbsp;浜中俊56.0</span><br>
+<span class="race_corner">6-7&nbsp;(33.6)</span>&nbsp;&nbsp;<span class="race_weight">440(-4)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2008101031/">サクラゴスペル</a>(0.3)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201505020711" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no01 txt_l" width="121">
+<div class="inner">
+15.02.21&nbsp;京都<br>
+<span class="order">1</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201508020711/">斑鳩Ｓ</a></span><span class="race_grade">１６００下</span><br>
+芝1400&nbsp;1:20.2&nbsp;良<br>
+</div>
+<span class="race_data">16頭9番1人&nbsp;浜中俊57.0</span><br>
+<span class="race_corner">13-11&nbsp;(33.1)</span>&nbsp;&nbsp;<span class="race_weight">444(-2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2009103182/">テイエムタイホー</a>(-0.2)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201508020711" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+</tr><tr>
+<td class="waku4"><span>4</span></td>
+<td class="umaban">4</td>
+<td>
+<select name="2" id="2" onchange="RegMyMark(2,'4');YosoMark(forms['shutuba'],0);">
+<option selected="selected" value="0">…</option>
+<option value="1">◎</option>
+<option value="2">○</option>
+<option value="3">▲</option>
+<option value="4">△</option>
+<option value="5">☆</option>
+<option value="6">消</option>
+</select>
+</td>
+<td>☆</td><td>　</td><td>　</td>
+<td class="txt_l">
+<span class="h_name"><a href="http://db.netkeiba.com/horse/2009104934/" target="_blank">アースソニック</a></span><br>
+<span class="txt_smaller">
+クロフネ<br>
+ダイヤモンドピアス<br>
+(サクラユタカオー)<br>
+</span>
+栗東･中竹<br>
+<span class="kyakushitu"></span>
+<strong class="weight">494 (-8)</strong>
+</td>
+<td class="txt_l">牡7/鹿<br>
+56<br>
+<a href="http://db.netkeiba.com/jockey/05203/" target="_blank">岩田</a></td>
+<td class=" txt_c">
+130.9<br>
+(11人気)
+
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.07.31&nbsp;新潟<br>
+<span class="order">6</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201604020211/">アイビスＳ</a></span><span class="race_grade">G3</span><br>
+芝1000&nbsp;0:54.7&nbsp;良<br>
+</div>
+<span class="race_data">13頭12番5人&nbsp;石橋脩56.0</span><br>
+<span class="race_corner">&nbsp;(31.7)</span>&nbsp;&nbsp;<span class="race_weight">502(+10)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011101395/">ベルカント</a>(0.6)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201604020211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.06.19&nbsp;函館<br>
+<span class="order">9</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201602010211/">函館ＳＳ</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:08.4&nbsp;良<br>
+</div>
+<span class="race_data">16頭13番11人&nbsp;三浦皇成56.0</span><br>
+<span class="race_corner">9-11&nbsp;(34.2)</span>&nbsp;&nbsp;<span class="race_weight">492(+4)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2013105357/">ソルヴェイグ</a>(0.6)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201602010211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.04.10&nbsp;中山<br>
+<span class="order">9</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201606030611/">春雷Ｓ</a></span><span class="race_grade">OP</span><br>
+芝1200&nbsp;1:08.4&nbsp;良<br>
+</div>
+<span class="race_data">16頭8番3人&nbsp;柴山雄一58.0</span><br>
+<span class="race_corner">11-12&nbsp;(33.6)</span>&nbsp;&nbsp;<span class="race_weight">488(-6)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011110044/">エイシンスパルタン</a>(0.8)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201606030611" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.03.27&nbsp;中京<br>
+<span class="order">10</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201607020611/">高松宮記念</a></span><span class="race_grade">G1</span><br>
+芝1200&nbsp;1:07.4&nbsp;良<br>
+</div>
+<span class="race_data">18頭14番17人&nbsp;バルジュ57.0</span><br>
+<span class="race_corner">12-12&nbsp;(33.5)</span>&nbsp;&nbsp;<span class="race_weight">494(-4)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011103328/">ビッグアーサー</a>(0.7)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201607020611" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.01.31&nbsp;京都<br>
+<span class="order">11</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201608020211/">シルクロー</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:08.9&nbsp;稍<br>
+</div>
+<span class="race_data">16頭11番6人&nbsp;川田将雅57.0</span><br>
+<span class="race_corner">11-12&nbsp;(33.6)</span>&nbsp;&nbsp;<span class="race_weight">498(+4)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2010103303/">ダンスディレクター</a>(1.0)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201608020211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+</tr><tr>
+<td class="waku4"><span>4</span></td>
+<td class="umaban">5</td>
+<td>
+<select name="4" id="4" onchange="RegMyMark(4,'5');YosoMark(forms['shutuba'],0);">
+<option selected="selected" value="0">…</option>
+<option value="1">◎</option>
+<option value="2">○</option>
+<option value="3">▲</option>
+<option value="4">△</option>
+<option value="5">☆</option>
+<option value="6">消</option>
+</select>
+</td>
+<td>△</td><td>△</td><td>　</td>
+<td class="txt_l">
+<span class="h_name"><a href="http://db.netkeiba.com/horse/2010101775/" target="_blank">レッドアリオン</a></span><br>
+<span class="txt_smaller">
+アグネスタキオン<br>
+エリモピクシー<br>
+(ダンシングブレーヴ)<br>
+</span>
+栗東･橋口<br>
+<span class="kyakushitu"></span>
+<strong class="weight">474 (-4)</strong>
+</td>
+<td class="txt_l">牡6/鹿<br>
+56<br>
+<a href="http://db.netkeiba.com/jockey/00666/" target="_blank">武豊</a></td>
+<td class=" txt_c">
+25.4<br>
+(7人気)
+
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.08.14&nbsp;新潟<br>
+<span class="order">12</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201604020611/">関屋記念</a></span><span class="race_grade">G3</span><br>
+芝1600&nbsp;1:32.6&nbsp;良<br>
+</div>
+<span class="race_data">18頭10番9人&nbsp;内田博幸58.0</span><br>
+<span class="race_corner">1-1&nbsp;(35.5)</span>&nbsp;&nbsp;<span class="race_weight">478(-6)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2012104685/">ヤングマンパワー</a>(0.8)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201604020611" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.06.05&nbsp;東京<br>
+<span class="order">10</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201605030211/">安田記念</a></span><span class="race_grade">G1</span><br>
+芝1600&nbsp;1:33.8&nbsp;良<br>
+</div>
+<span class="race_data">12頭12番12人&nbsp;川須栄彦58.0</span><br>
+<span class="race_corner">10-11&nbsp;(33.9)</span>&nbsp;&nbsp;<span class="race_weight">484(-6)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2010103783/">ロゴタイプ</a>(0.8)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201605030211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.04.24&nbsp;京都<br>
+<span class="order">14</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201608030211/">マイラーズ</a></span><span class="race_grade">G2</span><br>
+芝1600&nbsp;1:34.5&nbsp;良<br>
+</div>
+<span class="race_data">15頭11番7人&nbsp;川須栄彦57.0</span><br>
+<span class="race_corner">3-3&nbsp;(36.4)</span>&nbsp;&nbsp;<span class="race_weight">490(+6)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2012104508/">クルーガー</a>(1.9)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201608030211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.02.21&nbsp;小倉<br>
+<span class="order">7</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201610010411/">小倉大賞典</a></span><span class="race_grade">G3</span><br>
+芝1800&nbsp;1:47.1&nbsp;良<br>
+</div>
+<span class="race_data">16頭5番8人&nbsp;川須栄彦58.0</span><br>
+<span class="race_corner">7-5-2-1&nbsp;(35.7)</span>&nbsp;&nbsp;<span class="race_weight">484(-2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2012104069/">アルバートドック</a>(0.4)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201610010411" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+15.12.12&nbsp;阪神<br>
+<span class="order">10</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201509050311/">チャレンジ</a></span><span class="race_grade">G3</span><br>
+芝1800&nbsp;1:47.1&nbsp;良<br>
+</div>
+<span class="race_data">18頭13番9人&nbsp;岩田康誠58.0</span><br>
+<span class="race_corner">8-8&nbsp;(35.5)</span>&nbsp;&nbsp;<span class="race_weight">486(-2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2010104134/">フルーキー</a>(1.0)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201509050311" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+</tr><tr>
+<td class="waku5"><span>5</span></td>
+<td class="umaban">6</td>
+<td>
+<select name="7" id="7" onchange="RegMyMark(7,'6');YosoMark(forms['shutuba'],0);">
+<option selected="selected" value="0">…</option>
+<option value="1">◎</option>
+<option value="2">○</option>
+<option value="3">▲</option>
+<option value="4">△</option>
+<option value="5">☆</option>
+<option value="6">消</option>
+</select>
+</td>
+<td>△</td><td>☆</td><td>　</td>
+<td class="txt_l">
+<span class="h_name"><a href="http://db.netkeiba.com/horse/2010104042/" target="_blank">ウリウリ</a></span><br>
+<span class="txt_smaller">
+ディープインパクト<br>
+ウィキウィキ<br>
+(フレンチデピュティ)<br>
+</span>
+栗東･藤原英<br>
+<span class="kyakushitu"></span>
+<strong class="weight">468 (+4)</strong>
+</td>
+<td class="txt_l">牝6/青<br>
+54<br>
+<a href="http://db.netkeiba.com/jockey/05212/" target="_blank">Ｍデムーロ</a></td>
+<td class=" txt_c">
+8.1<br>
+(4人気)
+
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.05.15&nbsp;東京<br>
+<span class="order">13</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201605020811/">ヴィクトリ</a></span><span class="race_grade">G1</span><br>
+芝1600&nbsp;1:33.3&nbsp;良<br>
+</div>
+<span class="race_data">18頭4番13人&nbsp;三浦皇成55.0</span><br>
+<span class="race_corner">9-8&nbsp;(35.3)</span>&nbsp;&nbsp;<span class="race_weight">464(-4)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2009100301/">ストレイトガール</a>(1.8)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201605020811" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.03.27&nbsp;中京<br>
+<span class="order">9</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201607020611/">高松宮記念</a></span><span class="race_grade">G1</span><br>
+芝1200&nbsp;1:07.4&nbsp;良<br>
+</div>
+<span class="race_data">18頭12番4人&nbsp;戸崎圭太55.0</span><br>
+<span class="race_corner">8-10&nbsp;(33.7)</span>&nbsp;&nbsp;<span class="race_weight">468(-6)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011103328/">ビッグアーサー</a>(0.7)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201607020611" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.02.20&nbsp;京都<br>
+<span class="order">5</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201608020711/">京都牝馬Ｓ</a></span><span class="race_grade">G3</span><br>
+芝1400&nbsp;1:23.4&nbsp;重<br>
+</div>
+<span class="race_data">18頭2番2人&nbsp;岩田康誠57.0</span><br>
+<span class="race_corner">5-3&nbsp;(36.0)</span>&nbsp;&nbsp;<span class="race_weight">474(-2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2012104105/">クイーンズリング</a>(0.5)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201608020711" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+15.12.26&nbsp;阪神<br>
+<span class="order">5</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201509050711/">阪神C</a></span><span class="race_grade">G2</span><br>
+芝1400&nbsp;1:21.9&nbsp;稍<br>
+</div>
+<span class="race_data">17頭5番2人&nbsp;岩田康誠55.0</span><br>
+<span class="race_corner">13-14&nbsp;(34.4)</span>&nbsp;&nbsp;<span class="race_weight">476(+10)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011104295/">ロサギガンティア</a>(0.5)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201509050711" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+15.10.04&nbsp;中山<br>
+<span class="order">5</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201506040911/">スプリンタ</a></span><span class="race_grade">G1</span><br>
+芝1200&nbsp;1:08.3&nbsp;良<br>
+</div>
+<span class="race_data">15頭12番3人&nbsp;岩田康誠55.0</span><br>
+<span class="race_corner">11-9&nbsp;(33.1)</span>&nbsp;&nbsp;<span class="race_weight">466(+2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2009100301/">ストレイトガール</a>(0.2)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201506040911" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+</tr><tr>
+<td class="waku5"><span>5</span></td>
+<td class="umaban">7</td>
+<td>
+<select name="3" id="3" onchange="RegMyMark(3,'7');YosoMark(forms['shutuba'],0);">
+<option selected="selected" value="0">…</option>
+<option value="1">◎</option>
+<option value="2">○</option>
+<option value="3">▲</option>
+<option value="4">△</option>
+<option value="5">☆</option>
+<option value="6">消</option>
+</select>
+</td>
+<td>　</td><td>　</td><td>△</td>
+<td class="txt_l">
+<span class="h_name"><a href="http://db.netkeiba.com/horse/2010100690/" target="_blank">ティーハーフ</a></span><br>
+<span class="txt_smaller">
+ストーミングホーム<br>
+ビールジャント<br>
+(Green Desert)<br>
+</span>
+栗東･西浦<br>
+<span class="kyakushitu"></span>
+<strong class="weight">464 (+6)</strong>
+</td>
+<td class="txt_l">牡6/栗<br>
+56<br>
+<a href="http://db.netkeiba.com/jockey/01116/" target="_blank">藤岡康</a></td>
+<td class=" txt_c">
+61.5<br>
+(10人気)
+
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.06.19&nbsp;函館<br>
+<span class="order">12</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201602010211/">函館ＳＳ</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:08.5&nbsp;良<br>
+</div>
+<span class="race_data">16頭12番4人&nbsp;池添謙一56.0</span><br>
+<span class="race_corner">13-11&nbsp;(34.1)</span>&nbsp;&nbsp;<span class="race_weight">458(-6)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2013105357/">ソルヴェイグ</a>(0.7)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201602010211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.05.29&nbsp;京都<br>
+<span class="order">6</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201608031210/">安土城Ｓ</a></span><span class="race_grade">OP</span><br>
+芝1400&nbsp;1:21.6&nbsp;良<br>
+</div>
+<span class="race_data">18頭18番5人&nbsp;幸英明57.0</span><br>
+<span class="race_corner">18-18&nbsp;(33.2)</span>&nbsp;&nbsp;<span class="race_weight">464(+4)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011104231/">ミッキーラブソング</a>(0.4)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201608031210" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.03.27&nbsp;中京<br>
+<span class="order">6</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201607020611/">高松宮記念</a></span><span class="race_grade">G1</span><br>
+芝1200&nbsp;1:07.3&nbsp;良<br>
+</div>
+<span class="race_data">18頭9番14人&nbsp;池添謙一57.0</span><br>
+<span class="race_corner">17-12&nbsp;(33.3)</span>&nbsp;&nbsp;<span class="race_weight">460(-6)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011103328/">ビッグアーサー</a>(0.6)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201607020611" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.02.28&nbsp;阪神<br>
+<span class="order">13</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201609010211/">阪急杯</a></span><span class="race_grade">G3</span><br>
+芝1400&nbsp;1:20.9&nbsp;良<br>
+</div>
+<span class="race_data">18頭6番10人&nbsp;池添謙一56.0</span><br>
+<span class="race_corner">17-14&nbsp;(34.5)</span>&nbsp;&nbsp;<span class="race_weight">466(+2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011103916/">ミッキーアイル</a>(1.0)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201609010211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+15.10.31&nbsp;京都<br>
+<span class="order">13</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201508040811/">毎日スワン</a></span><span class="race_grade">G2</span><br>
+芝1400&nbsp;1:21.4&nbsp;良<br>
+</div>
+<span class="race_data">15頭15番8人&nbsp;国分優作56.0</span><br>
+<span class="race_corner">8-7&nbsp;(34.7)</span>&nbsp;&nbsp;<span class="race_weight">464(+10)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2012110102/">アルビアーノ</a>(1.2)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201508040811" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+</tr><tr>
+<td class="waku6"><span>6</span></td>
+<td class="umaban">8</td>
+<td>
+<select name="9" id="9" onchange="RegMyMark(9,'8');YosoMark(forms['shutuba'],0);">
+<option selected="selected" value="0">…</option>
+<option value="1">◎</option>
+<option value="2">○</option>
+<option value="3">▲</option>
+<option value="4">△</option>
+<option value="5">☆</option>
+<option value="6">消</option>
+</select>
+</td>
+<td>　</td><td>　</td><td>　</td>
+<td class="txt_l">
+<span class="h_name"><a href="http://db.netkeiba.com/horse/2010104985/" target="_blank">アットウィル</a></span><br>
+<span class="txt_smaller">
+アドマイヤムーン<br>
+アフレタータ<br>
+(タイキシャトル)<br>
+</span>
+栗東･高橋忠<br>
+<span class="kyakushitu"></span>
+<strong class="weight">496 (-2)</strong>
+</td>
+<td class="txt_l">牡6/栗<br>
+56<br>
+<a href="http://db.netkeiba.com/jockey/01015/" target="_blank">古川</a></td>
+<td class=" txt_c">
+36.4<br>
+(8人気)
+
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.07.31&nbsp;新潟<br>
+<span class="order">4</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201604020211/">アイビスＳ</a></span><span class="race_grade">G3</span><br>
+芝1000&nbsp;0:54.6&nbsp;良<br>
+</div>
+<span class="race_data">13頭11番4人&nbsp;蛯名正義56.0</span><br>
+<span class="race_corner">&nbsp;(31.8)</span>&nbsp;&nbsp;<span class="race_weight">498(+2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011101395/">ベルカント</a>(0.5)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201604020211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.07.17&nbsp;福島<br>
+<span class="order">4</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201603020611/">バーデンＢ</a></span><span class="race_grade">OP</span><br>
+芝1200&nbsp;1:08.5&nbsp;良<br>
+</div>
+<span class="race_data">13頭13番1人&nbsp;蛯名正義54.0</span><br>
+<span class="race_corner">2-2&nbsp;(34.4)</span>&nbsp;&nbsp;<span class="race_weight">496(-2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011104950/">オウノミチ</a>(0.2)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201603020611" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no01 txt_l" width="121">
+<div class="inner">
+16.04.23&nbsp;京都<br>
+<span class="order">1</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201608030111/">彦根Ｓ</a></span><span class="race_grade">１６００下</span><br>
+芝1200&nbsp;1:08.0&nbsp;良<br>
+</div>
+<span class="race_data">18頭13番3人&nbsp;古川吉洋57.0</span><br>
+<span class="race_corner">5-3&nbsp;(33.8)</span>&nbsp;&nbsp;<span class="race_weight">498(-2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011103620/">スナッチマインド</a>(0.0)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201608030111" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no02 txt_l" width="121">
+<div class="inner">
+16.03.27&nbsp;阪神<br>
+<span class="order">2</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201609020210/">淀屋橋Ｓ</a></span><span class="race_grade">１６００下</span><br>
+芝1200&nbsp;1:08.4&nbsp;良<br>
+</div>
+<span class="race_data">14頭9番1人&nbsp;川田将雅57.0</span><br>
+<span class="race_corner">7-7&nbsp;(33.9)</span>&nbsp;&nbsp;<span class="race_weight">500(-2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2012101936/">マルヨバクシン</a>(0.0)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201609020210" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no03 txt_l" width="121">
+<div class="inner">
+16.01.17&nbsp;中京<br>
+<span class="order">3</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201607010211/">長篠Ｓ</a></span><span class="race_grade">１６００下</span><br>
+芝1200&nbsp;1:08.1&nbsp;良<br>
+</div>
+<span class="race_data">13頭4番1人&nbsp;幸英明57.0</span><br>
+<span class="race_corner">1-1&nbsp;(34.2)</span>&nbsp;&nbsp;<span class="race_weight">502(+4)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2010102102/">シンデレラボーイ</a>(0.1)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201607010211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+</tr><tr>
+<td class="waku6"><span>6</span></td>
+<td class="umaban">9</td>
+<td>
+<select name="5" id="5" onchange="RegMyMark(5,'9');YosoMark(forms['shutuba'],0);">
+<option selected="selected" value="0">…</option>
+<option value="1">◎</option>
+<option value="2">○</option>
+<option value="3">▲</option>
+<option value="4">△</option>
+<option value="5">☆</option>
+<option value="6">消</option>
+</select>
+</td>
+<td>　</td><td>　</td><td>　</td>
+<td class="txt_l">
+<span class="h_name"><a href="http://db.netkeiba.com/horse/2010102111/" target="_blank">メイショウライナー</a></span><br>
+<span class="txt_smaller">
+キングヘイロー<br>
+ナナヨーティアラ<br>
+(マイネルラヴ)<br>
+</span>
+栗東･高橋忠<br>
+<span class="kyakushitu"></span>
+<strong class="weight">470 (-6)</strong>
+</td>
+<td class="txt_l">牡6/鹿<br>
+56<br>
+<a href="http://db.netkeiba.com/jockey/01126/" target="_blank">松山</a></td>
+<td class=" txt_c">
+245.0<br>
+(13人気)
+
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.08.21&nbsp;小倉<br>
+<span class="order">7</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201610020811/">北九州記念</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:09.1&nbsp;良<br>
+</div>
+<span class="race_data">12頭6番9人&nbsp;バルジュ54.0</span><br>
+<span class="race_corner">10-11&nbsp;(34.9)</span>&nbsp;&nbsp;<span class="race_weight">476(0)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2009106056/">バクシンテイオー</a>(0.6)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201610020811" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.07.03&nbsp;中京<br>
+<span class="order">12</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201607030211/">ＣＢＣ賞</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:08.0&nbsp;良<br>
+</div>
+<span class="race_data">13頭4番9人&nbsp;秋山真一54.0</span><br>
+<span class="race_corner">7-6&nbsp;(33.7)</span>&nbsp;&nbsp;<span class="race_weight">476(0)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011104416/">レッドファルクス</a>(0.8)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201607030211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no03 txt_l" width="121">
+<div class="inner">
+16.05.08&nbsp;京都<br>
+<span class="order">3</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201608030611/">鞍馬Ｓ</a></span><span class="race_grade">OP</span><br>
+芝1200&nbsp;1:07.8&nbsp;良<br>
+</div>
+<span class="race_data">18頭5番5人&nbsp;秋山真一54.0</span><br>
+<span class="race_corner">7-7&nbsp;(33.6)</span>&nbsp;&nbsp;<span class="race_weight">476(-4)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2012101184/">セカンドテーブル</a>(0.3)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201608030611" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+15.12.26&nbsp;阪神<br>
+<span class="order">13</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201509050711/">阪神C</a></span><span class="race_grade">G2</span><br>
+芝1400&nbsp;1:22.5&nbsp;稍<br>
+</div>
+<span class="race_data">17頭9番15人&nbsp;幸英明57.0</span><br>
+<span class="race_corner">7-8&nbsp;(35.4)</span>&nbsp;&nbsp;<span class="race_weight">480(+2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011104295/">ロサギガンティア</a>(1.1)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201509050711" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+15.12.12&nbsp;中山<br>
+<span class="order">6</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201506050311/">ラピスラズ</a></span><span class="race_grade">OP</span><br>
+芝1200&nbsp;1:08.3&nbsp;良<br>
+</div>
+<span class="race_data">14頭9番5人&nbsp;田辺裕信56.0</span><br>
+<span class="race_corner">12-12&nbsp;(33.5)</span>&nbsp;&nbsp;<span class="race_weight">478(+2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011103722/">ネロ</a>(0.4)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201506050311" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+</tr><tr>
+<td class="waku7"><span>7</span></td>
+<td class="umaban">10</td>
+<td>
+<select name="13" id="13" onchange="RegMyMark(13,'10');YosoMark(forms['shutuba'],0);">
+<option selected="selected" value="0">…</option>
+<option value="1">◎</option>
+<option value="2">○</option>
+<option value="3">▲</option>
+<option value="4">△</option>
+<option value="5">☆</option>
+<option value="6">消</option>
+</select>
+</td>
+<td>○</td><td>▲</td><td>　</td>
+<td class="txt_l">
+<span class="h_name"><a href="http://db.netkeiba.com/horse/2011103722/" target="_blank">ネロ</a></span><br>
+<span class="txt_smaller">
+ヨハネスブルグ<br>
+ニシノタカラヅカ<br>
+(サンデーサイレンス)<br>
+</span>
+栗東･森<br>
+<span class="kyakushitu"></span>
+<strong class="weight">464 (+4)</strong>
+</td>
+<td class="txt_l">牡5/栗<br>
+56<br>
+<a href="http://db.netkeiba.com/jockey/00422/" target="_blank">内田博</a></td>
+<td class=" class='odds_02' txt_c">
+4.8<br>
+(2人気)
+
+</td>
+
+<td class="td_no02 txt_l" width="121">
+<div class="inner">
+16.07.31&nbsp;新潟<br>
+<span class="order">2</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201604020211/">アイビスＳ</a></span><span class="race_grade">G3</span><br>
+芝1000&nbsp;0:54.1&nbsp;良<br>
+</div>
+<span class="race_data">13頭13番2人&nbsp;内田博幸56.0</span><br>
+<span class="race_corner">&nbsp;(31.9)</span>&nbsp;&nbsp;<span class="race_weight">460(-6)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011101395/">ベルカント</a>(0.0)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201604020211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no02 txt_l" width="121">
+<div class="inner">
+16.05.22&nbsp;新潟<br>
+<span class="order">2</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201604010811/">韋駄天Ｓ</a></span><span class="race_grade">OP</span><br>
+芝1000&nbsp;0:54.6&nbsp;良<br>
+</div>
+<span class="race_data">16頭13番1人&nbsp;内田博幸57.5</span><br>
+<span class="race_corner">&nbsp;(32.4)</span>&nbsp;&nbsp;<span class="race_weight">466(-2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2010105140/">プリンセスムーン</a>(0.2)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201604010811" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.03.05&nbsp;中山<br>
+<span class="order">4</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201606020311/">オーシャン</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:08.0&nbsp;良<br>
+</div>
+<span class="race_data">16頭3番2人&nbsp;三浦皇成56.0</span><br>
+<span class="race_corner">2-2&nbsp;(35.1)</span>&nbsp;&nbsp;<span class="race_weight">468(-8)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011110099/">エイシンブルズアイ</a>(0.5)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201606020311" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.01.31&nbsp;京都<br>
+<span class="order">9</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201608020211/">シルクロー</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:08.8&nbsp;稍<br>
+</div>
+<span class="race_data">16頭15番3人&nbsp;内田博幸57.0</span><br>
+<span class="race_corner">4-3&nbsp;(34.3)</span>&nbsp;&nbsp;<span class="race_weight">476(+6)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2010103303/">ダンスディレクター</a>(0.9)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201608020211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no01 txt_l" width="121">
+<div class="inner">
+15.12.12&nbsp;中山<br>
+<span class="order">1</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201506050311/">ラピスラズ</a></span><span class="race_grade">OP</span><br>
+芝1200&nbsp;1:07.9&nbsp;良<br>
+</div>
+<span class="race_data">14頭3番1人&nbsp;戸崎圭太57.0</span><br>
+<span class="race_corner">2-2&nbsp;(34.5)</span>&nbsp;&nbsp;<span class="race_weight">470(-4)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2010105904/">ワキノブレイブ</a>(-0.2)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201506050311" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+</tr><tr>
+<td class="waku7"><span>7</span></td>
+<td class="umaban">11</td>
+<td>
+<select name="8" id="8" onchange="RegMyMark(8,'11');YosoMark(forms['shutuba'],0);">
+<option selected="selected" value="0">…</option>
+<option value="1">◎</option>
+<option value="2">○</option>
+<option value="3">▲</option>
+<option value="4">△</option>
+<option value="5">☆</option>
+<option value="6">消</option>
+</select>
+</td>
+<td>　</td><td>　</td><td>　</td>
+<td class="txt_l">
+<span class="h_name"><a href="http://db.netkeiba.com/horse/2010104858/" target="_blank">ラヴァーズポイント</a></span><br>
+<span class="txt_smaller">
+マイネルラヴ<br>
+ハートフルシフォン<br>
+(タマモクロス)<br>
+</span>
+栗東･高橋康<br>
+<span class="kyakushitu"></span>
+<strong class="weight">514 (+8)</strong>
+</td>
+<td class="txt_l">牝6/青鹿<br>
+54<br>
+<a href="http://db.netkeiba.com/jockey/01128/" target="_blank">川須</a></td>
+<td class=" txt_c">
+53.5<br>
+(9人気)
+
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.08.21&nbsp;小倉<br>
+<span class="order">11</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201610020811/">北九州記念</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:09.6&nbsp;良<br>
+</div>
+<span class="race_data">12頭13番2人&nbsp;松若風馬51.0</span><br>
+<span class="race_corner">1-2&nbsp;(36.0)</span>&nbsp;&nbsp;<span class="race_weight">506(0)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2009106056/">バクシンテイオー</a>(1.1)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201610020811" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no02 txt_l" width="121">
+<div class="inner">
+16.07.03&nbsp;中京<br>
+<span class="order">2</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201607030211/">ＣＢＣ賞</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:07.2&nbsp;良<br>
+</div>
+<span class="race_data">13頭7番7人&nbsp;松若風馬50.0</span><br>
+<span class="race_corner">2-2&nbsp;(33.3)</span>&nbsp;&nbsp;<span class="race_weight">506(-6)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011104416/">レッドファルクス</a>(0.0)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201607030211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.06.18&nbsp;阪神<br>
+<span class="order">6</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201609030510/">水無月Ｓ</a></span><span class="race_grade">１６００下</span><br>
+芝1200&nbsp;1:08.9&nbsp;良<br>
+</div>
+<span class="race_data">7頭2番1人&nbsp;Ｍ．デム55.0</span><br>
+<span class="race_corner">2-1&nbsp;(35.0)</span>&nbsp;&nbsp;<span class="race_weight">512(+2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011105200/">コスモドーム</a>(0.6)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201609030510" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no03 txt_l" width="121">
+<div class="inner">
+16.05.28&nbsp;京都<br>
+<span class="order">3</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201608031111/">朱雀Ｓ</a></span><span class="race_grade">１６００下</span><br>
+芝1400&nbsp;1:21.1&nbsp;良<br>
+</div>
+<span class="race_data">18頭5番6人&nbsp;川須栄彦55.0</span><br>
+<span class="race_corner">3-3&nbsp;(34.1)</span>&nbsp;&nbsp;<span class="race_weight">510(+2)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2010105135/">エーシンマイェスタ</a>(0.2)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201608031111" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no02 txt_l" width="121">
+<div class="inner">
+15.12.12&nbsp;阪神<br>
+<span class="order">2</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201509050310/">六甲アイラ</a></span><span class="race_grade">１６００下</span><br>
+芝1400&nbsp;1:22.0&nbsp;良<br>
+</div>
+<span class="race_data">10頭8番6人&nbsp;アッゼニ55.0</span><br>
+<span class="race_corner">2-2&nbsp;(34.7)</span>&nbsp;&nbsp;<span class="race_weight">508(0)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011105236/">マイネルアウラート</a>(0.4)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201509050310" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+</tr><tr>
+<td class="waku8"><span>8</span></td>
+<td class="umaban">12</td>
+<td>
+<select name="11" id="11" onchange="RegMyMark(11,'12');YosoMark(forms['shutuba'],0);">
+<option selected="selected" value="0">…</option>
+<option value="1">◎</option>
+<option value="2">○</option>
+<option value="3">▲</option>
+<option value="4">△</option>
+<option value="5">☆</option>
+<option value="6">消</option>
+</select>
+</td>
+<td>　</td><td>　</td><td>　</td>
+<td class="txt_l">
+<span class="h_name"><a href="http://db.netkeiba.com/horse/2010110064/" target="_blank">マイネルエテルネル</a></span><br>
+<span class="txt_smaller">
+Tamayuz<br>
+For Evva Silca<br>
+(Piccolo)<br>
+</span>
+栗東･西園<br>
+<span class="kyakushitu"></span>
+<strong class="weight">496 (+8)</strong>
+</td>
+<td class="txt_l">牡6/栗<br>
+56<br>
+<a href="http://db.netkeiba.com/jockey/01018/" target="_blank">和田</a></td>
+<td class=" txt_c">
+226.9<br>
+(12人気)
+
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.08.21&nbsp;小倉<br>
+<span class="order">9</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201610020811/">北九州記念</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:09.3&nbsp;良<br>
+</div>
+<span class="race_data">12頭7番10人&nbsp;和田竜二54.0</span><br>
+<span class="race_corner">5-6&nbsp;(35.4)</span>&nbsp;&nbsp;<span class="race_weight">488(-6)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2009106056/">バクシンテイオー</a>(0.8)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201610020811" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.07.31&nbsp;新潟<br>
+<span class="order">9</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201604020211/">アイビスＳ</a></span><span class="race_grade">G3</span><br>
+芝1000&nbsp;0:55.0&nbsp;良<br>
+</div>
+<span class="race_data">13頭5番9人&nbsp;柴田大知56.0</span><br>
+<span class="race_corner">&nbsp;(31.9)</span>&nbsp;&nbsp;<span class="race_weight">494(-6)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011101395/">ベルカント</a>(0.9)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201604020211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.02.28&nbsp;阪神<br>
+<span class="order">18</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201609010211/">阪急杯</a></span><span class="race_grade">G3</span><br>
+芝1400&nbsp;1:21.7&nbsp;良<br>
+</div>
+<span class="race_data">18頭16番12人&nbsp;フォーリ56.0</span><br>
+<span class="race_corner">9-9&nbsp;(35.8)</span>&nbsp;&nbsp;<span class="race_weight">500(-6)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011103916/">ミッキーアイル</a>(1.8)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201609010211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.01.09&nbsp;京都<br>
+<span class="order">5</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201608010211/">淀短距離Ｓ</a></span><span class="race_grade">OP</span><br>
+芝1200&nbsp;1:08.2&nbsp;良<br>
+</div>
+<span class="race_data">10頭2番5人&nbsp;和田竜二56.0</span><br>
+<span class="race_corner">2-3&nbsp;(33.5)</span>&nbsp;&nbsp;<span class="race_weight">506(+4)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011104682/">ローレルベローチェ</a>(0.4)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201608010211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no03 txt_l" width="121">
+<div class="inner">
+15.12.06&nbsp;阪神<br>
+<span class="order">3</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201509050211/">タンザナイ</a></span><span class="race_grade">OP</span><br>
+芝1400&nbsp;1:20.9&nbsp;良<br>
+</div>
+<span class="race_data">16頭1番10人&nbsp;菱田裕二54.0</span><br>
+<span class="race_corner">8-7&nbsp;(34.0)</span>&nbsp;&nbsp;<span class="race_weight">502(+4)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2009103182/">テイエムタイホー</a>(0.2)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201509050211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+</tr><tr>
+<td class="waku8"><span>8</span></td>
+<td class="umaban">13</td>
+<td>
+<select name="1" id="1" onchange="RegMyMark(1,'13');YosoMark(forms['shutuba'],0);">
+<option selected="selected" value="0">…</option>
+<option value="1">◎</option>
+<option value="2">○</option>
+<option value="3">▲</option>
+<option value="4">△</option>
+<option value="5">☆</option>
+<option value="6">消</option>
+</select>
+</td>
+<td>△</td><td>△</td><td>◎</td>
+<td class="txt_l">
+<span class="h_name"><a href="http://db.netkeiba.com/horse/2008104268/" target="_blank">スノードラゴン</a></span><br>
+<span class="txt_smaller">
+アドマイヤコジーン<br>
+マイネカプリース<br>
+(タヤスツヨシ)<br>
+</span>
+美浦･高木<br>
+<span class="kyakushitu"></span>
+<strong class="weight">508 (-4)</strong>
+</td>
+<td class="txt_l">牡8/芦<br>
+57<br>
+<a href="http://db.netkeiba.com/jockey/01088/" target="_blank">川田</a></td>
+<td class=" txt_c">
+19.0<br>
+(6人気)
+
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.07.03&nbsp;中京<br>
+<span class="order">6</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201607030211/">ＣＢＣ賞</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:07.6&nbsp;良<br>
+</div>
+<span class="race_data">13頭3番5人&nbsp;大野拓弥58.5</span><br>
+<span class="race_corner">10-10&nbsp;(33.0)</span>&nbsp;&nbsp;<span class="race_weight">512(-10)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011104416/">レッドファルクス</a>(0.4)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201607030211" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no03 txt_l" width="121">
+<div class="inner">
+16.06.09&nbsp;門別<br>
+<span class="order">3</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201630060911/">北海道スプ</a></span><span class="race_grade">G3</span><br>
+ダ1200&nbsp;1:10.7&nbsp;不<br>
+</div>
+<span class="race_data">13頭5番3人&nbsp;大野拓弥59.0</span><br>
+<span class="race_corner">5-6&nbsp;(35.8)</span>&nbsp;&nbsp;<span class="race_weight">522(+13)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2010110102/">ダノンレジェンド</a>(0.8)</span><br>
+
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.05.03&nbsp;名古屋<br>
+<span class="order">5</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201648050311/">かきつばた</a></span><span class="race_grade">G3</span><br>
+ダ1400&nbsp;1:28.6&nbsp;良<br>
+</div>
+<span class="race_data">10頭4番5人&nbsp;大野拓弥59.0</span><br>
+<span class="race_corner">3-5-5&nbsp;(38.9)</span>&nbsp;&nbsp;<span class="race_weight">509(-1)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2012102452/">ノボバカラ</a>(1.6)</span><br>
+
+</div>
+</td>
+
+<td class="txt_l" width="121">
+<div class="inner">
+16.03.27&nbsp;中京<br>
+<span class="order">7</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201607020611/">高松宮記念</a></span><span class="race_grade">G1</span><br>
+芝1200&nbsp;1:07.3&nbsp;良<br>
+</div>
+<span class="race_data">18頭5番6人&nbsp;大野拓弥57.0</span><br>
+<span class="race_corner">8-7&nbsp;(33.7)</span>&nbsp;&nbsp;<span class="race_weight">510(-6)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011103328/">ビッグアーサー</a>(0.6)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201607020611" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+<td class="td_no03 txt_l" width="121">
+<div class="inner">
+16.03.05&nbsp;中山<br>
+<span class="order">3</span>
+<div class="racebox">
+<span class="race_name"><a href="http://db.netkeiba.com/race/201606020311/">オーシャン</a></span><span class="race_grade">G3</span><br>
+芝1200&nbsp;1:07.9&nbsp;良<br>
+</div>
+<span class="race_data">16頭7番8人&nbsp;大野拓弥57.0</span><br>
+<span class="race_corner">12-12&nbsp;(34.2)</span>&nbsp;&nbsp;<span class="race_weight">516(+10)</span><br>
+<span class="h_name_01"><a href="http://db.netkeiba.com/horse/2011110099/">エイシンブルズアイ</a>(0.4)</span><br>
+<a href="http://db.netkeiba.com/?pid=movie&amp;id=201606020311" title="レース映像" class="movielink"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_movie_01.gif" alt="レース映像"></a>
+</div>
+</td>
+
+</tr>
+</tbody></table>
+<div id="function_text">
+<p>
+※特別登録段階からご自分の印(◎○▲△☆消)を入力することができます(自動保存)。ご利用には<a href="https://account.netkeiba.com/?pid=login">netkeiba無料会員へのご登録</a>が必要です。<br>
+※特別登録段階での騎手名は、参考情報として前走騎乗騎手を掲載しています。<br>
+※過去成績　上から日付、競馬場、レース名、着順、頭数、馬番、人気、距離、走破タイム、勝ち馬（自身が1着の場合は2着馬）、着差（自身が1着の場合は2着馬との着差）<br>
+※戦績欄の色付けは黄色が1着、青が2着、赤が3着を表しています。
+</p>
+<p></p>
+</div>
+<input name="id" value="c201609040211" type="hidden">
+</form>
+
+<div class="premium_info_text_block">
+<p>※ <img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/icon_premium.gif" class="inline_img"> がついているサービスは<a href="http://www.netkeiba.com/premium/guide.html">月額コース</a>にご登録いただきますとご利用いただけます。
+</p>
+</div><!-- /.premium_info_text_block" -->
+<style>
+.goods_view_title,
+.YosoGensenList *{
+margin:0;
+padding:0;
+font-size:100%;
+vertical-align:baseline;
+line-height:1.0em;
+text-shadow:none;
+-webkit-box-sizing: border-box;/* Safari,Google Chrome用 */
+-moz-box-sizing: border-box;/* Firefox用 */
+-ms-box-sizing: border-box;/* Internet Explorer 8用 */
+box-sizing: border-box;
+-webkit-text-size-adjust:none !important;
+font-family:"ヒラギノ角ゴ ProN W3",'ヒラギノ角ゴ Pro W3', arial, "Hiragino Kaku Gothic ProN", "Meiryo", "メイリオ", sans-serif;
+}
+#goods_view {
+margin-bottom: 18px;
+}
+</style>
+<div class="goods_view_title" style="font-size:18px; font-weight: bold; position: relative; top: 12px; top: 30px; left: 20px;">このレースの厳選予想</div>
+<div id="goods_view">
+
+
+<div class="YosoGensenList">
+
+<!--  <form id="goods_list_form">-->
+<div class="GensenYoso">
+<div class="YosoListHeader">
+
+
+
+<div class="SortFunction">
+<div class="SortCheck">
+<!--
+<label>
+<input type="checkbox" class="Sort_CheckBox">
+<span class="Sort_CheckLabel">購入済みを先頭に表示</span>
+</label>
+-->
+</div><!-- /.SortCheck -->
+
+</div><!-- /.SortFunction -->
+</div><!-- /.YosoListHeader -->
+<div class="GensenYosoList">
+<ul>
+<li class="Flag_Pickup Hit Selectable" id="goods_state_147672">
+<input name="prop_147672" id="prop_147672" value="70" type="hidden">
+<input name="race_state_147672" id="race_state_147672" value="9" type="hidden">
+<div class="StateArea">
+
+
+<!-- 購入済みの場合の的中アイコン -->
+<span id="state_hit_147672" class="Icon_Sprite_Yoso Icon_State IconState2" style="display: block;"></span>
+
+</div><!-- /.StateArea -->
+<div class="Inner">
+<div class="Yosoka">
+
+
+<div class="Profile fc">
+<img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/yoso_image_002.jpg">
+<p class="Name">生駒永観</p>
+<a href="http://yosov3.netkeiba.com/?pid=yosoka_profile&amp;id=70" class="LinkText">この予想家の詳細を見る</a>
+</div>
+<div class="Detail">
+<p class="Type"><span><strong></strong>売れ筋No.7 / 回収率TOP11</span></p>
+<dl>
+<dt class="Today"><span class="Icon_Sprite_Yoso Icon_Gensen IconGensen01"></span>本日の成績：</dt>
+<dd class="TodayHit"><span>24R中5R的中</span></dd>
+<dd class="RecoveryRate">回収率<span>72.64%</span></dd>
+</dl>
+</div>
+</div>
+<div class="ResultArea fc">
+<div class="Point">
+<div class="PointTitle"><span class="Icon_Sprite_Yoso Icon_Gensen IconGensen03"></span>予想のポイント</div>
+<p class="Txt">例年は続戦組が有利、今年は？...</p>
+</div>
+<div class="HitResult"><!--<div class="HitResult">-->
+<div id="baken_147672"><div class="DummyBaken">
+<div class="LeftSection">
+<div>
+<span class="Year">2016年</span>
+<span class="Jyo">阪神</span>
+</div>
+<span class="Num">11</span>
+</div>
+<div class="CenterSection">
+<span class="Type">単<br>勝</span>
+</div>
+<div class="RightSection">
+<p><span>◎</span>ビッグアーサー</p>
+</div>
+</div>
+</div>
+<div class="Detail">
+
+<div class="Balance">
+<dl>
+<dt><span class="Icon_Sprite_Yoso Icon_Gensen IconGensen05"></span>収支</dt>
+<dd class="">11,000円</dd>
+</dl>
+</div>
+<table>
+<tbody><tr>
+<th class="Item">購入金額</th>
+<th>:</th>
+<td class="Money">10,000円</td>
+</tr>
+<tr>
+
+<th class="Item">払い戻し</th>
+<th>:</th>
+<td class="Money">21,000円</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div><!-- /.ResultArea -->
+</div><!-- /.Inner -->
+<div class="BtnArea">
+
+<button style="display: block;" id="show_147672" class="StateBtn State2">
+<span class="Txt">予想を見る</span>
+</button>
+<button style="display:none;" id="have_147672" class="StateBtn State3">
+<span class="Point">購入済み</span>
+<span class="Txt">予想を見る</span>
+</button>
+
+</div>
+</li><li class=" Hit Selectable" id="goods_state_147704">
+<input name="prop_147704" id="prop_147704" value="64" type="hidden">
+<input name="race_state_147704" id="race_state_147704" value="9" type="hidden">
+<div class="StateArea">
+
+
+<!-- 購入済みの場合の的中アイコン -->
+<span id="state_hit_147704" class="Icon_Sprite_Yoso Icon_State IconState2" style="display: block;"></span>
+
+</div><!-- /.StateArea -->
+<div class="Inner">
+<div class="Yosoka">
+
+
+<div class="Profile fc">
+<img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/yoso_image_003.jpg">
+<p class="Name">夏目耕四郎</p>
+<a href="http://yosov3.netkeiba.com/?pid=yosoka_profile&amp;id=64" class="LinkText">この予想家の詳細を見る</a>
+</div>
+<div class="Detail">
+<p class="Type"><span><strong></strong>売れ筋No.10 / 回収率TOP4</span></p>
+<dl>
+<dt class="Today"><span class="Icon_Sprite_Yoso Icon_Gensen IconGensen01"></span>本日の成績：</dt>
+<dd class="TodayHit"><span>3R中2R的中</span></dd>
+<dd class="RecoveryRate">回収率<span>115.87%</span></dd>
+</dl>
+</div>
+</div>
+<div class="ResultArea fc">
+<div class="Point">
+<div class="PointTitle"><span class="Icon_Sprite_Yoso Icon_Gensen IconGensen03"></span>予想のポイント</div>
+<p class="Txt">例年、傾向がハッキリとしている...</p>
+</div>
+<div class="HitResult"><!--<div class="HitResult">-->
+<div id="baken_147704"><div class="DummyBaken">
+<div class="LeftSection">
+<div>
+<span class="Year">2016年</span>
+<span class="Jyo">阪神</span>
+</div>
+<span class="Num">11</span>
+</div>
+<div class="CenterSection">
+<span class="Type">馬<br>連</span>
+</div>
+<div class="RightSection">
+<p><span>◎</span>ネロ</p><p><span>◯</span>スノードラゴン</p><p><span>▲</span>ビッグアーサー</p><p><span>△</span>エイシンブルズアイ</p>
+</div>
+</div>
+</div>
+<div class="Detail">
+
+<div class="Balance">
+<dl>
+<dt><span class="Icon_Sprite_Yoso Icon_Gensen IconGensen05"></span>収支</dt>
+<dd class="">2,860円</dd>
+</dl>
+</div>
+<table>
+<tbody><tr>
+<th class="Item">購入金額</th>
+<th>:</th>
+<td class="Money">4,000円</td>
+</tr>
+<tr>
+
+<th class="Item">払い戻し</th>
+<th>:</th>
+<td class="Money">6,860円</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div><!-- /.ResultArea -->
+</div><!-- /.Inner -->
+<div class="BtnArea">
+
+<button style="display: block;" id="show_147704" class="StateBtn State2">
+<span class="Txt">予想を見る</span>
+</button>
+<button style="display:none;" id="have_147704" class="StateBtn State3">
+<span class="Point">購入済み</span>
+<span class="Txt">予想を見る</span>
+</button>
+
+</div>
+</li><li class=" Hit Selectable" id="goods_state_147722">
+<input name="prop_147722" id="prop_147722" value="57" type="hidden">
+<input name="race_state_147722" id="race_state_147722" value="9" type="hidden">
+<div class="StateArea">
+
+
+<!-- 購入済みの場合の的中アイコン -->
+<span id="state_hit_147722" class="Icon_Sprite_Yoso Icon_State IconState2" style="display: block;"></span>
+
+</div><!-- /.StateArea -->
+<div class="Inner">
+<div class="Yosoka">
+
+
+<div class="Profile fc">
+<img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/yoso_image.jpg">
+<p class="Name">野村明</p>
+<a href="http://yosov3.netkeiba.com/?pid=yosoka_profile&amp;id=57" class="LinkText">この予想家の詳細を見る</a>
+</div>
+<div class="Detail">
+<p class="Type"><span><strong></strong>売れ筋No.33 / 回収率TOP25</span></p>
+<dl>
+<dt class="Today"><span class="Icon_Sprite_Yoso Icon_Gensen IconGensen01"></span>本日の成績：</dt>
+<dd class="TodayHit"><span>2R中1R的中</span></dd>
+<dd class="RecoveryRate">回収率<span>41.63%</span></dd>
+</dl>
+</div>
+</div>
+<div class="ResultArea fc">
+<div class="Point">
+<div class="PointTitle"><span class="Icon_Sprite_Yoso Icon_Gensen IconGensen03"></span>予想のポイント</div>
+<p class="Txt">本番はスプリンターズS...</p>
+</div>
+<div class="HitResult"><!--<div class="HitResult">-->
+<div id="baken_147722"><div class="DummyBaken">
+<div class="LeftSection">
+<div>
+<span class="Year">2016年</span>
+<span class="Jyo">阪神</span>
+</div>
+<span class="Num">11</span>
+</div>
+<div class="CenterSection">
+<span class="Type">単<br>勝</span>
+</div>
+<div class="RightSection">
+<p><span>◎</span>ネロ</p><p><span>◯</span>ビッグアーサー</p><p><span>▲</span>ダンスディレクター</p><p><span>△</span>ウリウリ</p>
+</div>
+</div>
+</div>
+<div class="Detail">
+
+<div class="Balance">
+<dl>
+<dt><span class="Icon_Sprite_Yoso Icon_Gensen IconGensen05"></span>収支</dt>
+<dd class="Negative">-840円</dd>
+</dl>
+</div>
+<table>
+<tbody><tr>
+<th class="Item">購入金額</th>
+<th>:</th>
+<td class="Money">5,000円</td>
+</tr>
+<tr>
+
+<th class="Item">払い戻し</th>
+<th>:</th>
+<td class="Money">4,160円</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div><!-- /.ResultArea -->
+</div><!-- /.Inner -->
+<div class="BtnArea">
+
+<button style="display: block;" id="show_147722" class="StateBtn State2">
+<span class="Txt">予想を見る</span>
+</button>
+<button style="display:none;" id="have_147722" class="StateBtn State3">
+<span class="Point">購入済み</span>
+<span class="Txt">予想を見る</span>
+</button>
+
+</div>
+</li>
+</ul>
+</div><!-- /.GensenYosoList -->
+<div class="GensenMoreBtnWrap"><a href="http://yoso.netkeiba.com/?pid=race_yoso_list&amp;race_id=201609040211" class="GensenMoreBtn">もっと見る</a></div>
+
+</div><!-- /.GensenYoso -->
+<!--  </form>-->
+</div><!-- /.Yoso_GensenList -->
+<span id="js_data"><!-- not delete --></span>
+</div>
+<link rel="stylesheet" href="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/race_yoso_list.css">
+<link rel="stylesheet" href="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/yoso_pc01.css">
+<script src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/social_cart_002.js" type="text/javascript"></script>
+<script src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/yoso.js" type="text/javascript"></script>
+<script type="text/javascript">
+// $Id: umai_goods_list.html 8180 2016-08-03 07:13:39Z matsushima $
+window.console = {};
+window.console.log = function(i){return;};
+var _show_id = 'goods_view';
+var _race_id = '201609040211';
+var _sort = '';// defualt
+var _limit = 3;
+var _more_url = 'http://yoso.netkeiba.com/' + '?pid=race_yoso_list&race_id=201609040211';// もっと見るの先
+var _api_url = 'http://yoso.netkeiba.com/';
+$(function(){
+ShowGoodsListByRace(_show_id, _race_id, _sort, _limit, _more_url, _api_url);
+});
+</script>
+
+
+</div><!-- / #race_main -->
+<div id="main">
+
+<div id="YDN3"></div>
+
+<script language="JavaScript" type="text/javascript">noCacheParam=Math.random()*10000000000;document.write('<scr'+'ipt type="text/javascript" src="http://netdreamersad.durasite.net/A-affiliate2/mobile?site=23&keyword=new_race_footerleft&isJS=true&encoding=EUC-JP&ord=' + noCacheParam + '"></scr'+'ipt>');</script><script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/mobile.html"></script><script type="text/javascript">google_ad_client = "ca-pub-1831697743446243";google_ad_host = "ca-host-pub-1333877194161360";google_ad_host_channel = "5425807178";/* pc_netkeiba_race_footerleft_336x280 */google_ad_slot = "2861131642";google_ad_width = 336;google_ad_height = 280;google_ad_region = "netkeiba";</script><script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/show_ads.js"></script>
+
+<script language="JavaScript" type="text/javascript">noCacheParam=Math.random()*10000000000;document.write('<scr'+'ipt type="text/javascript" src="http://netdreamersad.durasite.net/A-affiliate2/mobile?site=23&keyword=new_race_footerright&isJS=true&encoding=EUC-JP&ord=' + noCacheParam + '"></scr'+'ipt>');</script><script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/mobile_005.html"></script><script type="text/javascript">google_ad_client = "ca-pub-1831697743446243";google_ad_host = "ca-host-pub-1333877194161360";google_ad_host_channel = "5425807178";/* pc_netkeiba_race_footerright_336x280 */google_ad_slot = "4337864848";google_ad_width = 336;google_ad_height = 280;google_ad_region = "netkeiba";</script><script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/show_ads.js"></script>
+
+<script language="JavaScript" type="text/javascript">noCacheParam=Math.random()*10000000000;document.write('<scr'+'ipt type="text/javascript" src="http://netdreamersad.durasite.net/A-affiliate2/mobile?site=23&keyword=spat4_race&isJS=true&encoding=EUC-JP&ord=' + noCacheParam + '"></scr'+'ipt>');</script><script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/mobile_004.html"></script>
+
+<script language="JavaScript" type="text/javascript">noCacheParam=Math.random()*10000000000;document.write('<scr'+'ipt type="text/javascript" src="http://netdreamersad.durasite.net/A-affiliate2/mobile?site=23&keyword=new_race_pic&isJS=true&encoding=EUC-JP&ord=' + noCacheParam + '"></scr'+'ipt>');</script><script type="text/javascript" src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/mobile_002.html"></script>
+</div><!-- / #main -->
+<div id="side">
+</div><!-- / #side -->
+</div><!-- / #contents -->
+<div id="footer">
+
+<ul>
+<li><a href="http://www.netkeiba.com/" title="netkeiba.com"><img src="%E3%83%AC%E3%83%BC%E3%82%B9%E6%83%85%E5%A0%B1%28JRA%29%20-%20netkeiba.com_files/logo_foot_netkeiba.png" alt="netkeiba.com" class=""></a></li>
+<li><a href="http://www.netkeiba.com/premium/?rf=ft">月額コース</a>&nbsp;｜</li>
+<li><a href="http://www.netdreamers.co.jp/company/outline/" target="_blank">会社概要</a>&nbsp;｜</li>
+<!--li><a href="http://www.netdreamers.co.jp/recruit/lp/" target="_blank">スタッフ募集</a>&nbsp;｜</li-->
+<li><a href="http://www.netkeiba.com/recruit/" target="_blank">スタッフ募集</a>&nbsp;｜</li>
+<li><a href="http://www.netkeiba.com/info/ad/" target="_blank">広告募集</a> ｜</li>
+<li><a href="http://www.netdreamers.co.jp/company/about/privacy.html" target="_blank">プライバシーポリシー</a>&nbsp;｜</li>
+<li><a href="http://www.netkeiba.com/auth/?pid=help" target="_blank">お問い合わせ・よくある質問</a>&nbsp;｜</li>
+<li><a href="http://www.netkeiba.com/info/kiyaku.html">規約</a></li>
+</ul>
+<div class="foot_txt">
+<!--copyright(c) 1999-2016 netkeiba.com No reproduction or republication without written permission-->
+(C) Net Dreamers Co., Ltd.
+<p>
+netkeiba.com、<a href="http://sp.findfriends.jp/?pid=top" style="color:#222">掲示板SNS Find(ファインド)</a>、<a href="http://sp.baseball.findfriends.jp/" style="color:#222">No.1野球情報サイト 週刊ベースボールONLINE</a>、<a href="http://sp.soccer.findfriends.jp/" style="color:#222">Jリーグ情報No.1 速報サッカーEG</a>、<a href="http://sp.golf.findfriends.jp/" style="color:#222">No.1ゴルフレッスンサイト Waggleできるゴルフ</a>、<a href="http://recipe.sp.findfriends.jp/" style="color:#222">家庭料理No.1 KATSUYOレシピは</a>、<br><a href="https://lets-ktai.jp/" style="color:#222">スマートフォンサイト作成ASP「Let'sケータイ！」</a>、<a href="https://webspiral.jp/" style="color:#222">CMSの決定版「WEB SPIRAL」</a>で制作・運用されています。<a href="https://smart.lets-ktai.jp/" style="color:#222">法人企業向けモバイルマーケティングアプリ構築サービス「SMART会員証」</a>もぜひご利用ください。
+</p>
+</div><!-- /.foot_txt -->
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-2880481-1', 'auto');
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+</script>
+</div>
+</div><!-- / #page -->
+
+<div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div></body></html>

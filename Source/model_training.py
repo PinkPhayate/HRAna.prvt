@@ -3,20 +3,30 @@ import csv
 from Simulation import pay_algo as pay
 import score_circulater as sc
 import sgd
-ALL_PARAMS = ['rank', 'frame', 'num', 'age', 'odds', 'fav', 'wght', 'qntty', 'hid', 'race_id' , 'f', 'm', 'g', 'zr', 'pl', 'mi', 'target']
+from Library import view_operation as view
+import ConfigParser
+
 ITERATION = 100
 THRESHOLD = 0.5
 RED = '\033[93m'
 GREEN = '\033[92m'
 ENDC = '\033[0m'
-
+inifile = ConfigParser.SafeConfigParser()
+inifile.read("./config.ini")
 if __name__ == '__main__':
     '''
     MODEL1
+    using data -> horse status
     train_year -> all years except eval_year
-    eval_year  -> one year
+    eval_year  -> on e year
     '''
+    # Draw home view
+    view.draw_title(version= inifile.get("env","version") )
+    print '======================================='
+    view.draw_race_title("Centaur's S")
+    print '======================================='
 
+    # get race list
     f = open('./../Resource/rid_list.csv', 'r')
     reader = csv.reader(f)
     for years in reader:
@@ -25,10 +35,12 @@ if __name__ == '__main__':
 
     # get all horse status data
     dfs = de.create_merged_df(years)
+    # print dfs
 
     # get all horse history data
-    # hid_dfs = dfs[['race_id', 'hid', 'rank']]
-    # history_dfs = de.create_history_df(hid_dfs)
+    hid_dfs = dfs[['race_id', 'hid', 'rank']]
+    history_dfs = de.create_history_df(hid_dfs)    # print history_dfs
+    # print history_dfs
 
 
 
@@ -43,8 +55,8 @@ if __name__ == '__main__':
     for race_id in years:
         print GREEN + str(race_id) + ENDC
         # circulate horse_score
-        score_df = sc.circulate_score(dfs, race_id)
-        # score_df = sc.circulate_score(history_dfs, race_id)
+        list = sc.circulate_score(history_dfs, race_id)
+        print list
         # merge dfs and score_df
         # predict iteratly
         sum_list, ta, va = sgd.predict_via_sgd(dfs,race_id)

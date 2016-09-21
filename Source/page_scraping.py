@@ -1,6 +1,10 @@
 # coding: UTF-8
 from bs4 import BeautifulSoup
 import csv, re, json, urllib2, lxml
+import pandas as pd
+RED = '\033[93m'
+GREEN = '\033[92m'
+ENDC = '\033[0m'
 
 def scrape_race_info(url, output_file):
     # read page source code
@@ -10,7 +14,7 @@ def scrape_race_info(url, output_file):
     # Extract status
     title = soup.find('h1')
     print title.text
-
+    hid_list = []
     table = soup.find(class_='race_table_01 nk_tb_common')
     for tr in table.findAll('tr',''):
         list = []
@@ -26,10 +30,12 @@ def scrape_race_info(url, output_file):
                 if "/horse/" in link.attrs['href']: # if horse instead of /horse/, cannot point at only hid
                     tmp = url.split('/')
                     list.append(tmp[2])
+                    hid_list.append(tmp[2])
 
 
         csvWriter.writerow(list)
     f.close()
+    return hid_list
 
 def scrape_res(url, output_file):
     # read page source code
@@ -59,7 +65,8 @@ def scrape_rid():
     2. scrape rid (race id)
     return -> race_id list
     '''
-    source = './../Resource/niigata_kinen'    # must get this page source by hand
+    # source = './../Resource/stayers'    # must get this page source by hand
+    source = './../Resource/race_history'    # must get this page source by hand
     soup = BeautifulSoup(open(source), "lxml")
     table = soup.find("table", attrs = {"class": "nk_tb_common race_table_01"})
     list = []
@@ -107,32 +114,30 @@ def scrape_race_odds(years):
     f.close()
 
 def scrape_horse_history(hid):
-    hid = '2011104344'
+    print hid
+    f = open('./../Data/Horse/'+ hid + '.csv', 'w')
+    csvWriter = csv.writer(f)
     url = 'http://db.netkeiba.com/horse/' + hid + '/'
+    # soup = BeautifulSoup(urllib2.urlopen(url), "html")
+    # soup = soup.encode('utf-8')
     soup = BeautifulSoup(urllib2.urlopen(url), "lxml")
+    soup.prettify(formatter=lambda s: s.replace(u'\xa0', 'None'))
+    history_df = pd.DataFrame([])
 
     table = soup.find("table", attrs = {"class": "db_h_race_results nk_tb_common"})
-    history_list = []
+    # history_df = pd.DataFrame([])
+    # tablr = table.encode('utf-8')
     for tr in table.findAll('tr'):
         list = []
+        flg = True
         for td in tr.findAll("td"):
+            word = " ".join(td.text.rsplit())
+            list.append( word.encode('utf-8') )
 
-            # get race id
-            for link in td.findAll('a'):
-                # if 'href' in link.attrs:
-                url = link.attrs['href']
-                if "race" in link.attrs['href']:
-                    tmp = url.split('/')
-                    list.append(tmp[2])
-            # get status
-            td = td.get_text(separator=' ')
-            # print td
-            list.append(td.encode('utf-8'))
+        csvWriter.writerow(list)
+    f.close()
+    # return history_df.T    # return list
 
-        if len(list) > 0:
-            history_list.append(list)
-    print history_list[0]
-    return list
 
 if __name__ == '__main__':
     # scrape_horse_history('2011104344')
@@ -142,16 +147,21 @@ if __name__ == '__main__':
     '''
     # get race id
     rids = scrape_rid()
+    hid_list = []
 
     for year in rids:
         # url -> http://db.netkeiba.com/race/201501020211/
         url = 'http://db.netkeiba.com/race/' + year + '/'
         output_file = year + '.csv'
         # scrape RACE data
-        html_doc = scrape_race_info(url, output_file)
+        old_rids = scrape_race_info(url, output_file)
+
+        for old_rid in old_rids:
+            scrape_horse_history(old_rid)
+        # hid_list.extend(list)
 
         # scrape RATE data
-        res_doc = scrape_res(url, output_file)
+        scrape_res(url, output_file)
 
     # normalize rate data
     scrape_race_odds(rids)
