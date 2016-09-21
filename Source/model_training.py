@@ -4,25 +4,26 @@ from Simulation import pay_algo as pay
 import score_circulater as sc
 import sgd
 from Library import view_operation as view
+import ConfigParser
 
 ITERATION = 100
 THRESHOLD = 0.5
 RED = '\033[93m'
 GREEN = '\033[92m'
 ENDC = '\033[0m'
-
+inifile = ConfigParser.SafeConfigParser()
+inifile.read("./config.ini")
 if __name__ == '__main__':
     '''
     MODEL1
     using data -> horse status
     train_year -> all years except eval_year
-    eval_year  -> one year
+    eval_year  -> on e year
     '''
     # Draw home view
-    view.draw_title(version='1.1.0')
+    view.draw_title(version= inifile.get("env","version") )
     print '======================================='
     view.draw_race_title("Centaur's S")
-    print RED + 'simulation mode' + ENDC
     print '======================================='
 
     # get race list
