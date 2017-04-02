@@ -7,10 +7,12 @@ def scrape_race_info(url, output_file):
     f = open('./../Data/Race/' + output_file, 'w')
     csvWriter = csv.writer(f)
     soup = BeautifulSoup(urllib.request.urlopen(url), "lxml")
+    hid_list = []
     # Extract status
     title = soup.find('h1')
     print( title.text )
-    hid_list = []
+    if '高松宮記念' not in title.text:
+        return hid_list
     table = soup.find(class_='race_table_01 nk_tb_common')
     for tr in table.findAll('tr',''):
         list = []
@@ -56,6 +58,7 @@ def scrape_res(url, output_file):
     f.close()
 
 def scrape_rid():
+    print('59')
     '''
     1. read page source
     2. scrape rid (race id)
@@ -164,19 +167,22 @@ def scrape_rid():
     return list
 
 def main():
+    # get race_id from source on locdal directory
     rids = scrape_rid()
     hid_list = []
 
     for year in rids:
-        # url -> http://db.netkeiba.com/race/201501020211/
         url = 'http://db.netkeiba.com/race/' + year + '/'
         output_file = year + '.csv'
         # scrape RACE data
+        print ('get list of hource_id: ' + year)
+        # get list of hource_id who attend the race in year(rid)
         old_rids = scrape_race_info(url, output_file)
 
+        print ('get history of house')
         for old_rid in old_rids:
+            # get history of house which attend the race in year(rid)
             scrape_horse_history(old_rid)
-        # hid_list.extend(list)
 
         # scrape RATE data
         scrape_res(url, output_file)
