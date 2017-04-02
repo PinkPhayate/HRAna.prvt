@@ -2,11 +2,12 @@ import data_extracter as de
 import csv
 from Simulation import pay_algo as pay
 import score_circulater as sc
-import sgd
+# import sgd
+import rf
 from Library import view_operation as view
 import ConfigParser
 
-ITERATION = 100
+ITERATION = 10
 THRESHOLD = 0.5
 RED = '\033[93m'
 GREEN = '\033[92m'
@@ -59,13 +60,14 @@ if __name__ == '__main__':
         print list
         # merge dfs and score_df
         # predict iteratly
-        sum_list, ta, va = sgd.predict_via_sgd(dfs,race_id)
+        sum_list, ta, va = rf.predict_via_rf(dfs,race_id)
+        print(sum_list)
         ta_sum += ta
         va_sum += va
         ta_sum_y = ta
         va_sum_y = va
         for i in range(0, ITERATION-1):
-            list, ta, va = sgd.predict_via_sgd(dfs,race_id)
+            list, ta, va = rf.predict_via_rf(dfs,race_id)
             sum_list = [x+y for (x, y) in zip(sum_list, list)]
             ta_sum += ta
             va_sum += va

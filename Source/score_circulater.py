@@ -3,14 +3,14 @@ import csv
 import score_circulater as sc
 import sgd
 import pandas as pd
-from sklearn.linear_model import SGDClassifier
-from sklearn.linear_model import SGDRegressor
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import accuracy_score
 from sklearn.utils import column_or_1d
 
 
-
-TDY_PARAMS = ['frame', 'num', 'fav', 'rank', 'fld_stts1', 'fld_stts2', 'fld_cndt1', 'fld_cndt2', 'fld_cndt3', 'fld_cndt4']
+TDY_PARAMS = ["frame", "num", "odds", "fav", "age", "f", "m", "g", 'zr', 'pl', 'mi', 'wght']
+# TDY_PARAMS = ['frame', 'num', 'fav', 'rank', 'fld_stts1', 'fld_stts2', 'fld_cndt1', 'fld_cndt2', 'fld_cndt3', 'fld_cndt4']
 ALL_PARAMS = ['frame', 'num', 'fav', 'rank', 'org_rank', 'fld_stts1', 'fld_stts2', 'fld_stts3', 'fld_cndt1', 'fld_cndt2', 'fld_cndt3', 'fld_cndt4']
 THRESHOLD = 0.5
 RED = '\033[93m'
@@ -30,16 +30,10 @@ def circulate_today_score(history_dfs, predict_df):
     X = history_dfs[TDY_PARAMS]
     y = history_dfs[['org_rank']]
 
-    clf = SGDRegressor(alpha=0.001, n_iter=100).fit(X, column_or_1d(y))
-    # training data accuracy
-    # predicts = clf.predict(X)
-    # training_accuracy = accuracy_score(history_dfs[['org_rank']], predicts.tolist())
-    # print GREEN+str(training_accuracy)+ENDC
+    model = RandomForestRegressor()
+    model.fit(X, column_or_1d(y))
 
-    # predict target data
-    eX = predict_df[TDY_PARAMS]
-
-    predicts = clf.predict(eX)
+    predicts = model.predict(eX)
 
 
     # script to circulate average
@@ -78,39 +72,18 @@ def circulate_score(history_dfs, org_rid):
     @ param race_id -> identify race number whether training/evaluate data.
     @ return -> score_df
     '''
-    # fdf = history_dfs.ix[:,0:3]
-    # bdf = history_dfs.ix[:,6:]
-    # df = pd.concat([fdf, bdf], axis=1)
-        # org_rid = "201506050111"
-        # get hid_df used training or evaluate data
     train_df = history_dfs[ history_dfs['org_rid'] != int(org_rid) ]
     evalt_df = history_dfs[ history_dfs['org_rid'] == int(org_rid) ]
 
-    # train_df = train_df.dropna(axis=0)
-    # fdf = train_df.ix[:,0:2]
-    # bdf = train_df.ix[:,5:]
-    # X = pd.concat([fdf, bdf], axis=1)
-
     X = train_df[ALL_PARAMS]
     y = train_df[['org_rank']]
-    # import re
-    # for i, row in X.iterrows():
-    #     for i in row:
-    #         try: int(i)
-    #         except: print row
-            # if not isinstance(i,int) and not isinstance(i,float):
-            #     print type(i)
-            #     print i
 
-    clf = SGDRegressor(alpha=0.001, n_iter=100).fit(X, column_or_1d(y))
-    # training data accuracy
-    predicts = clf.predict(X)
-    # training_accuracy = accuracy_score(train_df[['org_rank']], predicts.tolist())
+    model = RandomForestRegressor()
+    model.fit(X, column_or_1d(y))
 
     # predict target data
     eX = evalt_df[ALL_PARAMS]
-    predicts = clf.predict(eX)
-    # validation_accuracy = accuracy_score(evalt_df[['org_rank']], predicts.tolist())
+    predicts = model.predict(eX)
 
     # script to circulate average
     hids = evalt_df['hid']
