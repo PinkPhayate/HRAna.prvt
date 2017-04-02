@@ -11,6 +11,7 @@ def scrape_race_info(url, output_file):
     # Extract status
     title = soup.find('h1')
     print( title.text )
+    # if title.text is not correct (e.g. another race), remove
     if '高松宮記念' not in title.text:
         return hid_list
     table = soup.find(class_='race_table_01 nk_tb_common')
@@ -157,7 +158,10 @@ def scrape_rid():
             for link in td.findAll('a'):
                 # if 'href' in link.attrs:
                 url = link.attrs['href']
-                if "race" in link.attrs['href']:
+                title = link.attrs['title']
+                print(title)
+                print(url)
+                if "race" in url and '高松宮記念' in title:
                     tmp = url.split('/')
                     list.append(tmp[4])
 
