@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import pandas as pd
+import page_scraping as ps
 import re
 
 RED = '\033[93m'
@@ -10,7 +11,6 @@ ENDC = '\033[0m'
 def create_merged_df(years):
     df = pd.DataFrame([])
     for race_id in years:
-        print(race_id)
         d = pd.read_csv('./../Data/Race/' + str(race_id) + '.csv', header=None)
         d = d.ix[:,:15]
         d['race_id'] = race_id
@@ -37,16 +37,11 @@ def create_merged_df(years):
     dum = pd.get_dummies(df["gl"])
     df = pd.concat([df, dum], axis=1)
     df = df.drop("gl", axis=1)
-    print(df['rank'])
-    df_rank = df['rank'].apply(lambda x:  re.match("\d*",x).group())
-    df_rank.apply(lambda x: int(x))
-    print(df_rank)
-
 
     # classify
-    pos_df = df[int(df['rank']) < 4]
+    pos_df = df[df['rank'] < 4]
     pos_df['target'] = 1
-    neg_df = df[int(df['rank']) > 3]
+    neg_df = df[df['rank'] > 3]
     neg_df['target'] = 0
     df = pd.concat([pos_df, neg_df], axis=0)
     df.columns = ['rank', 'frame', 'num', 'age', 'odds', 'fav', 'wght', 'qntty', 'hid', 'race_id' , 'jockey', 'f', 'm', 'g', 'zr', 'pl', 'mi','target']

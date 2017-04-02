@@ -81,7 +81,8 @@ def scrape_rid():
             for link in td.findAll('a'):
                 # if 'href' in link.attrs:
                 url = link.attrs['href']
-                if "race" in link.attrs['href']:
+                title = link.attrs['title']
+                if "race" in url and u'高松宮記念' in title:
                     tmp = url.split('/')
                     list.append(tmp[4])
 
@@ -170,3 +171,4 @@ def main():
     scrape_race_odds(rids)
 
 if __name__ == '__main__':
+    main()

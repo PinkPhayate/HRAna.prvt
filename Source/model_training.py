@@ -12,7 +12,7 @@ RED = '\033[93m'
 GREEN = '\033[92m'
 ENDC = '\033[0m'
 inifile = ConfigParser.SafeConfigParser()
-inifile.read("./config.ini")
+inifile.read("../config.ini")
 if __name__ == '__main__':
     '''
     MODEL1
