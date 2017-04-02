@@ -59,7 +59,6 @@ def scrape_res(url, output_file):
     f.close()
 
 def scrape_rid():
-    print('59')
     '''
     1. read page source
     2. scrape rid (race id)
@@ -95,7 +94,8 @@ def scrape_race_odds(years):
     for year in years:
         y = str(year)
         output_file = y + '.csv'
-        f = open('./../Data/Result/res_'+ output_file, 'rb')
+        f = open( './../Data/Result/res_'+ output_file, "rt", encoding='utf-8')
+        # f = open('./../Data/Result/res_'+ output_file, 'rb')
         dataReader = csv.reader(f)
         dict = {}
         for row in dataReader:
@@ -159,8 +159,6 @@ def scrape_rid():
                 # if 'href' in link.attrs:
                 url = link.attrs['href']
                 title = link.attrs['title']
-                print(title)
-                print(url)
                 if "race" in url and '高松宮記念' in title:
                     tmp = url.split('/')
                     list.append(tmp[4])
@@ -193,5 +191,11 @@ def main():
 
     # normalize rate data
     scrape_race_odds(rids)
+
+def tmp_func():
+    rids = scrape_rid()
+    scrape_race_odds(rids)
+
 if __name__ == '__main__':
-    main()
+    # main()
+    tmp_func()
