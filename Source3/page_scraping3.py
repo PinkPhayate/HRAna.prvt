@@ -2,6 +2,8 @@ import csv, re, json, lxml
 import pandas as pd
 from bs4 import BeautifulSoup
 import urllib.request
+import requests
+
 def scrape_race_info(url, output_file):
     # read page source code
     f = open('./../Data/Race/' + output_file, 'w')
@@ -167,6 +169,18 @@ def scrape_rid():
         writer = csv.writer(f, lineterminator='\n')
         writer.writerow(list)
     return list
+
+def get_request_via_post(str):
+  # Proxy setting
+
+  proxy = {'http':'www-proxy.mse.waseda.ac.jp:8080'}
+
+  # URL and the data to send
+  url = 'http://db.netkeiba.com/'
+  params = urllib.parse.urlencode({'pid':'race_list', 'word':'桜花賞','x':0,'y':0})
+
+  r = requests.get(url, params=params, proxies=proxy)
+  text = r.text
 
 def main():
     # get race_id from source on locdal directory
