@@ -170,17 +170,39 @@ def scrape_rid():
         writer.writerow(list)
     return list
 
-def get_request_via_post(str):
-  # Proxy setting
+def get_request_via_post(word):
+    # POSTで送信するデータをURLエンコードする
+    url = 'http://db.netkeiba.com/'
+    post_data = {'pid':'race_list', 'word':word,'x':0,'y':0}
+    encoded_post_data = urllib.parse.urlencode(post_data).encode(encoding='eucjp')
 
-  proxy = {'http':'www-proxy.mse.waseda.ac.jp:8080'}
+    page_text = ""
+    # urlopenのdata引数を指定するとHTTP/POSTを送信できる
+    with urllib.request.urlopen(url=url, data=encoded_post_data) as page:
+       # WebページのURLを取得する
+       print(page.geturl())
+       # infoメソッドは取得したページのメタデータを返す
+       print(page.info())
+       # readlinesでWebページを取得する
+       for line in page.readlines():
+               page_text += line.decode('euc-jp', 'ignore')
 
-  # URL and the data to send
-  url = 'http://db.netkeiba.com/'
-  params = urllib.parse.urlencode({'pid':'race_list', 'word':'桜花賞','x':0,'y':0})
+       return page_text
 
-  r = requests.get(url, params=params, proxies=proxy)
-  text = r.text
+def scrape_race_id():
+    word = u'桜花賞'
+    source = get_request_via_post(word)
+    soup = BeautifulSoup(source, "lxml")
+    table = soup.find(class_='nk_tb_common race_table_01')
+    for tr in table.findAll('tr',''):
+        list = []
+        for td in tr.findAll('td',''):
+            # get house status
+            word = " ".join(td.text.rsplit())
+            list.append( word.encode('utf-8') )
+    print(list)
+
+
 
 def main():
     # get race_id from source on locdal directory
