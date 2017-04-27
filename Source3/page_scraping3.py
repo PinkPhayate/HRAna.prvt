@@ -20,7 +20,8 @@ def scrape_race_info(url, output_file):
         for td in tr.findAll('td',''):
             # get house status
             word = " ".join(td.text.rsplit())
-            list.append( word.encode('utf-8') )
+            # list.append( word.encode('utf-8') )
+            list.append( word )
 
             # get hid
             for link in td.findAll('a'):
@@ -192,10 +193,6 @@ def main():
     # normalize rate data
     scrape_race_odds(rids)
 
-def tmp_func():
-    rids = scrape_rid()
-    scrape_race_odds(rids)
 
 if __name__ == '__main__':
-    # main()
-    tmp_func()
+    main()
