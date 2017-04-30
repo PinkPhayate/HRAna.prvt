@@ -14,6 +14,7 @@ GREEN = '\033[92m'
 ENDC = '\033[0m'
 inifile = ConfigParser.SafeConfigParser()
 inifile.read("../config.ini")
+DB_DIR = inifile.get("env","db_dir")
 if __name__ == '__main__':
     '''
     MODEL1
@@ -28,7 +29,7 @@ if __name__ == '__main__':
     print '======================================='
 
     # get race list
-    f = open('./../Resource/rid_list.csv', 'r')
+    f = open(DB_DIR + 'race_id_list.csv', 'r')
     reader = csv.reader(f)
     for years in reader:
         pass
@@ -40,7 +41,7 @@ if __name__ == '__main__':
 
     # get all horse history data
     hid_dfs = dfs[['race_id', 'hid', 'rank']]
-    history_dfs = de.create_history_df(hid_dfs)    # print history_dfs
+    # history_dfs = de.create_history_df(hid_dfs)    # print history_dfs
     # print history_dfs
 
 
@@ -56,8 +57,8 @@ if __name__ == '__main__':
     for race_id in years:
         print GREEN + str(race_id) + ENDC
         # circulate horse_score
-        list = sc.circulate_score(history_dfs, race_id)
-        print list
+        # list = sc.circulate_score(history_dfs, race_id)
+        # print list
         # merge dfs and score_df
         # predict iteratly
         sum_list, ta, va = rf.predict_via_rf(dfs,race_id)

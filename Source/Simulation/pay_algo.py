@@ -3,10 +3,16 @@ import pandas as pd
 import csv,re,json,itertools
 import datetime
 import locale
+import ConfigParser
+
 THRESHOLD = 0.5
 RED = '\033[93m'
 GREEN = '\033[92m'
 ENDC = '\033[0m'
+
+inifile = ConfigParser.SafeConfigParser()
+inifile.read("../config.ini")
+DB_DIR = inifile.get("env","db_dir")
 
 
 def collate_pred(csv_data):
@@ -67,7 +73,7 @@ def collate_pred(csv_data):
 
 
 def get_valid_comb(race_id):
-    jf = open('./../Data/odds_dict.json')
+    jf = open(DB_DIR + 'Result/odds_dict.json')
     # jf = open('./../../Data/odds_dict.json')
     data = json.load(jf, 'utf-8')
     dict = data[race_id]
