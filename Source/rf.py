@@ -1,10 +1,14 @@
 from sklearn.linear_model import SGDClassifier
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import SGDClassifier
+from sklearn import neighbors
 from sklearn.metrics import accuracy_score
 from sklearn.utils import column_or_1d
 # ALL_PARAMS = ['frame', 'num','age','odds','fav','f','m','g']
 ALL_PARAMS = ['frame', 'num', 'age', 'odds', 'fav', 'wght', 'qntty', 'f', 'm', 'g', 'zr', 'pl', 'mi']
 TDY_PARAMS = ["frame", "num", "odds", "fav", "age", "f", "m", "g", 'zr', 'pl', 'mi', 'wght']
+# TDY_PARAMS = ["frame", "num", "odds", "fav", "age"]
 ITERATION = 100
 THRESHOLD = 0.5
 RED = '\033[93m'
@@ -21,8 +25,11 @@ def predict_via_rf(dfs, race_id):
         # X = train_df[ALL_PARAMS]
         X = train_df[TDY_PARAMS]
         y = train_df[['target']]
-
-        model = RandomForestClassifier()
+        # knn = neighbors.KNeighborsClassifier()
+        # knn.fit(X,y)
+        model = SGDClassifier(class_weight='balanced')
+        # model = RandomForestRegressor()
+        # model = RandomForestClassifier(class_weight="balanced")
         model.fit(X, column_or_1d(y))
 
         # eX = evalt_df[ALL_PARAMS]
@@ -30,13 +37,13 @@ def predict_via_rf(dfs, race_id):
         # ey = evalt_df[['target']]
 
 
-        predicts = model.predict(X)
-        training_accuracy = accuracy_score(train_df[['target']], predicts.tolist())
-
+        # predicts = model.predict(X)
+        # training_accuracy = accuracy_score(y, predicts.tolist())
+        # predicts = knn.predict( eX )
         predicts = model.predict(eX)
-        validation_accuracy = accuracy_score(evalt_df[['target']], predicts.tolist())
+        # validation_accuracy = accuracy_score(ey, predicts.tolist())
 
-        return predicts.tolist(), training_accuracy, validation_accuracy
+        return predicts.tolist()
 
 def predict_today_via_sgd(dfs, predict_df):
     # print predict_df
