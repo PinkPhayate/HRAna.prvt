@@ -95,7 +95,6 @@ def create_history_df(hid_dfs):
     dum = pd.get_dummies(history_df.ix[:,5])
     history_df = pd.concat([history_df, dum], axis=1)
     # return merge informations
-    print history_df
     history_df.columns = ['frame', 'num', 'fav', 'rank', 'field','condition', 'org_rid', 'org_rank','hid', 'fld_stts1', 'fld_stts2', 'fld_stts3', 'fld_cndt1', 'fld_cndt2', 'fld_cndt3', 'fld_cndt4']
     # print history_df
     history_df = history_df.convert_objects(convert_numeric=True)
