@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import data_extracter as de
 import csv
 from Simulation import pay_algo as pay
@@ -41,8 +42,13 @@ if __name__ == '__main__':
     # get all horse history data
     hid_dfs = dfs[['race_id', 'hid', 'rank']]
     history_dfs = de.create_history_df(hid_dfs)
-    print history_dfs
     # history_dfs.to_csv('./../Log/hid_dfs.csv')
+
+    # 今回のジョッキーを取得
+    # そのジョッキーを元に過去の回数をカウント
+    #　必要なリソース: 今回のジョッキー、今回出場する馬のid
+    tmp_df = dfs[['race_id', 'hid', 'jockey']]
+    de.count_race_with(tmp_df)
 
 
 

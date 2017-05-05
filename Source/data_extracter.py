@@ -83,11 +83,34 @@ def create_history_df(hid_dfs):
         df['org_rid'] = rid
         df['org_rank'] = row[2]
         df['hid'] = hid
-        print(df)
         # merge imformations
         history_df = pd.concat([history_df, df], axis=0)
 
     return history_df
+def count_race_with(dfs):
+    """@param:
+    dfs -> df['race_id', 'hid(unique)', 'jockey']
+    """
+    for i, row in dfs.iterrows():
+        rid = row[0]
+        hid = row[1]
+        jockey = row[2]
+        df = dc.get_horse_history_df(hid=str(hid), target_race_id=int(rid))
+        print df['jockey']
+        if(len(df['jockey'])<1):
+            dfs.loc[i,'j_cnt'] = 0
+            print 'len()=0'
+        else:
+            s = df[df['jockey']==jockey]
+            print 's is...'
+            print s
+            dfs.loc[i,'j_cnt'] = len(s)
+            print 'len()='
+            print len(s)
+        return
+    print dfs
+
+
 
 def _reduce_race_info(df, target_race_id):
     _df = df[int(df['race_id']) < target_race_id]
