@@ -1,5 +1,6 @@
 import ConfigParser
 import pandas as pd
+import re
 
 inifile = ConfigParser.SafeConfigParser()
 inifile.read("../config.ini")
@@ -15,6 +16,7 @@ def get_race_ids():
 
 
 def get_horse_history_df(hid,target_race_id=None):
+    print 'horse id: ' + str(hid)
     d = pd.read_csv(DB_DIR + 'Horse/' + hid + '.csv', header=0,index_col=0)
     df = d.ix[:,:22]
     col = ['date','race','whether','R','race_name','race_id','movie','all','frame','no','odds','fav','rank','jockey','hande','dart','law','distance','fs1','fs2','fs3','fs4']
@@ -28,7 +30,13 @@ def get_horse_history_df(hid,target_race_id=None):
 
 
 def _reduce_race_info(df, target_race_id):
-    print(df)
-    tmp_df = df['race_id'].apply(lambda x: int(x))
-    _df = df[ tmp_df < target_race_id]
+    """ @param target_race_id: integer type
+        @param df['race_id'] : integer type(numpy)
+    """
+    # convert date of 'race_id' once
+    tmp_s = df['race_id'].apply(lambda x: str(x))
+    # extract df which is contained integer only
+    df = df[ tmp_s.str.contains(r'^\d+$')]
+    # extract only race, before target race
+    _df = df[ df['race_id'] < target_race_id]
     return _df
