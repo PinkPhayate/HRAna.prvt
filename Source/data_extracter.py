@@ -73,16 +73,22 @@ def create_history_df(hid_dfs):
     # get all horse id
     # read file from Data/Horse
     for i, row in hid_dfs.iterrows():
+        rid = row[0]
+        hid = row[1]
         # get imformation about each hourse
-        df = dc.get_horse_history_df(str(row[1]))
-        # d = pd.read_csv(DB_DIR + 'Horse/' + str(row[1]) + '.csv', header=None)
-        # df = d.ix[:,[7,8,10,11,14,15]]
+        # ['date','race','whether','race_name','all','frame','no','odds','fav','rank','jockey','hande','dart','law','distance']
+        df = dc.get_horse_history_df(hid=str(hid), target_race_id=int(rid))
 
         # add origin_rid, and rank
-        df['org_rid'] = row[0]
+        df['org_rid'] = rid
         df['org_rank'] = row[2]
-        df['hid'] = row[1]
+        df['hid'] = hid
+        print(df)
         # merge imformations
         history_df = pd.concat([history_df, df], axis=0)
 
     return history_df
+
+def _reduce_race_info(df, target_race_id):
+    _df = df[int(df['race_id']) < target_race_id]
+    return _df

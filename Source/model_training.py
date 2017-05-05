@@ -28,7 +28,7 @@ if __name__ == '__main__':
     view.draw_race_title("Centaur's S")
     print '======================================='
 
-    # get race list
+    # get race list -> years
     f = open(DB_DIR + 'race_id_list.csv', 'r')
     reader = csv.reader(f)
     for years in reader:
@@ -37,12 +37,13 @@ if __name__ == '__main__':
 
     # get all horse status data
     dfs = de.create_merged_df(years)
-    # print dfs
 
     # get all horse history data
     hid_dfs = dfs[['race_id', 'hid', 'rank']]
-    # history_dfs = de.create_history_df(hid_dfs)    # print history_dfs
-    # print history_dfs
+    history_dfs = de.create_history_df(hid_dfs)
+    print history_dfs
+    # history_dfs.to_csv('./../Log/hid_dfs.csv')
+
 
 
 
@@ -54,6 +55,8 @@ if __name__ == '__main__':
     ta_sum = 0
     va_sum = 0
 
+    years = years[:5]
+
     for race_id in years:
         print GREEN + str(race_id) + ENDC
         # circulate horse_score
@@ -61,23 +64,25 @@ if __name__ == '__main__':
         # print list
         # merge dfs and score_df
         # predict iteratly
-        sum_list, ta, va = rf.predict_via_rf(dfs,race_id)
-        print(sum_list)
-        ta_sum += ta
-        va_sum += va
-        ta_sum_y = ta
-        va_sum_y = va
+        sum_list = rf.predict_via_rf(dfs,race_id)
+        # ta_sum += ta
+        # va_sum += va
+        # ta_sum_y = ta
+        # va_sum_y = va
         for i in range(0, ITERATION-1):
-            list, ta, va = rf.predict_via_rf(dfs,race_id)
+            list = rf.predict_via_rf(dfs,race_id)
+            print list
             sum_list = [x+y for (x, y) in zip(sum_list, list)]
-            ta_sum += ta
-            va_sum += va
-            ta_sum_y += ta
-            va_sum_y += va
+            #
+            # ta_sum += ta
+            # va_sum += va
+            # ta_sum_y += ta
+            # va_sum_y += va
         # circulate average
         list = map(lambda x: float(x) / ITERATION, sum_list)
-        print 'training accuracy =' + str( float(ta_sum_y) / ITERATION )
-        print 'validation accuracy =' + str( float(va_sum_y) / ITERATION )
+        print list
+        # print 'training accuracy =' + str( float(ta_sum_y) / ITERATION )
+        # print 'validation accuracy =' + str( float(va_sum_y) / ITERATION )
 
         # save probability
         pay_list = [race_id,]

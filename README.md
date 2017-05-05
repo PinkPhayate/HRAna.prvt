@@ -60,4 +60,22 @@ I'm trying to analyze race data bia SVM.
   + 増減  [zr, pl, mi]
   + オッズ odds
   + 人気  fav
-  
+
+##   過去のレースから取得している情報
+
+  + 日付  date
+  + 開催  race
+  + 天気  whether
+  + レース名  race_name
+  + レースid    race_id
+  + all 出走数
+  + frame 枠
+  + no  馬番
+  + odds  オッズ
+  + fav 人気
+  + rank  順位
+  + jockey  ジョッキー
+  + hande ハンデ
+  + dart  ダート
+  + law 芝
+  + distance  距離

@@ -35,6 +35,7 @@ def collate_pred(csv_data):
 
         s = pd.Series(row)
         num, odds = get_valid_comb(str(int(s[0])))    # s[0] -> race_id
+        print(num, odds)
 
         res = s[1:].astype(float)
         res = res[res > THRESHOLD]
@@ -73,10 +74,17 @@ def collate_pred(csv_data):
 
 
 def get_valid_comb(race_id):
+
+# with open(DB_DIR + 'Result/odds_dict.json', 'r') as f:
+#     data = json.loads(f.read(),'utf-8')
+# for key in data.keys():
+#     for k in data[key].keys():
+#         print k
     jf = open(DB_DIR + 'Result/odds_dict.json')
     # jf = open('./../../Data/odds_dict.json')
-    data = json.load(jf, 'utf-8')
+    data = json.load(jf, 'utf8')
     dict = data[race_id]
+    # print
     # d = dict[u'単勝']
     num = []
     odds = []
@@ -93,6 +101,7 @@ def get_valid_comb(race_id):
     return num, odds
 
 if __name__ == '__main__':
-    f = open('./../../Result/sgd_default_prob.csv', 'r')
-    csv_data = csv.reader(f)
-    collate_pred(csv_data)
+    # f = open('./../../Result/sgd_default_prob.csv', 'r')
+    # csv_data = csv.reader(f)
+    # collate_pred(csv_data)
+    get_valid_comb('201605020611')
