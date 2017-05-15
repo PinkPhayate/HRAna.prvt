@@ -12,6 +12,7 @@ rids = [201602010211,201606040811]
 # モデル作成のためのデータフレーム作成
 df = pd.DataFrame([])
 for rid in rids:
+    #TODO: 各レースのデータフレームを取得するところを非同期にする
     r = race.Race(rid, mysql_conn)
     df = pd.concat([df, r.df], axis=1)
 print df

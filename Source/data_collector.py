@@ -24,11 +24,11 @@ def get_horse_history_df(hid,target_race_id=None):
     col = ['date','race','whether','race_name','race_id','all','frame','no','odds','fav','rank','jockey','hande','dart','law','distance']
     df = df[col]
     if target_race_id is not None:
-        df = _reduce_race_info(df, target_race_id)
+        df = _reduce_past_race(df, target_race_id)
     return df
 
 
-def _reduce_race_info(df, target_race_id):
+def _reduce_past_race(df, target_race_id):
     """ @param target_race_id: integer type
         @param df['race_id'] : integer type(numpy)
     """

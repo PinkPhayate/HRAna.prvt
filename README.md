@@ -62,7 +62,6 @@ I'm trying to analyze race data bia SVM.
   + 人気  fav
 
 ##   過去のレースから取得している情報
-
   + 日付  date
   + 開催  race
   + 天気  whether
@@ -76,6 +75,6 @@ I'm trying to analyze race data bia SVM.
   + rank  順位
   + jockey  ジョッキー
   + hande ハンデ
-  + dart  ダート
-  + law 芝
+  + course コース(芝、ダート)
+  + course_status  馬場の状態
   + distance  距離

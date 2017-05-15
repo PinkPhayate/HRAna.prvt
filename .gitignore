@@ -1,3 +1,4 @@
 Data/
 Log/
 race-history_files/
+*.pyc
