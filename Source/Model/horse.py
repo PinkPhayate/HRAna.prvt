@@ -2,7 +2,6 @@
 class Horse (object):
     def __init__(self, hid, rid, mysql_conn):
         # @param rid: 出場したレースのid
-        # 1レースにつきhorseクラス一つ
         self.rid = rid
         self.hid = hid
         self.mysql_conn = mysql_conn
