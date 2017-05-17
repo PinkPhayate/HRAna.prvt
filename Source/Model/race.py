@@ -7,9 +7,15 @@ class Race(object):
         self.df = pd.DataFrame([])
         self.rid = int(rid)
         self._get_df(mysql_conn=mysql_conn)
+        self._get_hids(self.df['hids'])
 
-    def get_hids(self, hids):
-        self.hids = hids
+    def _get_hids(self, hids):
+        self._hids = hids
+
+    def put_hids(self):
+        return self._hids
+
+
 
     # def get_df(self, df):
     #     self.df = df

@@ -5,7 +5,7 @@ COLUMNS = ['uid','date','whether','race','race_name1','race_id1','all','frame','
 
 
 
-# もっとスマートな表現があるはず・・・
+# TODO: もっとスマートな表現があるはず・・・
 def _to_list(res):
     df = pd.DataFrame([])
     for r in res:
@@ -28,9 +28,11 @@ def beautify_data(res):
 
 def _to_dummy(df):
     dmy1 = _convert_course_status2dummy(df['course'])
-    dmy2 = _add_columns_ft(df['course_status'])
-    df = pd.concat([df, dmy1, dmy2],axis=1)s
-
+    df = df.drop('course', axis=1)
+    dmy2 = pd.get_dummies(df['course_status'])
+    dmy2 = _add_columns_ft(dmy2)
+    df = df.drop('course_status', axis=1)
+    df = pd.concat([df, dmy1, dmy2],axis=1)
     return df
 
 #  convert field status
@@ -39,7 +41,7 @@ def _convert_course_status2dummy(d):
     dmy = pd.get_dummies(d)
     k = len(FIELD_LIST)-len(dmy.columns)
     for i in range(k):
-        dmy = add_columns_fs(dmy)
+        dmy = _add_columns_fs(dmy)
     return dmy
 
 def _add_columns_fs(dmy):
