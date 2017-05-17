@@ -1,9 +1,15 @@
+# -*- coding: utf-8 -*-
 class Horse (object):
     def __init__(self, hid, rid, mysql_conn):
-        # @param hid: 出場したレースのid
+        # @param rid: 出場したレースのid
+        # 1レースにつきhorseクラス一つ
         self.rid = rid
         self.hid = hid
         self.mysql_conn = mysql_conn
+
+    # レース当日のコンディションを取得
+    def get_today_params()
+        list = get_todat_list(self.hid)
 
     # 同じジョッキーが過去に何回騎乗したかを返すメソッド
     def get_times_same_jockey(self, jocker)

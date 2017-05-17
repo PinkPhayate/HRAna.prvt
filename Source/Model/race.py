@@ -1,4 +1,6 @@
+# -*- coding: utf-8 -*-
 import pandas as pd
+import data_exchanger as de
 
 class Race(object):
     def __init__(self, rid, mysql_conn):
@@ -17,4 +19,4 @@ class Race(object):
 
     def _get_df(self, mysql_conn):
         res = mysql_conn.select_data_by_rid(self.rid)
-        self.df = pd.DataFrame([res])
+        self.df = de.beautify_data(res)

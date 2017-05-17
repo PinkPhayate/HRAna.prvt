@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 import MySQLdb
 import re
 import json
+
 class MYSQL_connector(object):
     def __init__(self):
         self.try_to_connect()
@@ -26,7 +28,7 @@ class MYSQL_connector(object):
             sql = ("""SELECT * FROM history where race_id = %s""" % rid)
             self.cursor.execute(sql)
             res = self.cursor.fetchall()
-            return res[0]
+            return res
         except:
             print('cannot execute query')
             self.try_to_connect()
@@ -46,6 +48,6 @@ class MYSQL_connector(object):
         sql = ("""SELECT * FROM history where horse_id = %s and jocker = %s""" % (hid, jocker))
         return self._execute_query(self, sql)
 
-    def get_times_same_field(self, course):
+    def get_times_same_field(self, hid, course):
         sql = ("""SELECT * FROM history where horse_id = %s and course = %s""" % (hid, course))
         return self._execute_query(self, sql)
