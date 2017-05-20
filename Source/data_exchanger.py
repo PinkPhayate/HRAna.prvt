@@ -19,10 +19,12 @@ def _add_columns(tmp_df):
     return tmp_df
 
 
+# DBから取得した結果をデータベースで扱えるよ
 def beautify_data(res):
     tmp_df = _to_list(res)
     tmp_df = _add_columns(tmp_df)
     tmp_df = _to_dummy(tmp_df)
+    tmp_df = tmp_df.reset_index( drop = True )
     return tmp_df
 
 
@@ -74,6 +76,11 @@ def _validate_course(e):
     else :
         print (' ==========unexpected field status==========: ' + e)
         return '4'
+
+# DBに保管されているString型のデータを整数に直す
+def convert_data_to_int( strDate ):
+    strDate = strDate.replace('/','')
+    return int(strDate)
 
 # @FOR TEST
 # filename = './../DATA/Horse/2012103129.csv'

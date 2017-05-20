@@ -46,21 +46,24 @@ class MYSQL_connector(object):
             self.try_to_connect()
 
     def _execute_query_with_2params(self, query, args):
-        self.cursor.execute(query, args)
-        res = self.cursor.fetchall()
-        print 'response: '+str(res)
-        return res
+        try:
+            self.cursor.execute(query, args)
+            return self.cursor.fetchall()
+        except:
+            print('cannot execute query')
+            print(sql)
+            self.try_to_connect()
 
 
     def get_times_same_jockey(self, hid, jockey):
         args = (hid,jockey)
         sql = ("""SELECT * FROM %s where hid = %%s and jockey = %%s""" % ('history',))
         res = self._execute_query_with_2params(sql,args)
-        # res = self._execute_query(self, sql)
-        print len(res)
         return len(res)
         # return self._execute_query(self, sql)
 
-    def get_times_same_field(self, hid, course):
-        sql = ("""SELECT * FROM history where hid = %s and course = %s""" % (hid, course))
-        return self._execute_query(self, sql)
+    def get_times_same_field(self, hid, course_status):
+        args = (hid,course_status)
+        sql = ("""SELECT * FROM %s where hid = %%s and jockey = %%s""" % ('history',))
+        res = self._execute_query_with_2params(sql,args)
+        return len(res)
