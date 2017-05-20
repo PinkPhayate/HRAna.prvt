@@ -8,6 +8,8 @@ class Race(object):
         self.df = pd.DataFrame([])
         self.rid = int(rid)
         self._get_df_from_db(mysql_conn=mysql_conn)
+        self.course = None
+        self.course_status = None
 
 
     def get_hids(self):
@@ -16,7 +18,7 @@ class Race(object):
     def get_df(self):
         return self.df
 
-    def _update_df(df):
+    def _update_df(self, df):
         self.df = pd.merge(self.df,df, on='hid')
 
 
@@ -26,16 +28,21 @@ class Race(object):
         self.df = de.beautify_data(res)
         self._hids = self.df['hid']
 
-    def investigate_race_info():
+    def investigate_race_info(self):
         self._get_race_date()
         self._get_race_course()
         self._get_race_course_status()
 
-    def _get_race_date():
+    def put_race_info(self, date, course, course_status):
+        self.date = date
+        self.course = course
+        self.course_status = course_status
+
+    def _get_race_date(self):
         race_date = self.df.ix[0,'date']
         self.date = de.convert_data_to_int(race_date)
 
-    def _get_race_course():
+    def _get_race_course(self):
         course = self.df.ix[0,'course']
         # TODO:   もしsutoring型であれば消していいけど。。。
         if type(course)==str:
@@ -43,11 +50,11 @@ class Race(object):
         else:
             print 'course is not string, type is : ' + str(type(course))
 
-    def _get_race_course_status():
+    def _get_race_course_status(self):
         course_status = self.df.ix[0,'course_status']
         # TODO:   もしsutoring型であれば消していいけど。。。
         if type(course_status)==str:
-            self.course = course_status
+            self.course_status = course_status
         else:
             print 'course_status is not string, type is : ' + str(type(course_status))
 
@@ -57,8 +64,11 @@ class Race(object):
             horse_sr = self.df[ self.df['hid']==hid ]
             h = horse.Horse(hid, self.rid, mysql_conn)
             sr = pd.DataFrame([])
-            sr['jockey_time'] = h.get_times_same_jockey(horse_sr['course'])
-            sr['field_time'] = h.get_times_same_field(self.course)
+            sr['jockey_time'] = h.get_times_same_jockey(horse_sr['jockey'])
+            if self.course is not None:
+                sr['course_time'] = h.get_times_same_field(self.course)
+            if self.course_status is not None:
+                sr['course_status_time'] = h.get_times_same_field(self.course_status)
             sr['hid'] = hid
             df = pd.concat([df, sr], axis=1)
         self._update_df(df)
