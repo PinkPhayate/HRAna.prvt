@@ -59,11 +59,11 @@ class MYSQL_connector(object):
         args = (hid,jockey)
         sql = ("""SELECT * FROM %s where hid = %%s and jockey = %%s""" % ('history',))
         res = self._execute_query_with_2params(sql,args)
-        return len(res)
+        return res
         # return self._execute_query(self, sql)
 
     def get_times_same_field(self, hid, course_status):
         args = (hid,course_status)
-        sql = ("""SELECT * FROM %s where hid = %%s and jockey = %%s""" % ('history',))
+        sql = ("""SELECT * FROM %s where hid = %%s and course_status = %%s""" % ('history',))
         res = self._execute_query_with_2params(sql,args)
-        return len(res)
+        return res

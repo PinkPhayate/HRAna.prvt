@@ -24,6 +24,8 @@ for rid in rids:
     #TODO: 各レースのデータフレームを取得するところを非同期にする
     #レースの結果、出走した馬あたりの情報はinitで取得しておく
     r = race.Race(rid, mysql_conn)
+    # TODO: もし、まだ結果のわからないデータを予測するなら、このメソッドで取得する情報は手入力しないといけない
+    r.investigate_race_info()
     # 各馬の情報を随時足して行く
     r.add_extention_info(mysql_conn=mysql_conn)
     race_models.append(r)

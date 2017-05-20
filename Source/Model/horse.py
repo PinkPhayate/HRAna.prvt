@@ -13,14 +13,14 @@ class Horse (object):
     # 同じジョッキーが過去に何回騎乗したかを返すメソッド
     def get_times_same_jockey(self, jocker):
         times = self.mysql_conn.get_times_same_jockey(self.hid, jocker)
-        print times
-        return times
+        print len(timess)
+        return len(timess)
 
     # その競馬場で過去にどのくらいのレースをしたか
     def get_times_same_field(self, field_name):
-        times = self.mysql_conn.get_times_same_jockey(self.hid, field_name)
-        print times
-        return times
+        times = self.mysql_conn.get_times_same_field(self.hid, field_name)
+        print len(timess)
+        return len(timess)
 
     # 過去のレース記録(df)
     # def get_history_records()

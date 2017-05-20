@@ -6,7 +6,7 @@ COLUMNS = ['uid','date','whether','race','race_name1','race_id1','all','frame','
 
 
 # TODO: もっとスマートな表現があるはず・・・
-def _to_list(res):
+def _to_df(res):
     df = pd.DataFrame([])
     for r in res:
         tmp = pd.DataFrame([r])
@@ -21,9 +21,9 @@ def _add_columns(tmp_df):
 
 # DBから取得した結果をデータベースで扱えるよ
 def beautify_data(res):
-    tmp_df = _to_list(res)
+    tmp_df = _to_df(res)
     tmp_df = _add_columns(tmp_df)
-    tmp_df = _to_dummy(tmp_df)
+    # tmp_df = _to_dummy(tmp_df)
     tmp_df = tmp_df.reset_index( drop = True )
     return tmp_df
 
