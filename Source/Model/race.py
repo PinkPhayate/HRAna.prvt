@@ -64,11 +64,14 @@ class Race(object):
             horse_sr = self.df[ self.df['hid']==hid ]
             h = horse.Horse(hid, self.rid, mysql_conn)
             sr = pd.DataFrame([])
-            sr['jockey_time'] = h.get_times_same_jockey(horse_sr['jockey'])
+            jockey = horse_sr['jockey'].values
+            h.jockey = jockey[0]
+            sr.loc[0,'jockey_time'] = h.get_times_same_jockey(h.jockey)
             if self.course is not None:
-                sr['course_time'] = h.get_times_same_field(self.course)
+                sr.loc[0,'course_time'] = h.get_times_same_condition(self.course)
             if self.course_status is not None:
-                sr['course_status_time'] = h.get_times_same_field(self.course_status)
+                sr.loc[0,'course_status_time'] = h.get_times_same_field(self.course_status)
             sr['hid'] = hid
-            df = pd.concat([df, sr], axis=1)
+            print sr
+            df = pd.concat([df, sr])
         self._update_df(df)

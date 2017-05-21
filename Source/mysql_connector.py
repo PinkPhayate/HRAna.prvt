@@ -67,3 +67,9 @@ class MYSQL_connector(object):
         sql = ("""SELECT * FROM %s where hid = %%s and course_status = %%s""" % ('history',))
         res = self._execute_query_with_2params(sql,args)
         return res
+
+    def get_times_same_condition(self, hid, course):
+        args = (hid,course)
+        sql = ("""SELECT * FROM %s where hid = %%s and course = %%s""" % ('history',))
+        res = self._execute_query_with_2params(sql,args)
+        return res

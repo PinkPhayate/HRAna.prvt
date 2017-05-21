@@ -20,11 +20,22 @@ def test__get_df_from_db():
     df = de.beautify_data(res)
     print df
 
+def test_jockey_time():
+    hid = 2013105840
+    jockey = 'ルメール'
+    times = mysql_conn.get_times_same_jockey(hid, jockey)
+    print times
+    print 'time: ' + str( len(times) )
 
-
-
+def test_jockey_time():
+    hid = 2013105840
+    course_status = "芝"
+    times = h.get_times_same_field(course_status)
+    print times
+    print 'time: ' + str( len(times) )
 
 
 
 # test__get_df_from_db()
-test_add_extention_info()
+# test_add_extention_info()
+test_jockey_time()

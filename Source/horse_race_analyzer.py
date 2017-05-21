@@ -12,7 +12,7 @@ mysql_conn = mysql_connector.MYSQL_connector()
 
 # 対象レースの過去のレースのidを取得
 # TODO nosqlから分析レースの過去のridを含むリストを取ってくるメソッド
-rids = [201602010211]
+rids = [201605020611]
 
 
 # モデル作成のためのデータフレーム作成
@@ -29,3 +29,4 @@ for rid in rids:
     # 各馬の情報を随時足して行く
     r.add_extention_info(mysql_conn=mysql_conn)
     race_models.append(r)
+    r.df.to_csv("test.csv")

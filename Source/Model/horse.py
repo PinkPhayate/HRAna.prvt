@@ -5,6 +5,7 @@ class Horse (object):
         self.rid = rid
         self.hid = hid
         self.mysql_conn = mysql_conn
+        self.jockey = ""
 
     # レース当日のコンディションを取得
     # def get_today_params():
@@ -13,13 +14,16 @@ class Horse (object):
     # 同じジョッキーが過去に何回騎乗したかを返すメソッド
     def get_times_same_jockey(self, jocker):
         times = self.mysql_conn.get_times_same_jockey(self.hid, jocker)
-        print len(times)
         return len(times)
 
-    # その競馬場で過去にどのくらいのレースをしたか
+    # その馬場で過去にどのくらいのレースをしたか
     def get_times_same_field(self, field_name):
         times = self.mysql_conn.get_times_same_field(self.hid, field_name)
-        print len(times)
+        return len(times)
+
+    # 同じ馬場の状態で過去にどれだけ走ったか
+    def get_times_same_condition(self, course):
+        times = self.mysql_conn.get_times_same_condition(self.hid, course)
         return len(times)
 
     # 過去のレース記録(df)
