@@ -63,6 +63,8 @@ class Race(object):
         for hid in self._hids:
             horse_sr = self.df[ self.df['hid']==hid ]
             h = horse.Horse(hid, self.rid, mysql_conn)
+            # 対象となるレースの日付を入力することで、その後のレース情報を取得しない
+            h.put_race_date(self.date)
             sr = pd.DataFrame([])
             jockey = horse_sr['jockey'].values
             h.jockey = jockey[0]
@@ -72,6 +74,5 @@ class Race(object):
             if self.course_status is not None:
                 sr.loc[0,'course_status_time'] = h.get_times_same_field(self.course_status)
             sr['hid'] = hid
-            print sr
-            df = pd.concat([df, sr])
+            df = pd.concat([df, sr], axis=0)
         self._update_df(df)

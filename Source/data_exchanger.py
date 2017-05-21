@@ -82,6 +82,12 @@ def convert_data_to_int( strDate ):
     strDate = strDate.replace('/','')
     return int(strDate)
 
+def remove_after_data(res, date):
+    df = beautify_data(res=res)
+    df['date'] = df['date'].apply(lambda x: convert_data_to_int(x))
+    retain_df = df[ df['date']<int(date) ]  # int()をしなければエラー
+    return retain_df
+
 # @FOR TEST
 # filename = './../DATA/Horse/2012103129.csv'
 # beautify_df(filename)
