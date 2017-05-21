@@ -34,8 +34,15 @@ def test_jockey_time():
     print times
     print 'time: ' + str( len(times) )
 
-
+def remove_after_data():
+    hid = 2013105840
+    jockey = 'ルメール'
+    res = mysql_conn.get_times_same_jockey(hid, jockey)
+    date = 20160508
+    res = de.remove_after_data(res, date)
+    print len(res)
 
 # test__get_df_from_db()
 # test_add_extention_info()
-test_jockey_time()
+# test_jockey_time()
+remove_after_data()
