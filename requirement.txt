@@ -1,4 +1,0 @@
-mysql_connector
-pandas 
-MySQLdb
-

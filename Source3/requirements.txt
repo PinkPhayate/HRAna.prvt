@@ -1,3 +1,6 @@
-pandas 
+pandas
+scikit
 flake8
 mysqlclient
+hacking
+flake8-docstrings

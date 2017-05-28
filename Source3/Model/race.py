@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-import pandas as pd
-import data_exchanger as de
 from Model import horse
 
 class Race(object):
@@ -48,7 +45,7 @@ class Race(object):
         if type(course)==str:
             self.course = course
         else:
-            print 'course is not string, type is : ' + str(type(course))
+            print( 'course is not string, type is : ' + str(type(course)))
 
     def _get_race_course_status(self):
         course_status = self.df.ix[0,'course_status']
@@ -56,7 +53,7 @@ class Race(object):
         if type(course_status)==str:
             self.course_status = course_status
         else:
-            print 'course_status is not string, type is : ' + str(type(course_status))
+            print('course_status is not string, type is : ' + str(type(course_status)))
 
     def add_extention_info(self, mysql_conn):
         df = pd.DataFrame([])

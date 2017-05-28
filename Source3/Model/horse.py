@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import data_exchanger as de
 class Horse (object):
     def __init__(self, hid, rid, mysql_conn):

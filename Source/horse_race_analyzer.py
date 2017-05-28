@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from Model import race
 from Model import horse
+from Controller import simulation
 import mysql_connector
 import pandas as pd
 
@@ -30,3 +31,5 @@ for rid in rids:
     r.add_extention_info(mysql_conn=mysql_conn)
     race_models.append(r)
     r.df.to_csv("test.csv")
+
+simulation.Race_simulation(race_models)
