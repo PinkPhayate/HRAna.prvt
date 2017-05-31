@@ -44,7 +44,7 @@ class NOSQL_connector(object):
             print('hids dont be found - key name is : ' + rid)
             return None
 
-    def get_history_rids(self,hid):
+    def get_history_rids(self, hid):
         dict = self.db.hist.find_one({'hid': hid})
         if dict:
             # print(dict['rids'])
@@ -57,6 +57,16 @@ class NOSQL_connector(object):
         dict = self.db.hist.find_one({'race_res': rid})
         if dict:
             # print(dict)
+            return dict
+        else:
+            print('race_res dont be found - key name is : ' + rid)
+            return None
+
+    def get_race_result_return(self, rid):
+        rid = str(rid)
+        dict = self.db.odds.find_one({'rid': rid})
+        if dict:
+            print(dict)
             return dict
         else:
             print('race_res dont be found - key name is : ' + rid)

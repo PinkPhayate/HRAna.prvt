@@ -1,6 +1,7 @@
 from Model import race
 import mysql_connector
 import data_exchanger as de
+import nosql_connector as nsc
 
 rid = 201605020611
 mysql_conn = mysql_connector.MYSQL_connector()
@@ -41,8 +42,13 @@ def remove_after_data():
     res = de.remove_after_data(res, date)
     print(len(res))
 
+
+def test_get_race_result_return():
+    nosql_connector = nsc.NOSQL_connector()
+    nosql_connector.get_race_result_return(rid)
 # test__get_df_from_db()
 # test_add_extention_info()
 # test_jockey_time()
-test__get_df_from_db()
-remove_after_data()
+# test__get_df_from_db()
+# remove_after_data()
+test_get_race_result_return()
