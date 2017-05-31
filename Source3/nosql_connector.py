@@ -66,8 +66,8 @@ class NOSQL_connector(object):
         rid = str(rid)
         dict = self.db.odds.find_one({'rid': rid})
         if dict:
-            print(dict)
-            return dict
+            print(dict['odds_dict'])
+            return dict['odds_dict']
         else:
             print('race_res dont be found - key name is : ' + rid)
             return None
