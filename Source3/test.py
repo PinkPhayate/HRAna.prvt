@@ -45,10 +45,27 @@ def remove_after_data():
 
 def test_get_race_result_return():
     nosql_connector = nsc.NOSQL_connector()
-    nosql_connector.get_race_result_return(rid)
+    odds_dict = nosql_connector.get_race_result_return(rid)
+    if odds_dict:
+        print(odds_dict['単勝'])
+
+def test_race_rist_del():
+    rids = [201605020611, 201505020611, 201405020611]
+    race_models = []
+    for rid in rids:
+        r = race.Race(rid, mysql_conn)
+        race_models.append(r)
+    import copy
+    models = copy.deepcopy(race_models)
+    for i, race_model in enumerate(models):
+        del race_models[i]
+        print(race_models)
+        break
+    print(models)
 # test__get_df_from_db()
 # test_add_extention_info()
 # test_jockey_time()
 # test__get_df_from_db()
 # remove_after_data()
-test_get_race_result_return()
+# test_get_race_result_return()
+test_race_rist_del()
