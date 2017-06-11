@@ -6,24 +6,24 @@ class NOSQL_connector(object):
         self.cli = pymongo.MongoClient('localhost',27017)
         self.db = self.cli.hra
 
-    def  _insert_to_nosql(self, dict):
+    def _insert_to_nosql(self, dict):
         self.db.hist.save(dict)
         print('SUCCESS: save race_ids ')
 
     def insert_race_history(self,race_name, rids):
-        dict = {'race_name':race_name, 'rids':rids}
+        dict = {'race_name': race_name, 'rids': rids}
         self._insert_to_nosql(dict)
 
     def insert_hids(self,rid, hids):
-        dict = {'rid':rid, 'hids':hids}
+        dict = {'rid': rid, 'hids': hids}
         self._insert_to_nosql(dict)
 
     def insert_history_rids(self,hid, rids):
-        dict = {'hid':hid, 'hids':rids}
+        dict = {'hid': hid, 'hids': rids}
         self._insert_to_nosql(dict)
 
     def insert_race_result(self,rid, res_dict):
-        dict = {'race_res':rid, 'res_dict':res_dict}
+        dict = {'race_res': rid, 'res_dict': res_dict}
         self._insert_to_nosql(dict)
 
     def get_rids_by_name(self,race_name):

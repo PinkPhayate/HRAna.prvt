@@ -1,6 +1,8 @@
 pandas
-scikit
+sklearn
 flake8
 mysqlclient
 hacking
 flake8-docstrings
+
+scipy

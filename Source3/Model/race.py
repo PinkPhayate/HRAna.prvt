@@ -1,4 +1,6 @@
 from Model import horse
+import pandas as pd
+import data_exchanger as de
 
 class Race(object):
     def __init__(self, rid, mysql_conn):

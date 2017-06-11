@@ -32,4 +32,6 @@ def execute_via_sgd(training_df, predict_df):
 
 
 def execute_simulation(training_df, predict_df):
-    return execute_via_sgd(training_df, predict_df)
+    predicts = execute_via_sgd(training_df, predict_df)
+
+    # 買う項目を絞る

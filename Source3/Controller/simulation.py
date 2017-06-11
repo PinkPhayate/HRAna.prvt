@@ -1,7 +1,7 @@
-import algorithm as algo
-import race
-from scikit import sgd
-import calculator
+import copy
+from Controller import algorithm as algo
+from Model import race
+from Controller import calculator
 
 
 class Race_simulation (object):
@@ -10,12 +10,20 @@ class Race_simulation (object):
         self.number_of_race = len(race_models)
         self.race_models = race_models
 
-        self.simulate()
+        self.simulate(predict_rid, training_rids)
 
-    def find_target_model(self, i):
-        for race_model in self.race_models:
-            if race_model not in i:
-                return race_model
+
+    def find_training_dfs(self, predict_rid):
+        models = copy.deepcopy(self.race_models)
+        for i, model in enumerate(models):
+            rid = model.rid
+            if predict_rid == rid:
+                del models[i]
+                return models
+        error_message = 'cant find predict race model in all models.' \
+                        'predict_rid= ' + predict_rid
+        print(error_message)
+        return None
 
     def merge_df(self):
         df = pd.DataFrame([])
@@ -25,16 +33,23 @@ class Race_simulation (object):
         return df
 
     def get_trainingrids(self):
-        # todo implement
+        # todo implement¡
         print()
 
-    def get_trainif_df(self):
+    def get_trainig_df(self):
         # to implement
         print()
 
+    def get_df(self, models):
+        df = pd.DataFrame([])
+        for model in models:
+            df = pd.concat(df, model.df)
+        return df
 
     def simulate(self, predict_rid, training_rids):
-        training_df = self.get_trainif_df(training_rids)
-        predict_df = self.get_predict_df(predict_rid)
-
-        predicts = calculator.execute_simulation(training_df, predict_df)
+        for predict_model in race_models:
+            predict_df = self.get_df(predict_model)
+            # get trainig_model
+            training_model = self.find_training_model(predict_model)
+            training_df = self.get_df(training_model)
+            predicts = calculator.execute_simulation(training_df, predict_df)

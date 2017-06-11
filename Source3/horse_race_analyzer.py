@@ -28,4 +28,4 @@ for rid in rids:
     race_models.append(r)
     # r.df.to_csv("test.csv")
 
-    simulation.Race_simulation(race_models)
+simulation.Race_simulation(rids=rids, race_models=race_models)
