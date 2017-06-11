@@ -1,4 +1,5 @@
 from Model import race
+from Model import res
 import mysql_connector
 import data_exchanger as de
 import nosql_connector as nsc
@@ -49,6 +50,17 @@ def test_get_race_result_return():
     if odds_dict:
         print(odds_dict['単勝'])
 
+def test_Result_Odds_dict():
+    """
+    Rasult_Oddsで生成されるrtvalがどのようになっているか調べるテスト
+    """
+
+    nosql_connector = nsc.NOSQL_connector()
+    odds = res.Rasult_Odds(rid=rid, nosql_connector=nosql_connector)
+    print('odds_dict: '+str(odds.odds_dict))
+    dict = odds.odds_dict
+    print('dict[単勝]): '+str(dict['単勝']))
+
 def test_race_rist_del():
     rids = [201605020611, 201505020611, 201405020611]
     race_models = []
@@ -68,4 +80,5 @@ def test_race_rist_del():
 # test__get_df_from_db()
 # remove_after_data()
 # test_get_race_result_return()
-test_race_rist_del()
+# test_race_rist_del()
+test_Result_Odds_dict()

@@ -1,33 +1,37 @@
 import nosql_connector as nsc
 
+# TODO 全部のオッズを計算する、単勝、複勝、ワイド以外未着手
 class Rasult_Odds(object):
     def __init__(self, rid, nosql_connector):
         # nosql_connector = nsc.NOSQL_connector()
         odds_dict = nosql_connector.get_race_result_return(rid)
+        self.odds_dict = {}
 
         array = odds_dict['単勝']
-        self.rval1[array[0]] = int(array[1])
+        rval = {}
+        rval[array[0]] = int(array[1])
+        self.odds_dict['単勝'] = rval
 
         array = odds_dict['複勝']
-        self._set_rval_dict(array)
+        self._set_rval2_dict(array)
 
         array = odds_dict['枠連']
-        self.rval3[array[0]] = int(array[1])
+        # self.rval3[array[0]] = int(array[1])
 
         array = odds_dict['馬連']
-        self.rval4[array[0]] = int(array[1])
+        # self.rval4[array[0]] = int(array[1])
 
         array = odds_dict['馬単']
-        self.rval5[array[0]] = int(array[1])
+        # self.rval5[array[0]] = int(array[1])
 
         array = odds_dict['ワイド']
-        self._set_rval_dict(array)
+        self._set_rval6_dict(array)
 
         array = odds_dict['三連複']
-        self.rval7[array[0]] = int(array[1])
+        # self.rval7[array[0]] = int(array[1])
 
         array = odds_dict['三連単']
-        self.rval8[array[0]] = int(array[1])
+        # self.rval8[array[0]] = int(array[1])
 
     def _set_rval2_dict(self, array):
         keys = array[0]
@@ -36,20 +40,22 @@ class Rasult_Odds(object):
 
         it = min(len(keys), len(values))
 
-        self.rval2 = {}
+        rval = {}
         for idx in range(0, it):
-            self.rval2[keys[idx]] = values[idx]
+            rval[keys[idx]] = values[idx]
+        self.odds_dict['複勝'] = rval
 
-    def _set_rval_dict(self, array):
+    def _set_rval6_dict(self, array):
         keys = array[0]
         values = array[1]
         favs = array[2]
 
         it = min(len(keys), len(values))
 
-        self.rval2 = {}
+        rval = {}
         for idx in range(0, it):
-            self.rval2[keys[idx]] = values[idx]
+            rval[keys[idx]] = values[idx]
+        self.odds_dict['ワイド'] = rval
 
 """
 {
