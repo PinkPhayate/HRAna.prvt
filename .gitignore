@@ -1,4 +1,5 @@
 Data/
 Log/
+db-data/
 race-history_files/
 *.pyc
