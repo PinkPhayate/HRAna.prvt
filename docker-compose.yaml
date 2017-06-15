@@ -1,0 +1,15 @@
+version: '2.0'
+services:
+  mysql:
+    restart: always
+    image: mysql
+    volumes:
+      - ./db-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+
+  mongo:
+    restart: always
+    image: mongo
+    volumes:
+      - ./db-data:/data/db
