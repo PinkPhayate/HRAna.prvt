@@ -78,3 +78,10 @@ I'm trying to analyze race data bia SVM.
   + course コース(芝、ダート)
   + course_status  馬場の状態
   + distance  距離
+
+## dockerコマンドメモ
++ IPアドレス確認
+'''sudo docker inspect CONTAINER_ID | grep IPAddress'''
+
++ mysql接続コマンド
+'''mysql -u root -p -h 127.0.0.1 -P 3333'''
