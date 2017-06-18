@@ -2,6 +2,7 @@
 import MySQLdb
 import re
 import json
+import logging
 
 class MYSQL_connector(object):
     def __init__(self):
@@ -10,11 +11,13 @@ class MYSQL_connector(object):
 
     def try_to_connect(self):
         self.conn = MySQLdb.connect(
-            host="localhost",
-            db="hra",
-            user="root",
-            port=3306
+            user='root',
+            passwd='root',
+            port=3333,
+            host='127.0.0.1',
+            db='HRA'
         )
+
         self.cursor = self.conn.cursor()
         self.conn.set_character_set('utf8mb4')
         self.cursor.execute('SET NAMES utf8mb4;')
@@ -26,11 +29,13 @@ class MYSQL_connector(object):
         # rid = str(rid)
         try:
             sql = ("""SELECT * FROM history where race_id = %s""" % rid)
+            print(sql)
+            logging.info(sql)
             self.cursor.execute(sql)
             res = self.cursor.fetchall()
             return res
         except:
-            print('cannot execute query')
+            logging.warning('cannot execute query')
             self.try_to_connect()
 
     def _execute_query(self, sql):
@@ -51,7 +56,7 @@ class MYSQL_connector(object):
             return self.cursor.fetchall()
         except:
             print('cannot execute query')
-            print(sql)
+            print(query)
             self.try_to_connect()
 
 

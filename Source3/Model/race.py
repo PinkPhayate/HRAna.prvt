@@ -24,6 +24,9 @@ class Race(object):
 
     def _get_df_from_db(self, mysql_conn):
         res = mysql_conn.select_data_by_rid(self.rid)
+        if res is None:
+            logging.warning('couldnt find any record'+self.rid)
+            return
         self.df = de.beautify_data(res)
         self._hids = self.df['hid']
 
