@@ -27,5 +27,4 @@ for rid in rids:
     r.add_extention_info(mysql_conn=mysql_conn)
     race_models.append(r)
     # r.df.to_csv("test.csv")
-
 simulation.Race_simulation(rids=rids, race_models=race_models)

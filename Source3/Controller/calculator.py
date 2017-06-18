@@ -16,7 +16,6 @@ def make_dataset(df):
     X = df.drop('rank')
     return X, y
 
-
 def execute_via_sgd(training_df, predict_df):
     X, y = make_dataset(training_df)
 
@@ -32,6 +31,11 @@ def execute_via_sgd(training_df, predict_df):
 
 
 def execute_simulation(training_df, predict_df):
+    print('training_df')
+    print(training_df)
+    print('predict_df')
+    print(predict_df)
     predicts = execute_via_sgd(training_df, predict_df)
+    print(predicts)
 
     # 買う項目を絞る

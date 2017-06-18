@@ -2,24 +2,43 @@ import copy
 from Controller import algorithm as algo
 from Model import race
 from Controller import calculator
+import pandas as pd
 
 
 class Race_simulation (object):
     def __init__(self, rids, race_models):
+        """
+        @param rids: list(str)
+        @param race_models: list(Race)
+        """
         self.rids = rids
         self.number_of_race = len(race_models)
         self.race_models = race_models
 
-        self.simulate(predict_rid, training_rids)
+        self.simulate()
 
-
-    def find_training_dfs(self, predict_rid):
-        models = copy.deepcopy(self.race_models)
+    def find_training_models(self, predict_rid: str):
+        models = copy.deepcopy(self.race_models)s
         for i, model in enumerate(models):
             rid = model.rid
+            print("merge df, rid: "+str(rid))
             if predict_rid == rid:
                 del models[i]
                 return models
+        error_message = 'cant find training race model in all models.' \
+                        'predict_rid= ' + predict_rid
+        print(error_message)
+        return None
+
+    def find_predict_models(self, predict_rid: str):
+        models = []
+        # models = copy.deepcopy(self.race_models)
+        for i, model in enumerate(self.race_models):
+            rid = model.rid
+            if predict_rid == rid:
+                models.append(model)
+        if len(models) > 0:
+            return models
         error_message = 'cant find predict race model in all models.' \
                         'predict_rid= ' + predict_rid
         print(error_message)
@@ -43,13 +62,20 @@ class Race_simulation (object):
     def get_df(self, models):
         df = pd.DataFrame([])
         for model in models:
-            df = pd.concat(df, model.df)
+            print('merge model_df of race model id: ' + str(model.rid))
+            # print(model.df)
+            df = pd.concat([df, model.df])
         return df
 
-    def simulate(self, predict_rid, training_rids):
-        for predict_model in race_models:
-            predict_df = self.get_df(predict_model)
+    def simulate(self):
+        for rid in self.rids:
+            # get target model
+            predict_models = self.find_predict_models(rid)
+            predict_df = self.get_df(predict_models)
             # get trainig_model
-            training_model = self.find_training_model(predict_model)
-            training_df = self.get_df(training_model)
-            predicts = calculator.execute_simulation(training_df, predict_df)
+            training_models = self.find_training_models(rid)
+            training_df = self.get_df(training_models)
+            if predict_models is not None and training_models is not None:
+                calculator.execute_simulation(training_df, predict_df)
+            else:
+                print('models has something wrong.')
