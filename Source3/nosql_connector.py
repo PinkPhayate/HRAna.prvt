@@ -71,3 +71,12 @@ class NOSQL_connector(object):
         else:
             print('race_res dont be found - key name is : ' + rid)
             return None
+
+    def get_rids_by_name(self, race_name):
+        dict = self.db.hist.find_one({'race_name': race_name})
+        if dict:
+            # print(dict['rids'])
+            return dict['rids']
+        else:
+            print(race_name+' : doesnt have data')
+            return None

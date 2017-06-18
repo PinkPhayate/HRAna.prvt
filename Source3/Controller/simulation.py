@@ -18,7 +18,7 @@ class Race_simulation (object):
         self.simulate()
 
     def find_training_models(self, predict_rid: str):
-        models = copy.deepcopy(self.race_models)s
+        models = copy.deepcopy(self.race_models)
         for i, model in enumerate(models):
             rid = model.rid
             print("merge df, rid: "+str(rid))
