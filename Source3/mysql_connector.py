@@ -33,6 +33,21 @@ class MYSQL_connector(object):
             logging.info(sql)
             self.cursor.execute(sql)
             res = self.cursor.fetchall()
+            print(res)
+            return res
+        except:
+            logging.warning('cannot execute query')
+            self.try_to_connect()
+
+    def select_race_by_hid(self, hid):
+        # rid = str(rid)
+        try:
+            sql = ("""SELECT * FROM history where hid = %s""" % hid)
+            print(sql)
+            logging.info(sql)
+            self.cursor.execute(sql)
+            res = self.cursor.fetchall()
+            print(res)
             return res
         except:
             logging.warning('cannot execute query')

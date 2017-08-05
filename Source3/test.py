@@ -1,4 +1,5 @@
 from Model import race
+from Model.race import Race_History
 from Model import res
 import mysql_connector
 import data_exchanger as de
@@ -75,11 +76,25 @@ def test_race_rist_del():
         break
     print(models)
 
+
+class Race_History_Test(object):
+    def __init__(self):
+        self.mysql_conn = mysql_connector.MYSQL_connector()
+        self.race_id = '201405020611'
+        self.race_History = Race_History(self.race_id, mysql_conn)
+
+    def test_get_old_races(self):
+        self.race_History.retrieve_history_race()
+        print(self.race_History.history_map)
+
 # test__get_df_from_db()
 # test_add_extention_info()
 # test_jockey_time()
 # test__get_df_from_db()
 # remove_after_data()
 # test_get_race_result_return()
-test_race_rist_del()
+# test_race_rist_del()
 # test_Result_Odds_dict()
+
+rht = Race_History_Test()
+rht.test_get_old_races()

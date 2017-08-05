@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import pandas as pd
 FIELD_LIST = ['良','稍','不','重']
-COLUMNS = ['uid','date','whether','race','race_name1','race_id1','all','frame','no','odds','fav','rank','jockey','hande','course','course_status','distance','hid']
+COLUMNS = ['uid','date','whether','race','race_name','race_id','all','frame','no','odds','fav','rank','jockey','hande','course','course_status','distance','hid']
 
 
 
@@ -79,13 +79,17 @@ def _validate_course(e):
 
 # DBに保管されているString型のデータを整数に直す
 def convert_data_to_int( strDate ):
+    if isinstance(strDate, int):
+        return strDate
     strDate = strDate.replace('/','')
     return int(strDate)
 
 def remove_after_data(res, date):
+    date = convert_data_to_int(date)
     df = beautify_data(res=res)
     df['date'] = df['date'].apply(lambda x: convert_data_to_int(x))
     retain_df = df[ df['date']<int(date) ]  # int()をしなければエラー
+    print(retain_df)
     return retain_df
 
 # @FOR TEST
