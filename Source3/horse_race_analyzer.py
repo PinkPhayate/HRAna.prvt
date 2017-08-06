@@ -31,7 +31,8 @@ def main(word):
         # r.add_extention_info(mysql_conn=mysql_conn)
         race_models.append(r)
         # r.df.to_csv("test.csv")
-    simulation.Race_simulation(rids=rids, race_models=race_models)
+    rs = simulation.Race_simulation(rids=rids, race_models=race_models)
+    rs.simulate()
 
 if __name__ == '__main__':
     words = [u'NHKマイル']

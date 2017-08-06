@@ -29,11 +29,11 @@ class MYSQL_connector(object):
         # rid = str(rid)
         try:
             sql = ("""SELECT * FROM history where race_id = %s""" % rid)
-            print(sql)
+            logging.info(sql)
             logging.info(sql)
             self.cursor.execute(sql)
             res = self.cursor.fetchall()
-            print(res)
+            logging.info(res)
             return res
         except:
             logging.warning('cannot execute query')

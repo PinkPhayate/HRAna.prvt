@@ -15,14 +15,13 @@ class Race_simulation (object):
         self.number_of_race = len(race_models)
         self.race_models = race_models
 
-        self.simulate()
 
     def find_training_models(self, predict_rid: str):
         models = copy.deepcopy(self.race_models)
         for i, model in enumerate(models):
             rid = model.rid
             print("merge df, rid: "+str(rid))
-            if predict_rid == rid:
+            if int(predict_rid) == rid:
                 del models[i]
                 return models
         error_message = 'cant find training race model in all models.' \
@@ -35,7 +34,7 @@ class Race_simulation (object):
         # models = copy.deepcopy(self.race_models)
         for i, model in enumerate(self.race_models):
             rid = model.rid
-            if predict_rid == rid:
+            if int(predict_rid) == rid:
                 models.append(model)
         if len(models) > 0:
             return models
@@ -67,6 +66,14 @@ class Race_simulation (object):
             df = pd.concat([df, model.df])
         return df
 
+    def get_history_df(self, models):
+        df = pd.DataFrame([])
+        for model in models:
+            print('merge model_df of race model id: ' + str(model.rid))
+            # print(model.df)
+            df = pd.concat([df, model.history_df])
+        return df
+
     def simulate(self):
         for rid in self.rids:
             # get target model
@@ -75,6 +82,19 @@ class Race_simulation (object):
             # get trainig_model
             training_models = self.find_training_models(rid)
             training_df = self.get_df(training_models)
+            if predict_models is not None and training_models is not None:
+                calculator.execute_simulation(training_df, predict_df)
+            else:
+                print('models has something wrong.')
+
+    def simulate_history(self):
+        for rid in self.rids:
+            # get target model
+            predict_models = self.find_predict_models(rid)
+            predict_df = self.get_history_df(predict_models)
+            # get trainig_model
+            training_models = self.find_training_models(rid)
+            training_df = self.get_history_df(training_models)
             if predict_models is not None and training_models is not None:
                 calculator.execute_simulation(training_df, predict_df)
             else:

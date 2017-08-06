@@ -8,25 +8,26 @@ class Race(object):
     mysql_connv = None
     history_map = []
     date = ''
-    race_id = ''
+    rid = ''
     entry_horses_id = []
     df = None
+
     def __init__(self, race_id, mysql_conn):
         self.mysql_conn = mysql_conn
-        self.race_id = race_id
+        self.rid = int(race_id)
         self.__set_df()
         self.__set_date()
 
     def __set_df(self):
-        res = self.mysql_conn.select_data_by_rid(self.race_id)
-        if res is None:
-            logging.warning('couldnt find any record, race_id: '+self.race_id)
+        res = self.mysql_conn.select_data_by_rid(self.rid)
+        if res is None or len(res) < 1:
+            logging.warning('couldnt find any record, race_id: '+self.rid)
             return
         self.df = de.beautify_data(res)
 
     def __set_date(self):
         if self.df is None:
-            self.__set_df()
+            return
         self.date = self.df['date'][0]
 
     def get_rank_by_hid(self, hid):
@@ -123,7 +124,7 @@ class Race_History(Race):
     # race_id = ''
     # entry_horses_id = []
     # df = None
-    history_df = pd.DatFrame([])
+    history_df = pd.DataFrame([])
 
     def __init__(self, race_id, mysql_conn):
         super(Race_History, self).__init__(race_id, mysql_conn)
