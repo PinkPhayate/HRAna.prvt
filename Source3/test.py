@@ -1,5 +1,5 @@
 from Model import race
-from Model.race import Race_History
+from Model.race import Race_History, Race
 from Model import res
 import mysql_connector
 import data_exchanger as de
@@ -87,6 +87,22 @@ class Race_History_Test(object):
         self.race_History.retrieve_history_race()
         print(self.race_History.history_map)
 
+class Race_Test(object):
+    def __init__(self):
+        self.mysql_conn = mysql_connector.MYSQL_connector()
+        self.race_id = '201405020611'
+        self.race = Race(self.race_id, mysql_conn)
+
+    def test_get_rank_by_hid(self):
+        hid = '2011105000'
+        r = self.race.get_rank_by_hid(hid)
+        print(r)
+
+def test_get_race_rank():
+    import history_race_analyzer as hra
+    ranks = [3,4,5,2,3,1,8]
+    l = hra.get_race_rank(ranks)
+    print(l)
 # test__get_df_from_db()
 # test_add_extention_info()
 # test_jockey_time()
@@ -97,4 +113,9 @@ class Race_History_Test(object):
 # test_Result_Odds_dict()
 
 rht = Race_History_Test()
-rht.test_get_old_races()
+# rht.test_get_old_races()
+
+rt = Race_Test()
+# rt.test_get_rank_by_hid()
+
+test_get_race_rank()

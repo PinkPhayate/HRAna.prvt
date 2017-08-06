@@ -5,6 +5,7 @@ import mysql_connector
 import nosql_connector
 import pandas as pd
 import logging
+from Model.race import Race, Race_History
 
 def main(word):
     # 対象レースの過去のレースのidを取得

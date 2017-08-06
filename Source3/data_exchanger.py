@@ -92,6 +92,10 @@ def remove_after_data(res, date):
     print(retain_df)
     return retain_df
 
+df convet_unique_rid_dummy(df):
+    d = df[['urid']]
+    df['urid'] = pd.get_dummies(d)
+    return df
 # @FOR TEST
 # filename = './../DATA/Horse/2012103129.csv'
 # beautify_df(filename)

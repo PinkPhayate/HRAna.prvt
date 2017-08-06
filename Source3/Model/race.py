@@ -3,7 +3,42 @@ import pandas as pd
 import data_exchanger as de
 import logging
 
-# class Race(object):
+
+class Race(object):
+    mysql_connv = None
+    history_map = []
+    date = ''
+    race_id = ''
+    entry_horses_id = []
+    df = None
+    def __init__(self, race_id, mysql_conn):
+        self.mysql_conn = mysql_conn
+        self.race_id = race_id
+        self.__set_df()
+        self.__set_date()
+
+    def __set_df(self):
+        res = self.mysql_conn.select_data_by_rid(self.race_id)
+        if res is None:
+            logging.warning('couldnt find any record, race_id: '+self.race_id)
+            return
+        self.df = de.beautify_data(res)
+
+    def __set_date(self):
+        if self.df is None:
+            self.__set_df()
+        self.date = self.df['date'][0]
+
+    def get_rank_by_hid(self, hid):
+        s = self.get_series_by_hid(hid)
+        if 1 < len(s):
+            s = s.ix[0, :]
+        return s[['rank']].values[0]
+
+    def get_series_by_hid(self, hid):
+        return self.df[self.df['hid'] == int(hid)]
+
+
 #     def __init__(self, rid, mysql_conn):
 #         self.df = pd.DataFrame([])
 #         self.rid = int(rid)
@@ -12,8 +47,8 @@ import logging
 #         self.course_status = None
 #
 #
-#     def get_hids(self):
-#         return self._hids
+    def get_hids(self):
+        return list(self.df[['hid']].values.flatten())
 #
 #     def get_df(self):
 #         return self.df
@@ -81,30 +116,18 @@ import logging
 #         self._update_df(df)
 
 
-class Race_History(object):
-    mysql_connv = None
-    history_map = []
-    date = ''
-    race_id = ''
-    entry_horses_id = []
-    df = None
+class Race_History(Race):
+    # mysql_connv = None
+    # history_map = []
+    # date = ''
+    # race_id = ''
+    # entry_horses_id = []
+    # df = None
+    history_df = pd.DatFrame([])
 
     def __init__(self, race_id, mysql_conn):
-        self.mysql_conn = mysql_conn
-        self.race_id = race_id
-        self.__set_date()
+        super(Race_History, self).__init__(race_id, mysql_conn)
 
-    def __set_df(self):
-        res = self.mysql_conn.select_data_by_rid(self.race_id)
-        if res is None:
-            logging.warning('couldnt find any record, race_id: '+self.race_id)
-            return
-        self.df = de.beautify_data(res)
-
-    def __set_date(self):
-        if self.df is None:
-            self.__set_df()
-        self.date = self.df['date'][0]
 
     def __set_entry_horses_id(self):
         if self.df is None:
@@ -125,3 +148,6 @@ class Race_History(object):
         if res != "":
             res = de.remove_after_data(res, self.date)
         return list(res[['race_id']].values.flatten())
+
+    def set_history_df(self, df):
+        self.history_df = df
