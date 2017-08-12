@@ -1,13 +1,15 @@
 from Model import race
 from Model.race import Race_History, Race
 from Model import res
-import mysql_connector
+from Model.horse import Horse_History
 import data_exchanger as de
 import nosql_connector as nsc
+import mysql_connector
 from Controller import algorithm
 
 rid = 201605020611
 mysql_conn = mysql_connector.MYSQL_connector()
+
 def test_add_extention_info():
     r = race.Race(rid, mysql_conn)
     for hid in r._hids:
@@ -98,11 +100,25 @@ class Race_Test(object):
         r = self.race.get_rank_by_hid(hid)
         print(r)
 
+
+class Horse_History_Test(object):
+    # mysql_conn = MYSQL_connector()
+
+    def test_get_previous_race(self):
+        hid = '2013106133'
+        race_date = 20160508
+        h = Horse_History(hourse_id=hid, mysql_conn=mysql_conn)
+        history_rids_df = h.get_previous_race(race_date)
+        test_df = history_rids_df[['race_id']].apply(lambda x: x % 100000000)
+        print(test_df)
+
 def test_get_race_rank():
     import history_race_analyzer as hra
     ranks = [3,4,5,2,3,1,8]
     l = hra.get_race_rank(ranks)
     print(l)
+
+
 # test__get_df_from_db()
 # test_add_extention_info()
 # test_jockey_time()
@@ -117,5 +133,9 @@ rht = Race_History_Test()
 
 rt = Race_Test()
 # rt.test_get_rank_by_hid()
+rt.test___2dummy()
 
-test_get_race_rank()
+# test_get_race_rank()
+
+hht = Horse_History_Test()
+# hht.test_get_previous_race()

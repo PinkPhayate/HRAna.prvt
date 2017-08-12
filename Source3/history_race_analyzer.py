@@ -59,10 +59,11 @@ def formalize_dummy(race_models):
         hist_df = rmodel.history_df
         mrg_df = pd.concat([mrg_df, hist_df])
     # df = mrg_df['urid'].apply(lambda x: str(x))
-    mrg_df = mrg_df.reset_index(drop=True)
+    mrg_df.reset_index(drop=True, inplace=True)
     d = mrg_df.apply(lambda x: str(x[['urid']].values[0]), axis=1)
     dummy_df = pd.get_dummies(d, drop_first=True)
     mrg_df = pd.concat([mrg_df, dummy_df], axis=1)
+    logging.info('length of columns: ' + str(len(mrg_df.columns)))
     for rmodel in race_models:
         rid = rmodel.rid
         ddf = mrg_df[mrg_df.apply(lambda x: int(x['rid']) == int(rid), axis=1)]
@@ -108,11 +109,11 @@ def main(word):
     # mysql_conn = MYSQL_connector()
     nc = NOSQL_connector()
     rids = nc.get_rids_by_name(race_name=words[0])
-    rids = rids[:2]
     if not rids:
         logging.info('couldnt get rids from entered word: '+word[0])
         return
     logging.info("number of predict history race: " + str(len(rids)))
+    print("number of predict history race: " + str(len(rids)))
     df = pd.DataFrame([])
     race_models = []
     for rid in rids:

@@ -13,15 +13,16 @@ def divide_classification(y):
 def make_dataset(df):
     y = df['rank']
     y = divide_classification(y)
-    X = df.drop('rank')
+    X = df.drop("rank", axis=1)
     return X, y
 
 def execute_via_sgd(training_df, predict_df):
     X, y = make_dataset(training_df)
+    # print(X)
 
     clf = SGDClassifier(loss="log",
                         penalty="l2",
-                        class_weight="auto",
+                        class_weight="balanced",
                         n_iter=1000)
     clf.fit(X, column_or_1d(y))
 
@@ -31,11 +32,11 @@ def execute_via_sgd(training_df, predict_df):
 
 
 def execute_simulation(training_df, predict_df):
-    print('training_df')
-    print(training_df)
-    print('predict_df')
-    print(predict_df)
     predicts = execute_via_sgd(training_df, predict_df)
-    print(predicts)
+    predict_df.reset_index(drop=True, inplace=True)
+    df = pd.DataFrame(predicts)
+    df.columns = [['pred']]
+    logging_df = pd.concat([predict_df[['rank']], df], axis=1)
+    return logging_df
 
     # 買う項目を絞る

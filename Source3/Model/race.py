@@ -21,20 +21,21 @@ class Race(object):
     def __set_df(self):
         res = self.mysql_conn.select_data_by_rid(self.rid)
         if res is None or len(res) < 1:
-            logging.warning('couldnt find any record, race_id: '+self.rid)
+            logging.warning('couldnt find any record, race_id: '+str(self.rid))
             return
         self.df = de.beautify_data(res)
 
     def __set_date(self):
         if self.df is None:
             return
-        self.date = self.df['date'][0]
+        self.date = de.convert_data_to_int(self.df['date'][0])
 
     def get_rank_by_hid(self, hid):
         s = self.get_series_by_hid(hid)
-        if 1 < len(s):
-            s = s.ix[0, :]
-        return s[['rank']].values[0]
+        if 0 < len(s):
+            s = s.ix[:,0]
+            print(s)
+        return s['rank']
 
     def get_series_by_hid(self, hid):
         return self.df[self.df['hid'] == int(hid)]

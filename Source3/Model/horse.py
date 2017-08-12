@@ -1,4 +1,5 @@
 import data_exchanger as de
+import logging
 class Horse (object):
     def __init__(self, hid, rid, mysql_conn):
         # @param rid: 出場したレースのid
@@ -40,3 +41,27 @@ class Horse (object):
     # 過去のレース記録(df)
     # def get_history_records()
     #     # ヒストリーテーブルから対象レースの時間より前の記録をdfにする
+
+
+class Horse_History(object):
+    mysql_conn = None
+    history_map = []
+    df = None
+
+    def __init__(self, hourse_id, mysql_conn):
+        self.hid = hourse_id
+        self.mysql_conn = mysql_conn
+        self.__set_df()
+
+    def __set_df(self):
+        res = self.mysql_conn.select_race_by_hid(self.hid)
+        if res is None or len(res) < 1:
+            logging.warning('couldnt find any record, race_id: '+self.rid)
+            return
+        self.df = de.beautify_data(res)
+        self.df['date'] = self.df['date'].apply( lambda x: de.convert_data_to_int(x))
+
+    def get_previous_race(self, race_date: int):
+        tmp_df = self.df[self.df['date'] < race_date]
+        tmp_df = tmp_df.reset_index(drop=True)
+        return tmp_df

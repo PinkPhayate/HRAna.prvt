@@ -100,15 +100,16 @@ def convet_unique_rid_dummy(df):
 # filename = './../DATA/Horse/2012103129.csv'
 # beautify_df(filename)
 
-# def __2dummy(race_models):
-#     mrg_df = pd.DataFrame([])
-#     for r in race_models:
-#         mrg_df = pd.concat([mrg_df, r.history_df], axis=0)
-#     mrg_df = mrg_df.reset_index(drop=True)
-#     dmy = pd.get_dummies(mrg_df[['urid']])
-#     mrg_df = pd.concat([mrg_df, dmy], axis=1)
-#     print(mrg_df)
-#     for r in race_models:
-#         r.history_df = mrg_df[mrg_df[['rid']] == r.rid]
-#         r.history_df = r.history_df.drop('rid', axis=1)
-#         r.history_df = r.history_df.drop('urid', axis=1)
+def __2dummy(race_models):
+    mrg_df = pd.DataFrame([])
+    for r in race_models:
+        mrg_df = pd.concat([mrg_df, r.history_df], axis=0)
+    mrg_df = mrg_df.reset_index(drop=True)
+    mrg_df.to_csv('test.csv')
+    dmy = pd.get_dummies(mrg_df[['urid']])
+    mrg_df = pd.concat([mrg_df, dmy], axis=1)
+    # print(mrg_df.columns)
+    for r in race_models:
+        r.history_df = mrg_df[mrg_df[['rid']] == r.rid]
+        r.history_df = r.history_df.drop('rid', axis=1)
+        r.history_df = r.history_df.drop('urid', axis=1)

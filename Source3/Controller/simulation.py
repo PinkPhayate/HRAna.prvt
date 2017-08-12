@@ -71,7 +71,7 @@ class Race_simulation (object):
         for model in models:
             print('merge model_df of race model id: ' + str(model.rid))
             # print(model.df)
-            df = pd.concat([df, model.history_df])
+            df = pd.concat([df, model.dummy_df])
         return df
 
     def simulate(self):
@@ -87,15 +87,24 @@ class Race_simulation (object):
             else:
                 print('models has something wrong.')
 
+    def formalize_dummy(self):
+        df = self.get_df(models=self.models)
+        df = df.reset_index(drop=True)
+        dummy_df = pd.get_dummies(df[['urid']], drop_first=True)
+        df = pd.concat([df, dummy_df], axis=1)
+
     def simulate_history(self):
         for rid in self.rids:
             # get target model
             predict_models = self.find_predict_models(rid)
             predict_df = self.get_history_df(predict_models)
+            predict_df.reset_index(drop=True, inplace=True)
             # get trainig_model
             training_models = self.find_training_models(rid)
             training_df = self.get_history_df(training_models)
+            training_df.reset_index(drop=True, inplace=True)
             if predict_models is not None and training_models is not None:
-                calculator.execute_simulation(training_df, predict_df)
+                logging_df = calculator.execute_simulation(training_df, predict_df)
+                logging_df.to_csv('./../Result/'+rid + '.csv')
             else:
                 print('models has something wrong.')
