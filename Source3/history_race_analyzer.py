@@ -116,6 +116,7 @@ def main(word):
     print("number of predict history race: " + str(len(rids)))
     df = pd.DataFrame([])
     race_models = []
+    # rids = rids[:2]
     for rid in rids:
         r = create_history_model(rid)
         if r is not None:
@@ -143,5 +144,5 @@ def main(word):
     # print(evs)
 
 if __name__ == '__main__':
-    words = [u'NHKマイル']
+    words = [u'札幌記念']
     main(words)

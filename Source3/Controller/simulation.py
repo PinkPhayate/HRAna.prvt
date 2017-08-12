@@ -61,7 +61,7 @@ class Race_simulation (object):
     def get_df(self, models):
         df = pd.DataFrame([])
         for model in models:
-            print('merge model_df of race model id: ' + str(model.rid))
+            # print('merge model_df of race model id: ' + str(model.rid))
             # print(model.df)
             df = pd.concat([df, model.df])
         return df
@@ -69,7 +69,7 @@ class Race_simulation (object):
     def get_history_df(self, models):
         df = pd.DataFrame([])
         for model in models:
-            print('merge model_df of race model id: ' + str(model.rid))
+            # print('merge model_df of race model id: ' + str(model.rid))
             # print(model.df)
             df = pd.concat([df, model.dummy_df])
         return df
@@ -105,6 +105,7 @@ class Race_simulation (object):
             training_df.reset_index(drop=True, inplace=True)
             if predict_models is not None and training_models is not None:
                 logging_df = calculator.execute_simulation(training_df, predict_df)
-                logging_df.to_csv('./../Result/'+rid + '.csv')
+                logging_df.to_csv('./../Result/'+str(rid) + '.csv')
+                calculator.evaluate_average(logging_df)
             else:
                 print('models has something wrong.')
