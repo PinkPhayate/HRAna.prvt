@@ -118,6 +118,10 @@ def test_get_race_rank():
     l = hra.get_race_rank(ranks)
     print(l)
 
+def test_remove_duplicated_record():
+    from mysql_connector import MYSQL_connector
+    mysql_conn = MYSQL_connector()
+    mysql_conn.remove_duplicated_record()
 
 # test__get_df_from_db()
 # test_add_extention_info()
@@ -133,9 +137,11 @@ rht = Race_History_Test()
 
 rt = Race_Test()
 # rt.test_get_rank_by_hid()
-rt.test___2dummy()
+# rt.test___2dummy()
 
 # test_get_race_rank()
 
 hht = Horse_History_Test()
 # hht.test_get_previous_race()
+
+test_remove_duplicated_record()

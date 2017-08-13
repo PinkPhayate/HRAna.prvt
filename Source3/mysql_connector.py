@@ -7,6 +7,7 @@ import logging
 class MYSQL_connector(object):
     def __init__(self):
         self.try_to_connect()
+        self.remove_duplicated_record()
 
 
     def try_to_connect(self):
@@ -24,6 +25,12 @@ class MYSQL_connector(object):
         self.cursor.execute('SET CHARACTER SET utf8mb4;')
         self.cursor.execute('SET character_set_connection=utf8mb4;')
         print('connect to mysql')
+
+    def c(self):
+        sql = """DELETE FROM history WHERE uid NOT IN (SELECT min_id from\
+         (SELECT MIN(uid) min_id FROM history GROUP BY race_id, hid) tmp);"""
+        self.cursor.execute(sql)
+        res = self.cursor.fetchall()
 
     def select_data_by_rid(self, rid):
         # rid = str(rid)
