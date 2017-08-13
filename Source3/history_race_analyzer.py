@@ -116,7 +116,6 @@ def main(word):
     print("number of predict history race: " + str(len(rids)))
     df = pd.DataFrame([])
     race_models = []
-    # rids = rids[:2]
     for rid in rids:
         r = create_history_model(rid)
         if r is not None:
@@ -126,6 +125,7 @@ def main(word):
     formalize_dummy(race_models)
 
     rs = Race_simulation(rids=rids, race_models=race_models)
+    rs.set_race_name(word[0])
     rs.simulate_history()
 
 
@@ -144,5 +144,5 @@ def main(word):
     # print(evs)
 
 if __name__ == '__main__':
-    words = [u'札幌記念']
+    words = [u'西部スポニチ賞']
     main(words)

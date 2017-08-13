@@ -39,9 +39,8 @@ def execute_simulation(training_df, predict_df):
     logging_df = pd.concat([predict_df[['rank']], df], axis=1)
     return logging_df
 
-    # 買う項目を絞る
 
 def evaluate_average(logging_df):
-    sorted_result = logging_df.groupby("rank").apply(lambda x: x.mean())
-    print(sorted_result)
-    return sorted_result
+    grouped_result = logging_df.groupby("rank").apply(lambda x: x.mean())
+    sorted_df = grouped_result.sort_values(by=["pred"], ascending=True)
+    return sorted_df

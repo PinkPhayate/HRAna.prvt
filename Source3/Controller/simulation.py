@@ -3,7 +3,6 @@ from Controller import algorithm as algo
 from Model import race
 from Controller import calculator
 import pandas as pd
-import logging
 
 
 class Race_simulation (object):
@@ -15,8 +14,8 @@ class Race_simulation (object):
         self.rids = rids
         self.number_of_race = len(race_models)
         self.race_models = race_models
-        self.logging = logging
-        self.logging.basicConfig(filename='./../Result/result.log', level=logging.INFO)
+        self.race_name = None
+
 
     def find_training_models(self, predict_rid: str):
         models = copy.deepcopy(self.race_models)
@@ -62,16 +61,12 @@ class Race_simulation (object):
     def get_df(self, models):
         df = pd.DataFrame([])
         for model in models:
-            # print('merge model_df of race model id: ' + str(model.rid))
-            # print(model.df)
             df = pd.concat([df, model.df])
         return df
 
     def get_history_df(self, models):
         df = pd.DataFrame([])
         for model in models:
-            # print('merge model_df of race model id: ' + str(model.rid))
-            # print(model.df)
             df = pd.concat([df, model.dummy_df])
         return df
 
@@ -80,7 +75,6 @@ class Race_simulation (object):
             # get target model
             predict_models = self.find_predict_models(rid)
             predict_df = self.get_df(predict_models)
-            self.logging(predict_df)
             # get trainig_model
             training_models = self.find_training_models(rid)
             training_df = self.get_df(training_models)
@@ -95,10 +89,13 @@ class Race_simulation (object):
         dummy_df = pd.get_dummies(df[['urid']], drop_first=True)
         df = pd.concat([df, dummy_df], axis=1)
 
+    def set_race_name(self, race_name):
+        self.race_name = race_name
+
     def simulate_history(self):
-        result_log = pd.DataFrame([])
+        report_df = pd.DataFrame([])
         for rid in self.rids:
-            self.logging.info("race_id: " + str(rid))
+            print('target race: ' + str(rid))
             # get target model
             predict_models = self.find_predict_models(rid)
             predict_df = self.get_history_df(predict_models)
@@ -111,8 +108,8 @@ class Race_simulation (object):
                 logging_df = calculator.execute_simulation(training_df, predict_df)
                 logging_df.to_csv('./../Result/'+str(rid) + '.csv')
                 sorted_result = calculator.evaluate_average(logging_df)
-                self.logging.info(sorted_result)
-                return sorted_result
+                print(sorted_result)
+                report_df = pd.concat([report_df, sorted_result], axis=1)
             else:
-                print("this version couldnt be solved")
-                self.logging.info("this version couldnt be solved")
+                print('models has something wrong.')
+        report_df.to_csv('./../Result/'+self.race_name+'result-report.csv')
