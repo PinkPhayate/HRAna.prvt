@@ -108,7 +108,9 @@ class Race_simulation (object):
                 logging_df = calculator.execute_simulation(training_df, predict_df)
                 logging_df.to_csv('./../Result/'+str(rid) + '.csv')
                 sorted_result = calculator.evaluate_average(logging_df)
+
                 print(sorted_result)
+                sorted_result = sorted_result.reset_index(drop=True)
                 report_df = pd.concat([report_df, sorted_result], axis=1)
             else:
                 print('models has something wrong.')
