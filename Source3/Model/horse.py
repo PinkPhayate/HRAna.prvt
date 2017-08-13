@@ -63,5 +63,6 @@ class Horse_History(object):
 
     def get_previous_race(self, race_date: int):
         tmp_df = self.df[self.df['date'] < race_date]
+        tmp_df = tmp_df.sort_values(by=["date"], ascending=True)
         tmp_df = tmp_df.reset_index(drop=True)
         return tmp_df
