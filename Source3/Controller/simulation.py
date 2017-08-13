@@ -93,6 +93,7 @@ class Race_simulation (object):
         self.race_name = race_name
 
     def simulate_history(self):
+        detail_df = pd.DataFrame([])
         report_df = pd.DataFrame([])
         for rid in self.rids:
             print('target race: ' + str(rid))
@@ -106,7 +107,9 @@ class Race_simulation (object):
             training_df.reset_index(drop=True, inplace=True)
             if predict_models is not None and training_models is not None:
                 logging_df = calculator.execute_simulation(training_df, predict_df)
-                logging_df.to_csv('./../Result/'+str(rid) + '.csv')
+                # logging_df.to_csv('./../Result/'+str(rid) + '.csv')
+                detail_df = pd.concat([detail_df, logging_df], axis=1)
+
                 sorted_result = calculator.evaluate_average(logging_df)
 
                 print(sorted_result)
@@ -114,4 +117,5 @@ class Race_simulation (object):
                 report_df = pd.concat([report_df, sorted_result], axis=1)
             else:
                 print('models has something wrong.')
+        detail_df.to_csv('./../Result/'+self.race_name+'detail-report.csv')
         report_df.to_csv('./../Result/'+self.race_name+'result-report.csv')

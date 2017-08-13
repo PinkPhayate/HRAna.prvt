@@ -145,4 +145,5 @@ def main(word):
 
 if __name__ == '__main__':
     words = [u'西部スポニチ賞']
-    main(words)
+    for word in words:
+        main(word)
