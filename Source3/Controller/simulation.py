@@ -3,6 +3,7 @@ from Controller import algorithm as algo
 from Model import race
 from Controller import calculator
 import pandas as pd
+import logging
 
 
 class Race_simulation (object):
@@ -14,13 +15,13 @@ class Race_simulation (object):
         self.rids = rids
         self.number_of_race = len(race_models)
         self.race_models = race_models
-
+        self.logging = logging
+        self.logging.basicConfig(filename='./../Result/result.log', level=logging.INFO)
 
     def find_training_models(self, predict_rid: str):
         models = copy.deepcopy(self.race_models)
         for i, model in enumerate(models):
             rid = model.rid
-            print("merge df, rid: "+str(rid))
             if int(predict_rid) == rid:
                 del models[i]
                 return models
@@ -79,6 +80,7 @@ class Race_simulation (object):
             # get target model
             predict_models = self.find_predict_models(rid)
             predict_df = self.get_df(predict_models)
+            self.logging(predict_df)
             # get trainig_model
             training_models = self.find_training_models(rid)
             training_df = self.get_df(training_models)
@@ -94,7 +96,9 @@ class Race_simulation (object):
         df = pd.concat([df, dummy_df], axis=1)
 
     def simulate_history(self):
+        result_log = pd.DataFrame([])
         for rid in self.rids:
+            self.logging.info("race_id: " + str(rid))
             # get target model
             predict_models = self.find_predict_models(rid)
             predict_df = self.get_history_df(predict_models)
@@ -106,6 +110,9 @@ class Race_simulation (object):
             if predict_models is not None and training_models is not None:
                 logging_df = calculator.execute_simulation(training_df, predict_df)
                 logging_df.to_csv('./../Result/'+str(rid) + '.csv')
-                calculator.evaluate_average(logging_df)
+                sorted_result = calculator.evaluate_average(logging_df)
+                self.logging.info(sorted_result)
+                return sorted_result
             else:
-                print('models has something wrong.')
+                print("this version couldnt be solved")
+                self.logging.info("this version couldnt be solved")

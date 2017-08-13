@@ -42,4 +42,6 @@ def execute_simulation(training_df, predict_df):
     # 買う項目を絞る
 
 def evaluate_average(logging_df):
-    print(logging_df.groupby("rank").apply(lambda x: x.mean()))
+    sorted_result = logging_df.groupby("rank").apply(lambda x: x.mean())
+    print(sorted_result)
+    return sorted_result
