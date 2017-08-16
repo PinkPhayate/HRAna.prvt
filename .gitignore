@@ -3,3 +3,5 @@ Log/
 db-data/
 race-history_files/
 *.pyc
+.idea/workspace.xml
+Result/

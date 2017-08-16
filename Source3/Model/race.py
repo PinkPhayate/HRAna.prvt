@@ -51,6 +51,14 @@ class Race(object):
 #
     def get_hids(self):
         return list(self.df[['hid']].values.flatten())
+
+    def set_ranked_pred(self, report_df):
+        self.ranked_pred = report_df
+
+    def get_no_by_rank(self, rank):
+        s = self.df[self.df.apply(lambda x: int(x['rank'])==int(rank), axis=1)]
+        return s['no'].values[0]
+
 #
 #     def get_df(self):
 #         return self.df
