@@ -7,7 +7,6 @@ import logging
 class MYSQL_connector(object):
     def __init__(self):
         self.try_to_connect()
-        self.remove_duplicated_record()
 
 
     def try_to_connect(self):

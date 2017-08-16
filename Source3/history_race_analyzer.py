@@ -6,6 +6,7 @@ from nosql_connector import NOSQL_connector
 from mysql_connector import MYSQL_connector
 import data_exchanger as de
 import logging
+from os import path
 
 mysql_conn = MYSQL_connector()
 
@@ -36,6 +37,13 @@ def create_history_model(race_id):
     race_date = race_History.date
     # 出場馬をリスト化
     hids = race_History.get_hids()
+
+    #　もしキャッシュがあれば
+    df_file_path = './../Data/Cached/'+race_id+'.csv'
+    if path.isfile(df_file_path):
+        race_History.history_df = pd.read_csv(df_file_path, index_col=0, header=0)
+        return race_History
+
     # 出場馬の過去のレースを取得
     df = pd.DataFrame([])
     for hid in hids:
@@ -46,10 +54,10 @@ def create_history_model(race_id):
         d = pd.DataFrame([])
         history_rids_df['urid'] = history_rids_df[['race_id']].apply(lambda x: x % 100000000)
         d = history_rids_df[['urid']]
-        d['rank'] = hids.index(hid) + 1
-        d['rid'] = race_id
+        d.loc[:, 'rank'] = hids.index(hid) + 1
+        d.loc[:, 'rid'] = race_id
         df = pd.concat([df, d], axis=0)
-
+    df.to_csv(df_file_path)
     race_History.history_df = df
     return race_History
 
@@ -71,38 +79,6 @@ def formalize_dummy(race_models):
         ddf.drop('rid', axis=1, inplace=True)
         rmodel.dummy_df = ddf.reset_index(drop=True)
 
-
-
-
-# def g(race_id):
-#     """
-#     一年分のレースに出場した馬の過去のレースを振り返り、レースのdfを作成する
-#     """
-#     # mysql_conn = MYSQL_connector()
-#     race_History = Race_History(race_id, mysql_conn)
-#     if race_History.mrg_df is None:
-#         logging.critical('this race was not in db: ' + race_id)
-#         return
-#     hids = race_History.get_hids()
-#
-#     # 対象レースのidを指定して出走馬の過去のレースを取得する
-#     for rid in race_History.history_map:
-#         # 各レースに対して、対象レースにでている馬の成績を取得
-#         race_results = get_race_results(rid, hids)
-#
-#         # 上位なら１、下位なら0とか、アルゴリズムは適当に
-#         # race_results = get_race_rank(race_results)
-#         d = pd.DataFrame(race_results)
-#         d.columns = [['rank']]
-#         # レースidから、開催年を把握できないようにする   201704010211 => 04010211
-#         unique_rid = rid % 100000000
-#         # unique_ridとrace_rankのdfを作成
-#         d['urid'] = str(unique_rid)
-#         d['rid'] = rid
-#         df = pd.concat([df, d], axis=0)
-#     # df = de.convet_unique_rid_dummy(df)
-#     race_History.set_history_df(df)
-#     return race_History
 
 def main(word):
     # 対象レースの過去のレースのidを取得
