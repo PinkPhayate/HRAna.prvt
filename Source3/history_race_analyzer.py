@@ -38,7 +38,7 @@ def create_history_model(race_id):
     # 出場馬をリスト化
     hids = race_History.get_hids()
 
-    #　もしキャッシュがあれば
+    # もしキャッシュがあれば
     df_file_path = './../Data/Cached/'+race_id+'.csv'
     if path.isfile(df_file_path):
         race_History.history_df = pd.read_csv(df_file_path, index_col=0, header=0)
@@ -52,7 +52,8 @@ def create_history_model(race_id):
 
         # XXX ここでレースの年数を取り除き、stringにしたいが、strするとNaNになってしまう
         d = pd.DataFrame([])
-        history_rids_df['urid'] = history_rids_df[['race_id']].apply(lambda x: x % 100000000)
+        history_rids_df['urid'] = history_rids_df[['race_id']]\
+            .apply(lambda x: x % 100000000)
         d = history_rids_df[['urid']]
         d.loc[:, 'rank'] = hids.index(hid) + 1
         d.loc[:, 'rid'] = race_id
@@ -90,7 +91,6 @@ def main(word):
         return
     logging.info("number of predict history race: " + str(len(rids)))
     print("number of predict history race: " + str(len(rids)))
-    df = pd.DataFrame([])
     race_models = []
     for rid in rids:
         r = create_history_model(rid)
@@ -104,20 +104,6 @@ def main(word):
     rs.set_race_name(word[0])
     rs.simulate_history()
 
-
-
-
-    # # 対象レースに登録している馬を評価していく。
-    # evs = {}
-    # hids = race_History.get_hids()
-    # for hid in hids:
-    #     h = Hoese(hid)
-    #     rids = h.get_race_list()
-    #     ev = 0
-    #     for rid in rids:
-    #         ev += d[rid] if rid in d.keys() else 0
-    #     evs[hid] = ev
-    # print(evs)
 
 if __name__ == '__main__':
     words = [u'西部スポニチ賞']
