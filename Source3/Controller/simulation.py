@@ -2,6 +2,7 @@ import copy
 from Controller import algorithm as algo
 from Model import race
 from Controller import calculator
+import nosql_connector as nsc
 import pandas as pd
 
 
@@ -95,7 +96,8 @@ class Race_simulation (object):
     def simulate_history(self):
         detail_df = pd.DataFrame([])
         report_df = pd.DataFrame([])
-        for rid in self.rids:
+        for rmodel in self.race_models:
+            rid = rmodel.rid
             print('target race: ' + str(rid))
             # get target model
             predict_models = self.find_predict_models(rid)
@@ -107,15 +109,50 @@ class Race_simulation (object):
             training_df.reset_index(drop=True, inplace=True)
             if predict_models is not None and training_models is not None:
                 logging_df = calculator.execute_simulation(training_df, predict_df)
-                # logging_df.to_csv('./../Result/'+str(rid) + '.csv')
+                # for debug
                 detail_df = pd.concat([detail_df, logging_df], axis=1)
+                # tmp = rmodel.history_df.reset_index(drop=True)
+                # detail_df = pd.concat([detail_df, tmp], axis=1)
 
                 sorted_result = calculator.evaluate_average(logging_df)
 
                 print(sorted_result)
                 sorted_result = sorted_result.reset_index(drop=True)
                 report_df = pd.concat([report_df, sorted_result], axis=1)
+                rmodel.set_ranked_pred(report_df)
             else:
                 print('models has something wrong.')
         detail_df.to_csv('./../Result/'+self.race_name+'detail-report.csv')
         report_df.to_csv('./../Result/'+self.race_name+'result-report.csv')
+
+    def evaluate_prediction(self):
+        for rmodel in self.race_models:
+            pred_df = rmodel.ranked_pred()
+            selected_hourses = pred_df.ix[:, :4]
+            selected_hourses['no'] = selected_hourses\
+                .apply(lambda x: rmodel.get_no_by_rank(x[['rank']]), axis=1)
+            li = selected_hourses[['no']].to_list()
+            self.get_race_odds(li)
+
+    def get_race_odds(self, li):
+        rtval = self.get_result_wide_odds()
+        if rtval is None:
+            return
+        income = 0
+        for element in itertools.permutations(li, 2):
+            i = element.sorted[0]
+            j = element.sorted[1]
+            string = i+'-'+j
+            if string in rtval[0]:
+                index = rtval[0].count(string)
+                income += int(rtval[1][index])
+            print('get return value: '+income)
+
+    def get_result_wide_odds(self):
+        nosql_connector = nsc.NOSQL_connector()
+        odds_dict = nosql_connector.get_race_result_return(self.rid)
+        rtval = None
+        if odds_dict:
+            return odds_dict['ワイド']
+        else:
+            return None
