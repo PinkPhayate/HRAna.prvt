@@ -55,12 +55,21 @@ def create_history_model(race_id):
         history_rids_df['urid'] = history_rids_df[['race_id']]\
             .apply(lambda x: x % 100000000)
         d = history_rids_df[['urid']]
+        d.loc[:, 'race_id'] = history_rids_df[['race_id']]
         d.loc[:, 'rank'] = hids.index(hid) + 1
         d.loc[:, 'rid'] = race_id
         df = pd.concat([df, d], axis=0)
-    df.to_csv(df_file_path)
+    df.to_csv(df_file_path)  # for cached
     race_History.history_df = df
     return race_History
+
+def remove_rare_race(mrg_df):
+    df = mrg_df.copy()
+    for k, v in df.iteritems():
+        sm = v.sum()
+        if sm < 2:
+            mrg_df.drop(k, axis=1, inplace=True)
+    # return mrg_df
 
 def formalize_dummy(race_models):
     mrg_df = pd.DataFrame([])
@@ -72,12 +81,16 @@ def formalize_dummy(race_models):
     d = mrg_df.apply(lambda x: str(x[['urid']].values[0]), axis=1)
     dummy_df = pd.get_dummies(d, drop_first=True)
     mrg_df = pd.concat([mrg_df, dummy_df], axis=1)
-    logging.info('length of columns: ' + str(len(mrg_df.columns)))
+    print('length of columns: ' + str(len(mrg_df.columns)))
+    # removing minority race
+    remove_rare_race(mrg_df)
+    print('length of columns after removing rare: ' + str(len(mrg_df.columns)))
     for rmodel in race_models:
         rid = rmodel.rid
         ddf = mrg_df[mrg_df.apply(lambda x: int(x['rid']) == int(rid), axis=1)]
         ddf.drop('urid', axis=1, inplace=True)
         ddf.drop('rid', axis=1, inplace=True)
+        ddf.drop('race_id', axis=1, inplace=True)
         rmodel.dummy_df = ddf.reset_index(drop=True)
 
 
