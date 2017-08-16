@@ -113,6 +113,7 @@ class Race_simulation (object):
                 detail_df = pd.concat([detail_df, logging_df], axis=1)
                 tmp = rmodel.history_df.reset_index(drop=True)
                 detail_df = pd.concat([detail_df, tmp], axis=1)
+                tmp = rmodel.df.reset_index(drop=True)
 
                 sorted_result = calculator.evaluate_average(logging_df)
 
@@ -120,7 +121,6 @@ class Race_simulation (object):
                 sorted_result = sorted_result.reset_index(drop=True)
                 report_df = pd.concat([report_df, sorted_result], axis=1)
                 rmodel.set_ranked_pred(report_df)
-                break
             else:
                 print('models has something wrong.')
         detail_df.to_csv('./../Result/'+self.race_name+'detail-report.csv')

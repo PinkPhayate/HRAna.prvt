@@ -55,10 +55,11 @@ def create_history_model(race_id):
         history_rids_df['urid'] = history_rids_df[['race_id']]\
             .apply(lambda x: x % 100000000)
         d = history_rids_df[['urid']]
+        d.loc[:, 'race_id'] = history_rids_df[['race_id']]
         d.loc[:, 'rank'] = hids.index(hid) + 1
         d.loc[:, 'rid'] = race_id
         df = pd.concat([df, d], axis=0)
-    df.to_csv(df_file_path)
+    df.to_csv(df_file_path)  # for cached
     race_History.history_df = df
     return race_History
 
@@ -78,6 +79,7 @@ def formalize_dummy(race_models):
         ddf = mrg_df[mrg_df.apply(lambda x: int(x['rid']) == int(rid), axis=1)]
         ddf.drop('urid', axis=1, inplace=True)
         ddf.drop('rid', axis=1, inplace=True)
+        ddf.drop('race_id', axis=1, inplace=True)
         rmodel.dummy_df = ddf.reset_index(drop=True)
 
 
