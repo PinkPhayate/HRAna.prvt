@@ -114,6 +114,7 @@ def main(word):
     formalize_dummy(race_models)
 
     rs = Race_simulation(rids=rids, race_models=race_models)
+    rs.set_aid(1)
     rs.set_race_name(word[0])
     rs.simulate_history()
 

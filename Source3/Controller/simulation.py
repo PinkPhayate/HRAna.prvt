@@ -4,7 +4,7 @@ from Model import race
 from Controller import calculator
 import nosql_connector as nsc
 import pandas as pd
-
+from mysql_connector import MYSQL_connector
 
 class Race_simulation (object):
     def __init__(self, rids, race_models):
@@ -16,7 +16,10 @@ class Race_simulation (object):
         self.number_of_race = len(race_models)
         self.race_models = race_models
         self.race_name = None
+        self.analyze_id = None
 
+    def set_aid(self, aid):
+        self.analyze_id = aid
 
     def find_training_models(self, predict_rid: str):
         models = copy.deepcopy(self.race_models)
@@ -113,7 +116,9 @@ class Race_simulation (object):
                 detail_df = pd.concat([detail_df, logging_df], axis=1)
                 tmp = rmodel.history_df.reset_index(drop=True)
                 detail_df = pd.concat([detail_df, tmp], axis=1)
-                tmp = rmodel.df.reset_index(drop=True)
+                # tmp = rmodel.df.reset_index(drop=True)
+                analyzed_df = pd.concat([logging_df[['pred']], tmp], axis=1)
+                self.add_analyze_db(analyzed_df)
 
                 sorted_result = calculator.evaluate_average(logging_df)
 
@@ -125,6 +130,14 @@ class Race_simulation (object):
                 print('models has something wrong.')
         detail_df.to_csv('./../Result/'+self.race_name+'detail-report.csv')
         report_df.to_csv('./../Result/'+self.race_name+'result-report.csv')
+
+    def add_analyze_db(self, df):
+        detail_df = df.copy()
+        detail_df.loc[:, 'aid'] = int(self.analyze_id)
+        detail_df['race_id'] = detail_df['race_id'].apply(lambda x: str(x))
+        detail_df['rid'] = detail_df['rid'].apply(lambda x: str(x))
+        mysql_conn = MYSQL_connector()
+        mysql_conn.insert_db(detail_df)
 
     def evaluate_prediction(self):
         for rmodel in self.race_models:
