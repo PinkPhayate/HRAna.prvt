@@ -5,6 +5,14 @@ import json
 import logging
 
 class MYSQL_connector(object):
+    args = {
+        "host": "127.0.0.1",
+        "database": "hra",
+        "user": "root",
+        "password": "root",
+        "port": 3333
+    }
+
     def __init__(self):
         self.try_to_connect()
 
@@ -99,3 +107,16 @@ class MYSQL_connector(object):
         sql = ("""SELECT * FROM %s where hid = %%s and course = %%s""" % ('history',))
         res = self._execute_query_with_2params(sql,args)
         return res
+
+    def insert_db(self, df):
+        con = MySQLdb.connect(**self.args)
+        con.set_character_set('utf8')
+        con.cursor().execute('SET NAMES utf8;')
+        con.cursor().execute('SET CHARACTER SET utf8;')
+        con.cursor().execute('SET character_set_connection=utf8;')
+        table_name = "analyze"
+        df.to_sql(table_name,
+                  con=self.conn,
+                  flavor='mysql',
+                  index=False,
+                  if_exists='append')
