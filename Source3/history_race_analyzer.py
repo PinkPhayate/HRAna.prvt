@@ -8,7 +8,7 @@ import data_exchanger as de
 import logging
 from os import path
 
-mysql_conn = MYSQL_connector()
+# mysql_conn = MYSQL_connector()
 
 def get_race_results(rid, hid_list):
 
