@@ -1,4 +1,5 @@
 import pandas as pd
+import sys
 from Controller.simulation import Race_simulation
 from Model.race import Race_History, Race
 from Model.horse import Horse_History
@@ -95,22 +96,30 @@ def formalize_dummy(race_models):
         ddf.drop('race_id', axis=1, inplace=True)
         rmodel.dummy_df = ddf.reset_index(drop=True)
 
+def get_race_models(rids):
+    race_models = []
 
-def main(word):
+    for rid in rids:
+        r = create_history_model(rid)
+        if r is not None:
+            race_models.append(r)
+    return race_models
+
+def main(word, today_race_id=None):
     # 対象レースの過去のレースのidを取得
     # mysql_conn = MYSQL_connector()
     nc = NOSQL_connector()
     rids = nc.get_rids_by_name(race_name=words[0])
     if not rids:
-        logging.info('couldnt get rids from entered word: '+word[0])
+        logging.info('couldnt get rids from entered word: '+words[0])
         return
     logging.info("number of predict history race: " + str(len(rids)))
     print("number of predict history race: " + str(len(rids)))
-    race_models = []
-    for rid in rids:
-        r = create_history_model(rid)
-        if r is not None:
-            race_models.append(r)
+
+    race_models = get_race_models(rids)
+
+    # if today_race_id is not None:
+    #     rids.append(today_race_id)
 
     # ダミー変数化
     formalize_dummy(race_models)
@@ -122,6 +131,10 @@ def main(word):
 
 
 if __name__ == '__main__':
-    words = [u'']
+    words = [u'札幌記念']
+    today_race_id = None
+    args = sys.argv
+    if 1 < len(args):
+        today_race_id = args[1]
     for word in words:
-        main(word)
+        main(word, today_race_id=today_race_id)

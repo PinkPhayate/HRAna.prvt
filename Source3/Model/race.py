@@ -161,3 +161,25 @@ class Race_History(Race):
 
     def set_history_df(self, df):
         self.history_df = df
+
+class Race_Today(Race):
+    history_df = pd.DataFrame([])
+
+    def __init__(self, race_id, mysql_conn):
+        self.mysql_conn = mysql_conn
+        self.rid = int(race_id)
+        self.date = self.__get_today_data()
+
+    def __formalize(self, str):
+        return ('0'+str) if len(str) == 1 else str
+
+    def __get_today_data(self):
+        from datetime import datetime
+        dt = datetime.now()
+        year = str(dt.year)
+        month = self.__formalize(str(dt.month))
+        day = self.__formalize(str(dt.day))
+        return int(year + month + day)
+
+    def set_hids(self, hids):
+        self.hids = hids
