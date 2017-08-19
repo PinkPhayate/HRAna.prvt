@@ -128,8 +128,10 @@ class Race_simulation (object):
                 rmodel.set_ranked_pred(report_df)
             else:
                 print('models has something wrong.')
-        detail_df.to_csv('./../Result/'+self.race_name+'detail-report.csv')
-        report_df.to_csv('./../Result/'+self.race_name+'result-report.csv')
+        detail_df.to_csv('./../Result/'+self.race_name+'detail-report-'\
+                                                    + str(self.analyze_id)+'.csv')
+        report_df.to_csv('./../Result/'+self.race_name+'result-report-'\
+                                                    + str(self.analyze_id)+'.csv')
 
     def add_analyze_db(self, df):
         detail_df = df.copy()

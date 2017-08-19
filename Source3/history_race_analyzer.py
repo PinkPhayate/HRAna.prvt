@@ -49,6 +49,7 @@ def create_history_model(race_id):
     for hid in hids:
         h = Horse_History(hourse_id=hid, mysql_conn=mysql_conn)
         history_rids_df = h.get_previous_race(race_date)
+        history_rids_df = history_rids_df[-10:]
 
         # XXX ここでレースの年数を取り除き、stringにしたいが、strするとNaNになってしまう
         d = pd.DataFrame([])
@@ -66,6 +67,7 @@ def create_history_model(race_id):
 def remove_rare_race(mrg_df):
     df = mrg_df.copy()
     for k, v in df.iteritems():
+        v = v.map(lambda x: int(x))
         sm = v.sum()
         if sm < 2:
             mrg_df.drop(k, axis=1, inplace=True)
@@ -120,6 +122,6 @@ def main(word):
 
 
 if __name__ == '__main__':
-    words = [u'西部スポニチ賞']
+    words = [u'']
     for word in words:
         main(word)
