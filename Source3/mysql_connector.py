@@ -16,7 +16,6 @@ class MYSQL_connector(object):
     def __init__(self):
         self.try_to_connect()
 
-
     def try_to_connect(self):
         self.conn = MySQLdb.connect(
             user='root',
@@ -31,19 +30,21 @@ class MYSQL_connector(object):
         self.cursor.execute('SET NAMES utf8mb4;')
         self.cursor.execute('SET CHARACTER SET utf8mb4;')
         self.cursor.execute('SET character_set_connection=utf8mb4;')
+        self.remove_redundant_record()
         print('connect to mysql')
 
-    def c(self):
+    def remove_redundant_record(self):
         sql = """DELETE FROM history WHERE uid NOT IN (SELECT min_id from\
-         (SELECT MIN(uid) min_id FROM history GROUP BY race_id, hid) tmp);"""
+         (SELECT MIN(uid) min_id FROM history GROUP BY race_id, hid) tmp)"""
         self.cursor.execute(sql)
-        res = self.cursor.fetchall()
+        self.conn.commit()
+        logging.info("removed redundant records")
+        # res = self.cursor.fetchall()
 
     def select_data_by_rid(self, rid):
         # rid = str(rid)
         try:
             sql = ("""SELECT * FROM history where race_id = %s""" % rid)
-            logging.info(sql)
             logging.info(sql)
             self.cursor.execute(sql)
             res = self.cursor.fetchall()

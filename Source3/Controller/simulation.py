@@ -128,8 +128,49 @@ class Race_simulation (object):
                 rmodel.set_ranked_pred(report_df)
             else:
                 print('models has something wrong.')
-        detail_df.to_csv('./../Result/'+self.race_name+'detail-report.csv')
-        report_df.to_csv('./../Result/'+self.race_name+'result-report.csv')
+        detail_df.to_csv('./../Result/'+self.race_name+'detail-report-'\
+                                                    + str(self.analyze_id)+'.csv')
+        report_df.to_csv('./../Result/'+self.race_name+'result-report-'\
+                                                    + str(self.analyze_id)+'.csv')
+
+    def simulate_today_history(self, today_race_id):
+        detail_df = pd.DataFrame([])
+        report_df = pd.DataFrame([])
+
+        # get target model
+        predict_model = self.find_predict_models(today_race_id)
+        predict_df = self.get_history_df(predict_model)
+        predict_df.reset_index(drop=True, inplace=True)
+
+        # get trainig_model
+        training_models = self.find_training_models(today_race_id)
+        training_df = self.get_history_df(training_models)
+        training_df.reset_index(drop=True, inplace=True)
+        if predict_model is not None and training_models is not None:
+            logging_df = calculator.execute_simulation(training_df, predict_df)
+            # for debug
+            detail_df = pd.concat([detail_df, logging_df], axis=1)
+            tmp = predict_model[0].history_df.reset_index(drop=True)
+            detail_df = pd.concat([detail_df, tmp], axis=1)
+            # tmp = rmodel.df.reset_index(drop=True)
+            analyzed_df = pd.concat([logging_df[['pred']], tmp], axis=1)
+            self.add_analyze_db(analyzed_df)
+
+            sorted_result = calculator.evaluate_average(logging_df)
+
+            print(sorted_result)
+            sorted_result = sorted_result.reset_index(drop=True)
+            report_df = pd.concat([report_df, sorted_result], axis=1)
+            # predict_model[0].set_ranked_pred(report_df)
+        else:
+            print('models has something wrong.')
+        detail_df.to_csv('./../Result/'+self.race_name+'detail-report-'
+                                                    + str(self.analyze_id)+'.csv')
+        report_df.to_csv('./../Result/'+self.race_name+'result-report-'
+                                                    + str(self.analyze_id)+'.csv')
+
+
+
 
     def add_analyze_db(self, df):
         detail_df = df.copy()

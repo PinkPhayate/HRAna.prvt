@@ -1,4 +1,5 @@
 import pandas as pd
+import sys
 from Controller.simulation import Race_simulation
 from Model.race import Race_History, Race
 from Model.horse import Horse_History
@@ -8,7 +9,7 @@ import data_exchanger as de
 import logging
 from os import path
 
-mysql_conn = MYSQL_connector()
+# mysql_conn = MYSQL_connector()
 
 def get_race_results(rid, hid_list):
 
@@ -49,6 +50,7 @@ def create_history_model(race_id):
     for hid in hids:
         h = Horse_History(hourse_id=hid, mysql_conn=mysql_conn)
         history_rids_df = h.get_previous_race(race_date)
+        history_rids_df = history_rids_df[-10:]
 
         # XXX ここでレースの年数を取り除き、stringにしたいが、strするとNaNになってしまう
         d = pd.DataFrame([])
@@ -66,6 +68,7 @@ def create_history_model(race_id):
 def remove_rare_race(mrg_df):
     df = mrg_df.copy()
     for k, v in df.iteritems():
+        v = v.map(lambda x: int(x))
         sm = v.sum()
         if sm < 2:
             mrg_df.drop(k, axis=1, inplace=True)
@@ -93,33 +96,41 @@ def formalize_dummy(race_models):
         ddf.drop('race_id', axis=1, inplace=True)
         rmodel.dummy_df = ddf.reset_index(drop=True)
 
+def get_race_models(rids):
+    race_models = []
 
-def main(word):
+    for rid in rids:
+        r = create_history_model(rid)
+        if r is not None:
+            race_models.append(r)
+    return race_models
+
+def main():
     # 対象レースの過去のレースのidを取得
     # mysql_conn = MYSQL_connector()
     nc = NOSQL_connector()
     rids = nc.get_rids_by_name(race_name=words[0])
     if not rids:
-        logging.info('couldnt get rids from entered word: '+word[0])
+        logging.info('couldnt get rids from entered word: '+words[0])
         return
     logging.info("number of predict history race: " + str(len(rids)))
     print("number of predict history race: " + str(len(rids)))
-    race_models = []
-    for rid in rids:
-        r = create_history_model(rid)
-        if r is not None:
-            race_models.append(r)
+
+    race_models = get_race_models(rids)
+
+    # if today_race_id is not None:
+    #     rids.append(today_race_id)
 
     # ダミー変数化
     formalize_dummy(race_models)
 
     rs = Race_simulation(rids=rids, race_models=race_models)
     rs.set_aid(1)
+    word = words[0]
     rs.set_race_name(word[0])
     rs.simulate_history()
 
 
 if __name__ == '__main__':
-    words = [u'西部スポニチ賞']
-    for word in words:
-        main(word)
+    words = [u'NST賞']
+    main()

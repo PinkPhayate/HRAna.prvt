@@ -24,17 +24,24 @@ class Race(object):
             logging.warning('couldnt find any record, race_id: '+str(self.rid))
             return
         self.df = de.beautify_data(res)
+        # remove horse which canceled entry race
+        self.df = self.df[self.df['rank'] != 0]
+        # sort by ranking
+        self.df = self.df.sort_values(by=["rank"], ascending=True)
 
     def __set_date(self):
         if self.df is None:
             return
+            print("self.df['date'][0]")
+            print(self.df['date'])
         self.date = de.convert_data_to_int(self.df['date'][0])
+        # TODO レース当日は今日の日付が取れていない
+        # self.date = 20170820
 
     def get_rank_by_hid(self, hid):
         s = self.get_series_by_hid(hid)
         if 0 < len(s):
-            s = s.ix[:,0]
-            print(s)
+            s = s.ix[:, 0]
         return s['rank']
 
     def get_series_by_hid(self, hid):
@@ -161,3 +168,25 @@ class Race_History(Race):
 
     def set_history_df(self, df):
         self.history_df = df
+
+class Race_Today(Race):
+    history_df = pd.DataFrame([])
+
+    def __init__(self, race_id, mysql_conn):
+        self.mysql_conn = mysql_conn
+        self.rid = int(race_id)
+        self.date = self.__get_today_data()
+
+    def __formalize(self, str):
+        return ('0'+str) if len(str) == 1 else str
+
+    def __get_today_data(self):
+        from datetime import datetime
+        dt = datetime.now()
+        year = str(dt.year)
+        month = self.__formalize(str(dt.month))
+        day = self.__formalize(str(dt.day))
+        return int(year + month + day)
+
+    def set_hids(self, hids):
+        self.hids = hids
