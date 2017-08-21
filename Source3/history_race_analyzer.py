@@ -105,7 +105,7 @@ def get_race_models(rids):
             race_models.append(r)
     return race_models
 
-def main(word, today_race_id=None):
+def main():
     # 対象レースの過去のレースのidを取得
     # mysql_conn = MYSQL_connector()
     nc = NOSQL_connector()
@@ -126,15 +126,11 @@ def main(word, today_race_id=None):
 
     rs = Race_simulation(rids=rids, race_models=race_models)
     rs.set_aid(1)
+    word = words[0]
     rs.set_race_name(word[0])
     rs.simulate_history()
 
 
 if __name__ == '__main__':
-    words = [u'札幌記念']
-    today_race_id = None
-    args = sys.argv
-    if 1 < len(args):
-        today_race_id = args[1]
-    for word in words:
-        main(word, today_race_id=today_race_id)
+    words = [u'NST賞']
+    main()

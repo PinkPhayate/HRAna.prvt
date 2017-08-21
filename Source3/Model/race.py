@@ -24,17 +24,24 @@ class Race(object):
             logging.warning('couldnt find any record, race_id: '+str(self.rid))
             return
         self.df = de.beautify_data(res)
+        # remove horse which canceled entry race
+        self.df = self.df[self.df['rank'] != 0]
+        # sort by ranking
+        self.df = self.df.sort_values(by=["rank"], ascending=True)
 
     def __set_date(self):
         if self.df is None:
             return
+            print("self.df['date'][0]")
+            print(self.df['date'])
         self.date = de.convert_data_to_int(self.df['date'][0])
+        # TODO レース当日は今日の日付が取れていない
+        # self.date = 20170820
 
     def get_rank_by_hid(self, hid):
         s = self.get_series_by_hid(hid)
         if 0 < len(s):
-            s = s.ix[:,0]
-            print(s)
+            s = s.ix[:, 0]
         return s['rank']
 
     def get_series_by_hid(self, hid):

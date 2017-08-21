@@ -59,7 +59,8 @@ def main(word, today_race_id=None):
 
     if today_race_id is None:
         return
-
+    #  謎のコード
+    # rids = rids.remove_rare_race('')
     race_models = hisra.get_race_models(rids)
 
     race_model = create_today_model(today_race_id)
