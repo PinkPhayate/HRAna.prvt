@@ -11,6 +11,7 @@ class Race(object):
     rid = ''
     entry_horses_id = []
     df = None
+    __ranked_pred = None
 
     def __init__(self, race_id, mysql_conn):
         self.mysql_conn = mysql_conn
@@ -47,6 +48,19 @@ class Race(object):
     def get_series_by_hid(self, hid):
         return self.df[self.df['hid'] == int(hid)]
 
+    def merge_fav(self):
+        if self.__ranked_pred is None or self.df is None:
+            return
+        if 'rank' not in self.__ranked_pred.columns:
+            print('__ranked_pred has not rank column')
+            return
+        if 'rank' not in self.df:
+            print('df has not rank column')
+            return
+        __mrg_df = pd.merge(self.df, self.__ranked_pred, on='rank')
+        return __mrg_df[['rank', 'fav', 'pred']]\
+                            .sort_values(by=["pred"], ascending=True)
+
 
 #     def __init__(self, rid, mysql_conn):
 #         self.df = pd.DataFrame([])
@@ -59,8 +73,12 @@ class Race(object):
     def get_hids(self):
         return list(self.df[['hid']].values.flatten())
 
-    def set_ranked_pred(self, report_df):
-        self.ranked_pred = report_df
+    def set__ranked_pred(self, report_df):
+        self.__ranked_pred = report_df
+
+    def get__ranked_pred(self):
+        return self.__ranked_pred
+
 
     def get_no_by_rank(self, rank):
         s = self.df[self.df.apply(lambda x: int(x['rank'])==int(rank), axis=1)]

@@ -125,7 +125,7 @@ class Race_simulation (object):
                 print(sorted_result)
                 sorted_result = sorted_result.reset_index(drop=True)
                 report_df = pd.concat([report_df, sorted_result], axis=1)
-                rmodel.set_ranked_pred(report_df)
+                rmodel.set__ranked_pred(sorted_result)
             else:
                 print('models has something wrong.')
         detail_df.to_csv('./../Result/'+self.race_name+'detail-report-'\
@@ -161,6 +161,7 @@ class Race_simulation (object):
             print(sorted_result)
             sorted_result = sorted_result.reset_index(drop=True)
             report_df = pd.concat([report_df, sorted_result], axis=1)
+            rmodel.set__ranked_pred(sorted_result)
             # predict_model[0].set_ranked_pred(report_df)
         else:
             print('models has something wrong.')

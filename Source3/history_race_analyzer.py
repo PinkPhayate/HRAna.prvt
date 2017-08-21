@@ -129,6 +129,9 @@ def main():
     word = words[0]
     rs.set_race_name(word[0])
     rs.simulate_history()
+    for rm in race_models:
+        print(rm.merge_fav())
+
 
 
 if __name__ == '__main__':
