@@ -2,7 +2,7 @@ from Model import horse
 import pandas as pd
 import data_exchanger as de
 import logging
-
+from nosql_connector import NOSQL_connector
 
 class Race(object):
     mysql_connv = None
@@ -12,6 +12,7 @@ class Race(object):
     entry_horses_id = []
     df = None
     __ranked_pred = None
+    __odds_dict = None
 
     def __init__(self, race_id, mysql_conn):
         self.mysql_conn = mysql_conn
@@ -29,6 +30,13 @@ class Race(object):
         self.df = self.df[self.df['rank'] != 0]
         # sort by ranking
         self.df = self.df.sort_values(by=["rank"], ascending=True)
+
+    def __set_result_odds(self):
+        nc = NOSQL_connector()
+        odds_dict = nc.get_race_result_return(self.rid)
+        self.__odds_dict = odds_dict
+
+
 
     def __set_date(self):
         if self.df is None:
@@ -58,7 +66,7 @@ class Race(object):
             print('df has not rank column')
             return
         __mrg_df = pd.merge(self.df, self.__ranked_pred, on='rank')
-        return __mrg_df[['rank', 'fav', 'pred']]\
+        return __mrg_df[[ 'no', 'rank', 'fav', 'pred']]\
                             .sort_values(by=["pred"], ascending=True)
 
 
@@ -84,7 +92,9 @@ class Race(object):
         s = self.df[self.df.apply(lambda x: int(x['rank'])==int(rank), axis=1)]
         return s['no'].values[0]
 
-#
+    def get__odds_dict(self):
+        return self.__odds_dict
+
 #     def get_df(self):
 #         return self.df
 #

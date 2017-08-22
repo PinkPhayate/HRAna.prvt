@@ -17,6 +17,7 @@ class Race_simulation (object):
         self.race_models = race_models
         self.race_name = None
         self.analyze_id = None
+        self.SELECT_CNDT = 5
 
     def set_aid(self, aid):
         self.analyze_id = aid
@@ -148,6 +149,7 @@ class Race_simulation (object):
         training_df.reset_index(drop=True, inplace=True)
         if predict_model is not None and training_models is not None:
             logging_df = calculator.execute_simulation(training_df, predict_df)
+
             # for debug
             detail_df = pd.concat([detail_df, logging_df], axis=1)
             tmp = predict_model[0].history_df.reset_index(drop=True)
@@ -161,7 +163,7 @@ class Race_simulation (object):
             print(sorted_result)
             sorted_result = sorted_result.reset_index(drop=True)
             report_df = pd.concat([report_df, sorted_result], axis=1)
-            rmodel.set__ranked_pred(sorted_result)
+            predict_model.set__ranked_pred(sorted_result)
             # predict_model[0].set_ranked_pred(report_df)
         else:
             print('models has something wrong.')
@@ -169,9 +171,6 @@ class Race_simulation (object):
                                                     + str(self.analyze_id)+'.csv')
         report_df.to_csv('./../Result/'+self.race_name+'result-report-'
                                                     + str(self.analyze_id)+'.csv')
-
-
-
 
     def add_analyze_db(self, df):
         detail_df = df.copy()
@@ -183,32 +182,35 @@ class Race_simulation (object):
 
     def evaluate_prediction(self):
         for rmodel in self.race_models:
-            pred_df = rmodel.ranked_pred()
-            selected_hourses = pred_df.ix[:, :4]
-            selected_hourses['no'] = selected_hourses\
-                .apply(lambda x: rmodel.get_no_by_rank(x[['rank']]), axis=1)
-            li = selected_hourses[['no']].to_list()
-            self.get_race_odds(li)
+            pred_df = rmodel.merge_fav()
+            __odds_dict = self.__select_odds(rmodel)
+            if pred_df is None and __odds_dict is None:
+                print('race (id: ' + str(rmodel.id) + ') couldnt get odds')
+            else:
+                pred_df = pred_df[pred_df['rank'] < self.SELECT_CNDT]
+                selected_hourses = pred_df[0 < pred_df['rank']]
+                li = selected_hourses[['no']].to_list()
+                self.__get_race_odds(li)
 
-    def get_race_odds(self, li):
-        rtval = self.get_result_wide_odds()
+    def __get_race_odds(self, li):
+        import itertools
+        rtval = self.__set_result_odds()
         if rtval is None:
             return
-        income = 0
+        __income, __collect = 0, 0
         for element in itertools.permutations(li, 2):
             i = element.sorted[0]
             j = element.sorted[1]
             string = i+'-'+j
             if string in rtval[0]:
                 index = rtval[0].count(string)
-                income += int(rtval[1][index])
-            print('get return value: '+income)
+                __income += int(rtval[1][index])
+                __collect += 1
+        print('number of collect pair: ' + __collect)
+        print('get return value: '+__income)
 
-    def get_result_wide_odds(self):
-        nosql_connector = nsc.NOSQL_connector()
-        odds_dict = nosql_connector.get_race_result_return(self.rid)
-        rtval = None
-        if odds_dict:
+    def __select_odds(self, rmodel):
+        odds_dict = rmodel.get__odds_dict()
+        if odds_dict is not None:
             return odds_dict['ワイド']
-        else:
-            return None
+        return None
