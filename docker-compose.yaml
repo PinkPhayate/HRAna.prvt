@@ -17,3 +17,11 @@ services:
       - ./db-data:/data/db
     ports:
       - 27018:27017
+  redis:
+    restart: always
+    image: redis
+    volumes:
+      - ./redis-conf:/usr/local/etc/redis.conf
+    command: redis-server --appendonly yes
+    ports:
+      - 6379:6379
