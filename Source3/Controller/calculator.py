@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.linear_model import SGDClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.utils import column_or_1d
 
 
@@ -20,10 +21,8 @@ def execute_via_sgd(training_df, predict_df):
     X, y = make_dataset(training_df)
     # print(X)
 
-    clf = SGDClassifier(loss="log",
-                        penalty="l2",
-                        class_weight="balanced",
-                        n_iter=1000)
+    clf = RandomForestClassifier(class_weight="balanced"
+                                 )
     clf.fit(X, column_or_1d(y))
 
     eX, y = make_dataset(predict_df)

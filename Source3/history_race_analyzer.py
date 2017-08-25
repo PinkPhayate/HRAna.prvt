@@ -9,7 +9,10 @@ import data_exchanger as de
 import logging
 from os import path
 
-# mysql_conn = MYSQL_connector()
+import redis
+POOL = redis.ConnectionPool(host='127.0.0.1', port=6379, db=0)
+my_server = redis.Redis(connection_pool=POOL)
+cachedable = False
 
 def get_race_results(rid, hid_list):
 
@@ -26,6 +29,13 @@ def get_race_rank(ranks):
     c = list(li).count(1)
     return c
 
+def __create_exp_var(df):
+    d = pd.DataFrame([])
+    df['urid'] = df.apply(lambda x: x % 100000000)
+    d = df[['urid']]
+    d.loc[:, 'race_id'] = df
+    return d
+
 def create_history_model(race_id):
     """
     一年分のレースに出場した馬の過去のレースを振り返り、レースのdfを作成する
@@ -39,11 +49,20 @@ def create_history_model(race_id):
     # 出場馬をリスト化
     hids = race_History.get_hids()
 
-    # もしキャッシュがあれば
-    df_file_path = './../Data/Cached/'+race_id+'.csv'
-    if path.isfile(df_file_path):
-        race_History.history_df = pd.read_csv(df_file_path, index_col=0, header=0)
-        return race_History
+    # もしredisキャッシュがあれば
+    if cachedable:
+        try:
+            cached_df = pd.read_msgpack(my_server.get(race_id))
+            race_History.history_df = cached_df
+            return race_History
+        except:
+            print('no cached - rid: ' + race_id)
+
+    # ファイル形式のキャッシュ
+    # df_file_path = './../Data/Cached/'+race_id+'.csv'
+    # if path.isfile(df_file_path):
+    #     race_History.history_df = pd.read_csv(df_file_path, index_col=0, header=0)
+    #     return race_History
 
     # 出場馬の過去のレースを取得
     df = pd.DataFrame([])
@@ -51,17 +70,14 @@ def create_history_model(race_id):
         h = Horse_History(hourse_id=hid, mysql_conn=mysql_conn)
         history_rids_df = h.get_previous_race(race_date)
         history_rids_df = history_rids_df[-10:]
-
-        # XXX ここでレースの年数を取り除き、stringにしたいが、strするとNaNになってしまう
-        d = pd.DataFrame([])
-        history_rids_df['urid'] = history_rids_df[['race_id']]\
-            .apply(lambda x: x % 100000000)
-        d = history_rids_df[['urid']]
-        d.loc[:, 'race_id'] = history_rids_df[['race_id']]
-        d.loc[:, 'rank'] = hids.index(hid) + 1
-        d.loc[:, 'rid'] = race_id
-        df = pd.concat([df, d], axis=0)
-    df.to_csv(df_file_path)  # for cached
+        if len(history_rids_df) < 1:
+            print('this horse has no record - rid: ' + str(hid))
+        else:
+            d = __create_exp_var(history_rids_df[['race_id']])
+            d.loc[:, 'rank'] = hids.index(hid) + 1
+            d.loc[:, 'rid'] = race_id
+            df = pd.concat([df, d], axis=0)
+    my_server.set(race_id, df.to_msgpack(compress='zlib'))  # for cached
     race_History.history_df = df
     return race_History
 
@@ -75,19 +91,30 @@ def remove_rare_race(mrg_df):
     # return mrg_df
 
 def formalize_dummy(race_models):
-    mrg_df = pd.DataFrame([])
-    for rmodel in race_models:
-        hist_df = rmodel.history_df
-        mrg_df = pd.concat([mrg_df, hist_df])
-    # df = mrg_df['urid'].apply(lambda x: str(x))
-    mrg_df.reset_index(drop=True, inplace=True)
-    d = mrg_df.apply(lambda x: str(x[['urid']].values[0]), axis=1)
-    dummy_df = pd.get_dummies(d, drop_first=True)
-    mrg_df = pd.concat([mrg_df, dummy_df], axis=1)
-    print('length of columns: ' + str(len(mrg_df.columns)))
-    # removing minority race
-    remove_rare_race(mrg_df)
-    print('length of columns after removing rare: ' + str(len(mrg_df.columns)))
+    mrg_df = None
+    if cachedable:
+        try:
+            cached_df = pd.read_msgpack(my_server.get("dummy_d"))
+            mrg_df = cached_df
+        except:
+            print('no cached - dummy_d: ')
+    if mrg_df is None:
+        mrg_df = pd.DataFrame([])
+        for rmodel in race_models:
+            hist_df = rmodel.history_df
+            mrg_df = pd.concat([mrg_df, hist_df])
+        # df = mrg_df['urid'].apply(lambda x: str(x))
+        mrg_df.reset_index(drop=True, inplace=True)
+        d = mrg_df.apply(lambda x: str(x[['urid']].values[0]), axis=1)
+        dummy_df = pd.get_dummies(d, drop_first=True)
+        mrg_df = pd.concat([mrg_df, dummy_df], axis=1)
+        print('length of columns: ' + str(len(mrg_df.columns)))
+        # removing minority race
+        remove_rare_race(mrg_df)
+        print('length of columns after removing rare: ' + str(len(mrg_df.columns)))
+        my_server.set("dummy_d", mrg_df.to_msgpack(compress='zlib'))  # for cached
+
+    # 再分割
     for rmodel in race_models:
         rid = rmodel.rid
         ddf = mrg_df[mrg_df.apply(lambda x: int(x['rid']) == int(rid), axis=1)]
@@ -125,15 +152,18 @@ def main():
     formalize_dummy(race_models)
 
     rs = Race_simulation(rids=rids, race_models=race_models)
-    rs.set_aid(1)
+    rs.set_aid(6)
     word = words[0]
     rs.set_race_name(word[0])
     rs.simulate_history()
-    for rm in race_models:
-        print(rm.merge_fav())
-
+    rs.evaluate_prediction()
+    # for rm in race_models:
+    #     print(rm.merge_fav())
 
 
 if __name__ == '__main__':
-    words = [u'NST賞']
+    words = [u'セントウルS']
+    args = sys.argv
+    if args is not None and "-c" in args:
+        cachedable = True
     main()

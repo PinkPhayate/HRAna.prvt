@@ -117,7 +117,6 @@ class Race_simulation (object):
                 detail_df = pd.concat([detail_df, logging_df], axis=1)
                 tmp = rmodel.history_df.reset_index(drop=True)
                 detail_df = pd.concat([detail_df, tmp], axis=1)
-                # tmp = rmodel.df.reset_index(drop=True)
                 analyzed_df = pd.concat([logging_df[['pred']], tmp], axis=1)
                 self.add_analyze_db(analyzed_df)
 
@@ -186,28 +185,31 @@ class Race_simulation (object):
             __odds_dict = self.__select_odds(rmodel)
             if pred_df is None and __odds_dict is None:
                 print('race (id: ' + str(rmodel.id) + ') couldnt get odds')
+                return
             else:
-                pred_df = pred_df[pred_df['rank'] < self.SELECT_CNDT]
-                selected_hourses = pred_df[0 < pred_df['rank']]
-                li = selected_hourses[['no']].to_list()
-                self.__get_race_odds(li)
+                pred_df = pred_df[0 < pred_df['rank']]
+                pred_df = pred_df.reset_index(drop=True)
+                selected_hourses = pred_df.ix[:self.SELECT_CNDT-1, :]
+                li = selected_hourses[['no']].values.tolist()
+                self.__get_race_odds(li, __odds_dict)
 
-    def __get_race_odds(self, li):
+    def __get_race_odds(self, li, odds_dict):
         import itertools
-        rtval = self.__set_result_odds()
-        if rtval is None:
-            return
         __income, __collect = 0, 0
         for element in itertools.permutations(li, 2):
-            i = element.sorted[0]
-            j = element.sorted[1]
-            string = i+'-'+j
-            if string in rtval[0]:
-                index = rtval[0].count(string)
-                __income += int(rtval[1][index])
+            i = element[0][0]
+            j = element[1][0]
+            if i < j:
+                string = str(i)+'-'+str(j)
+            else:
+                string = str(j)+'-'+str(i)
+
+            if string in odds_dict[0]:
+                index = odds_dict[0].count(string)
+                __income += int(odds_dict[1][index].replace(',', ''))
                 __collect += 1
-        print('number of collect pair: ' + __collect)
-        print('get return value: '+__income)
+        print('number of collect pair: ' + str(__collect))
+        print('get return value: '+str(__income))
 
     def __select_odds(self, rmodel):
         odds_dict = rmodel.get__odds_dict()
