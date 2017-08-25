@@ -19,6 +19,7 @@ class Race(object):
         self.rid = int(race_id)
         self.__set_df()
         self.__set_date()
+        self.__set_result_odds()
 
     def __set_df(self):
         res = self.mysql_conn.select_data_by_rid(self.rid)
@@ -33,7 +34,7 @@ class Race(object):
 
     def __set_result_odds(self):
         nc = NOSQL_connector()
-        odds_dict = nc.get_race_result_return(self.rid)
+        odds_dict = nc.get_race_result(str(self.rid))
         self.__odds_dict = odds_dict
 
 

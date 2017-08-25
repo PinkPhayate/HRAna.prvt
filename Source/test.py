@@ -44,6 +44,12 @@ def remove_after_data():
     res = de.remove_after_data(res, date)
     print len(res)
 
+def test_get_race_result_return():
+    from nosql_connector import NOSQL_connector
+    nc = NOSQL_connector()
+    rid = 201701020212
+    res = nc.get_race_result_return(rid)
+    prin(res)
 
 def test_get_race_result_return():
     nsc.get_race_result_return(rid)
@@ -52,3 +58,4 @@ def test_get_race_result_return():
 # test_jockey_time()
 # test__get_df_from_db()
 # remove_after_data()
+test_get_race_result_return()

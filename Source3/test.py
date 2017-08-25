@@ -48,11 +48,12 @@ def remove_after_data():
     print(len(res))
 
 
-def test_get_race_result_return():
-    nosql_connector = nsc.NOSQL_connector()
-    odds_dict = nosql_connector.get_race_result_return(rid)
-    if odds_dict:
-        print(odds_dict['単勝'])
+# def test_get_race_result_return():
+#     rid = 200401010409
+#     nosql_connector = nsc.NOSQL_connector()
+#     odds_dict = nosql_connector.get_race_result_return(rid)
+#     if odds_dict:
+#         print(odds_dict['単勝'])
 
 
 def test_get_odds_dict():
@@ -118,10 +119,12 @@ def test_get_race_rank():
     l = hra.get_race_rank(ranks)
     print(l)
 
-def test_remove_duplicated_record():
-    from mysql_connector import MYSQL_connector
-    mysql_conn = MYSQL_connector()
-    mysql_conn.remove_duplicated_record()
+def test_get_race_result_return():
+    from nosql_connector import NOSQL_connector
+    nc = NOSQL_connector()
+    rid = 201509040211
+    res = nc.get_race_result_return(rid)
+    print(res)
 
 # test__get_df_from_db()
 # test_add_extention_info()
@@ -144,4 +147,4 @@ rt = Race_Test()
 hht = Horse_History_Test()
 # hht.test_get_previous_race()
 
-test_remove_duplicated_record()
+test_get_race_result_return()
