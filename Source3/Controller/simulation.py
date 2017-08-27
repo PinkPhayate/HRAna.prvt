@@ -121,8 +121,9 @@ class Race_simulation (object):
                 self.add_analyze_db(analyzed_df)
 
                 sorted_result = calculator.evaluate_average(logging_df)
+                display_df = self.__apprnd_horse_num(sorted_result, rmodel.df)
+                print(display_df)
 
-                print(sorted_result)
                 sorted_result = sorted_result.reset_index(drop=True)
                 report_df = pd.concat([report_df, sorted_result], axis=1)
                 rmodel.set__ranked_pred(sorted_result)
@@ -171,6 +172,12 @@ class Race_simulation (object):
                                                     + str(self.analyze_id)+'.csv')
         report_df.to_csv('./../Result/'+self.race_name+'result-report-'
                                                     + str(self.analyze_id)+'.csv')
+
+    def __apprnd_horse_num(self, sorted_result, model_df):
+        num_df = model_df[['rank', 'no']]
+        __mrg_df = pd.merge(sorted_result, num_df, on='rank')
+        return __mrg_df
+
 
     def add_analyze_db(self, df):
         detail_df = df.copy()
