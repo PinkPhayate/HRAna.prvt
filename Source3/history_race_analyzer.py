@@ -144,6 +144,7 @@ def main():
     print("number of predict history race: " + str(len(rids)))
 
     race_models = get_race_models(rids)
+    race_models = race_models[:2]
 
     # if today_race_id is not None:
     #     rids.append(today_race_id)
