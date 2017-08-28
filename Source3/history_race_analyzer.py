@@ -14,6 +14,10 @@ POOL = redis.ConnectionPool(host='127.0.0.1', port=6379, db=0)
 my_server = redis.Redis(connection_pool=POOL)
 cachedable = False
 
+args = sys.argv
+if args is not None and "-c" in args:
+    cachedable = True
+cachedable = True
 def get_race_results(rid, hid_list):
 
     race = Race(rid, mysql_conn)
@@ -163,7 +167,4 @@ def main():
 
 if __name__ == '__main__':
     words = [u'セントウルS']
-    args = sys.argv
-    if args is not None and "-c" in args:
-        cachedable = True
     main()
